@@ -4,17 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planifesto - Inicio</title>
-    <meta name="description" content="Organiza tus finanzas de manera sencilla y eficiente con Planifesto, tus herramientas personalizadas." />
+    <meta
+      name="description"
+      content="Organiza tus finanzas de manera sencilla y eficiente con Planifesto, tus herramientas personalizadas."
+    />
     <link rel="stylesheet" href="estilos.css" />
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #e6d4e7;
+        color: white;
+        padding: 1rem 2rem;
+      }
+
+      header img {
+        height: 50px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+
+      nav {
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #5eb6a7;
+      }
+
+      nav a.activo {
+        color: #5eb6a7;
+        border-bottom: 2px solid #f7a9a8;
+        padding-bottom: 0.2rem;
+      }
+
+      footer {
+        background-color: #e6d4e7;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <img
-        src="imagenes/logo.jpg"
-        alt="Logo de Planifesto"
-        style="width: 150px"
-      />
-      <h1>Planifesto</h1>
+      <div>
+        <img src="imagenes/logo.jpg" alt="Logo de Planifesto" />
+        <h1>Planifesto</h1>
+      </div>
       <nav>
         <a href="index.html" class="activo">Inicio</a>
         <a href="producto.html">Productos</a>
@@ -39,7 +89,10 @@
             <p>Nuestras plantillas son intuitivas y rápidas de configurar.</p>
           </div>
           <div class="razon">
-            <img src="imagenes/takecontrol.jpg" alt="Toma control de tus gastos" />
+            <img
+              src="imagenes/takecontrol.jpg"
+              alt="Toma control de tus gastos"
+            />
             <h4>Toma control de tus gastos</h4>
             <p>Optimiza tu planificación financiera en minutos.</p>
           </div>
@@ -52,8 +105,7 @@
       </section>
     </main>
     <footer>
-      <p>&copy; 2024 Planifesto. Todos los derechos reservados. | <a href="privacidad.html">Política de Privacidad</a></p>
+      <p>&copy; 2024 Planifesto.</p>
     </footer>
   </body>
 </html>
-

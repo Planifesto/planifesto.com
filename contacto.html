@@ -3,17 +3,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planifesto - Contacto</title>
-    <meta name="description" content="Contáctanos en Planifesto. Estamos aquí para ayudarte a organizar tus finanzas." />
+    <meta
+      name="description"
+      content="Contáctanos en Planifesto. Estamos aquí para ayudarte a organizar tus finanzas."
+    />
     <link rel="stylesheet" href="estilos.css" />
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #e6d4e7;
+        color: white;
+        padding: 1rem 2rem;
+      }
+
+      header img {
+        height: 50px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+
+      nav {
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #5eb6a7;
+      }
+
+      nav a.activo {
+        color: #5eb6a7;
+        border-bottom: 2px solid #f7a9a8;
+        padding-bottom: 0.2rem;
+      }
+
+      footer {
+        background-color: #e6d4e7;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <img
-        src="imagenes/logo.jpg"
-        alt="Logo de Planifesto"
-        style="width: 150px"
-      />
-      <h1>Planifesto</h1>
+      <div>
+        <img src="imagenes/logo.jpg" alt="Logo de Planifesto" />
+        <h1>Planifesto</h1>
+      </div>
       <nav>
         <a href="index.html">Inicio</a>
         <a href="producto.html">Productos</a>
@@ -33,51 +83,23 @@
         <div class="iconos-redes">
           <a
             href="https://www.tiktok.com/@planifestord?is_from_webapp=1&sender_device=pc"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img src="imagenes/tiktok-icon.png" alt="TikTok" />
           </a>
-          <a href="https://www.instagram.com/planifestord/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.instagram.com/planifestord/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="imagenes/instagram-icon.png" alt="Instagram" />
           </a>
         </div>
       </section>
-      <section class="formulario">
-        <h3>Envíanos un mensaje</h3>
-        <form action="#" method="POST">
-          <label for="nombre">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            placeholder="Tu nombre"
-            required
-          />
-
-          <label for="correo">Correo Electrónico</label>
-          <input
-            type="email"
-            id="correo"
-            name="correo"
-            placeholder="Tu correo electrónico"
-            required
-          />
-
-          <label for="mensaje">Mensaje</label>
-          <textarea
-            id="mensaje"
-            name="mensaje"
-            placeholder="Escribe tu mensaje aquí..."
-            rows="5"
-            required
-          ></textarea>
-
-          <button type="submit" class="boton-form">Enviar Mensaje</button>
-        </form>
-      </section>
     </main>
     <footer>
-      <p>&copy; 2024 Planifesto. Todos los derechos reservados. | <a href="privacidad.html">Política de Privacidad</a></p>
+      <p>&copy; 2024 Planifesto.</p>
     </footer>
   </body>
 </html>
