@@ -80,11 +80,7 @@ footer {
 
 /* Contacto */
 .contacto {
-  background: linear-gradient(
-    135deg,
-    var(--verde-azulado),
-    var(--morado-claro)
-  );
+  background: var(--verde-azulado);
   color: var(--blanco);
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -294,11 +290,7 @@ footer {
 
 /* Fondo dinámico */
 body {
-  background: linear-gradient(
-    135deg,
-    var(--verde-azulado),
-    var(--morado-claro)
-  );
+  background: var(--verde-azulado);
   color: var(--blanco);
   font-family: "Poppins", sans-serif;
   margin: 0;
