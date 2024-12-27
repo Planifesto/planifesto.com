@@ -52,13 +52,17 @@ h2 {
 
 .boton {
   display: inline-block;
-  padding: 12px 25px;
-  background-color: var(--rosa);
-  color: var(--blanco);
+  background-color: #ffd140;
+  color: #000;
+  padding: 0.8rem 1.5rem;
   text-decoration: none;
-  border-radius: 25px;
+  font-size: 1rem;
   font-weight: bold;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  max-width: 90%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .boton:hover {
