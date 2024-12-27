@@ -1,0 +1,452 @@
+/* Variables de color */
+:root {
+  --verde-azulado: #5eb6a7;
+  --rosa: #f7a9a8;
+  --morado-claro: #e6d4e7;
+  --blanco: #ffffff;
+}
+
+/* General */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--verde-azulado);
+  color: var(--blanco);
+}
+
+header {
+  background-color: var(--morado-claro);
+  color: var(--rosa);
+  padding: 1em;
+  text-align: center;
+  border-bottom: 3px solid var(--rosa);
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+header nav a {
+  color: var(--rosa);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2em;
+  text-align: center;
+}
+
+main h1,
+h2 {
+  color: var(--rosa);
+}
+
+.boton {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: var(--rosa);
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.boton:hover {
+  background-color: var(--morado-claro);
+  color: var(--verde-azulado);
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--morado-claro);
+  color: var(--rosa);
+  border-top: 3px solid var(--rosa);
+}
+
+/* Contacto */
+.contacto {
+  background: linear-gradient(
+    135deg,
+    var(--verde-azulado),
+    var(--morado-claro)
+  );
+  color: var(--blanco);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.info-contacto {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.info-contacto h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  color: var(--rosa);
+}
+
+.info-contacto p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.redes-sociales {
+  text-align: center;
+  margin: 2em 0;
+}
+
+.redes-sociales h3 {
+  font-size: 2em;
+  color: var(--rosa);
+  margin-bottom: 1em;
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.iconos-redes a img {
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+
+.iconos-redes a img:hover {
+  transform: scale(1.2);
+}
+
+.formulario {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--blanco);
+  padding: 2em;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.formulario h3 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: var(--rosa);
+  text-align: center;
+}
+
+.formulario label {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: var(--rosa);
+}
+
+.formulario input,
+.formulario textarea {
+  width: 90%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 2px solid var(--morado-claro);
+  border-radius: 10px;
+  font-size: 1em;
+  color: var(--morado-claro);
+  background-color: var(--verde-azulado);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  border-color: var(--rosa);
+}
+
+.boton-form {
+  display: inline-block;
+  width: 100%;
+  padding: 1em;
+  font-size: 1.2em;
+  color: var(--blanco);
+  background-color: var(--rosa);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.boton-form:hover {
+  background-color: var(--morado-claro);
+  color: var(--verde-azulado);
+}
+
+/* Adaptación para dispositivos pequeños */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  .boton {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .redes-sociales a img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .boton {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .redes-sociales {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+/* Productos */
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2em;
+}
+
+.producto {
+  border: 2px solid var(--rosa);
+  border-radius: 10px;
+  padding: 15px;
+  background-color: var(--morado-claro);
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+.imagen-producto {
+  width: 400px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.detalle-producto {
+  text-align: center;
+}
+
+.detalle-producto h2 {
+  color: var(--rosa);
+  font-size: 1.2em;
+}
+
+.detalle-producto p {
+  margin: 10px 0;
+  color: var(--verde-azulado);
+  font-weight: bold;
+}
+
+/* Estructura general para sticky footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el body siempre ocupe toda la altura de la ventana */
+  margin: 0;
+}
+
+main {
+  flex: 1; /* El contenido principal ocupará el espacio disponible */
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--morado-claro);
+  color: var(--rosa);
+  border-top: 3px solid var(--rosa);
+}
+
+/* Fondo dinámico */
+body {
+  background: linear-gradient(
+    135deg,
+    var(--verde-azulado),
+    var(--morado-claro)
+  );
+  color: var(--blanco);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bienvenida */
+.bienvenida {
+  text-align: center;
+  padding: 3em 1em;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 2em auto;
+  border-radius: 15px;
+}
+
+.bienvenida h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  color: var(--rosa);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.bienvenida p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.boton {
+  padding: 15px 30px;
+  background-color: var(--rosa);
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.boton:hover {
+  background-color: var(--blanco);
+  color: var(--rosa);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Razones destacadas */
+.destacados {
+  text-align: center;
+  padding: 2em;
+}
+
+.destacados h3 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: var(--rosa);
+}
+
+.razones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.razon {
+  max-width: 300px;
+  text-align: center;
+  padding: 1em;
+  background-color: var(--blanco);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.razon:hover {
+  transform: translateY(-10px);
+}
+
+.razon img {
+  width: 150px;
+  margin-bottom: 1em;
+}
+
+.razon h4 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--rosa);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hidden {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.product-details {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.product-details.hidden {
+  height: 0;
+  opacity: 0;
+}
+
+.product-details:not(.hidden) {
+  height: auto;
+  opacity: 1;
+}
+
+.product-details ul {
+  text-align: left;
+  list-style-type: disc;
+  margin: 15px auto;
+  padding-left: 25px;
+  color: var(--verde-azulado);
+  background: var(--blanco);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product-details blockquote {
+  background: var(--morado-claro);
+  padding: 10px;
+  margin: 15px auto;
+  border-left: 4px solid var(--rosa);
+  font-style: italic;
+}
+
+.toggle-details {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--rosa);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: var(--blanco);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-details:hover {
+  background-color: var(--verde-azulado);
+}

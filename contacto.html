@@ -1,0 +1,83 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planifesto - Contacto</title>
+    <meta name="description" content="Contáctanos en Planifesto. Estamos aquí para ayudarte a organizar tus finanzas." />
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="imagenes/logo.jpg"
+        alt="Logo de Planifesto"
+        style="width: 150px"
+      />
+      <h1>Planifesto</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="producto.html">Productos</a>
+        <a href="contacto.html" class="activo">Contacto</a>
+      </nav>
+    </header>
+    <main class="contacto">
+      <section class="info-contacto">
+        <h2>¡Contáctanos!</h2>
+        <p>
+          Si tienes dudas o comentarios, no dudes en comunicarte con nosotros.
+          ¡Estamos aquí para ayudarte!
+        </p>
+      </section>
+      <section class="redes-sociales">
+        <h3>Síguenos en:</h3>
+        <div class="iconos-redes">
+          <a
+            href="https://www.tiktok.com/@planifestord?is_from_webapp=1&sender_device=pc"
+            target="_blank" rel="noopener noreferrer"
+          >
+            <img src="imagenes/tiktok-icon.png" alt="TikTok" />
+          </a>
+          <a href="https://www.instagram.com/planifestord/" target="_blank" rel="noopener noreferrer">
+            <img src="imagenes/instagram-icon.png" alt="Instagram" />
+          </a>
+        </div>
+      </section>
+      <section class="formulario">
+        <h3>Envíanos un mensaje</h3>
+        <form action="#" method="POST">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Tu nombre"
+            required
+          />
+
+          <label for="correo">Correo Electrónico</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="Tu correo electrónico"
+            required
+          />
+
+          <label for="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            placeholder="Escribe tu mensaje aquí..."
+            rows="5"
+            required
+          ></textarea>
+
+          <button type="submit" class="boton-form">Enviar Mensaje</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Planifesto. Todos los derechos reservados. | <a href="privacidad.html">Política de Privacidad</a></p>
+    </footer>
+  </body>
+</html>

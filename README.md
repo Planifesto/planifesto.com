@@ -1,1 +1,1 @@
-# planifesto.com
+# Planifesto.com
