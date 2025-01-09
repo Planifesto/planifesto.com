@@ -1,27 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleDetailsButtons = document.querySelectorAll(".toggle-details");
-  
-    toggleDetailsButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const productDetails = button.closest(".producto").querySelector(".product-details");
-        
-        if (productDetails.classList.contains("hidden")) {
-          productDetails.style.height = `${productDetails.scrollHeight}px`;
-          productDetails.classList.remove("hidden");
-          setTimeout(() => {
-            productDetails.style.height = "auto";
-          }, 500);
-        } else {
-          productDetails.style.height = `${productDetails.scrollHeight}px`;
-          setTimeout(() => {
-            productDetails.style.height = "0";
-            productDetails.classList.add("hidden");
-          }, 0);
-        }
-      });
+  const toggleDetailsButtons = document.querySelectorAll(".toggle-details");
+  const productos = document.querySelectorAll(".producto");
+
+  toggleDetailsButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const currentProducto = button.closest(".producto");
+      const currentDetails = currentProducto.querySelector(".product-details");
+
+      if (currentDetails.classList.contains("hidden")) {
+        // Ocultar todos los productos excepto el seleccionado
+        productos.forEach((producto) => {
+          if (producto !== currentProducto) {
+            producto.style.opacity = "0";
+            producto.style.visibility = "hidden";
+            producto.style.position = "absolute"; // Evita colapsos en el diseño
+          }
+        });
+
+        // Mostrar detalles del producto seleccionado
+        currentDetails.style.height = `${currentDetails.scrollHeight}px`;
+        currentDetails.classList.remove("hidden");
+        setTimeout(() => {
+          currentDetails.style.height = "auto";
+        }, 500);
+      } else {
+        // Cerrar detalles del producto seleccionado y restaurar todos los productos
+        currentDetails.style.height = `${currentDetails.scrollHeight}px`;
+        setTimeout(() => {
+          currentDetails.style.height = "0";
+          currentDetails.classList.add("hidden");
+
+          // Restaurar visibilidad de todos los productos
+          productos.forEach((producto) => {
+            producto.style.opacity = "1";
+            producto.style.visibility = "visible";
+            producto.style.position = "relative"; // Restaura la posición original
+          });
+        }, 0);
+      }
     });
   });
-  
-  
-  
-  
+});
