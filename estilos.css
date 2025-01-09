@@ -446,3 +446,29 @@ body {
 .toggle-details:hover {
   background-color: var(--verde-azulado);
 }
+
+@media (max-width: 768px) {
+  .producto {
+    max-width: 90%; /* Reduce el ancho de los cuadros */
+    padding: 10px; /* Reduce el espacio interno */
+  }
+
+  .imagen-producto {
+    width: 90%; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .detalle-producto h2 {
+    font-size: 1rem; /* Reduce el tamaño de los encabezados */
+  }
+
+  .detalle-producto p {
+    font-size: 0.9rem; /* Ajusta el tamaño del texto */
+  }
+
+  .boton {
+    padding: 0.6rem 1rem; /* Reduce el tamaño de los botones */
+    font-size: 0.9rem;
+  }
+}
