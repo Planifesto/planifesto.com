@@ -13,13 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
           if (producto !== currentProducto) {
             producto.style.opacity = "0";
             producto.style.visibility = "hidden";
-            producto.style.position = "absolute"; // Evita colapsos en el diseño
+            producto.style.position = "absolute";
           }
         });
 
         // Mostrar detalles del producto seleccionado
         currentDetails.style.height = `${currentDetails.scrollHeight}px`;
         currentDetails.classList.remove("hidden");
+        button.textContent = "Ocultar detalles"; // Cambiar texto del botón
         setTimeout(() => {
           currentDetails.style.height = "auto";
         }, 500);
@@ -29,13 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           currentDetails.style.height = "0";
           currentDetails.classList.add("hidden");
-
-          // Restaurar visibilidad de todos los productos
           productos.forEach((producto) => {
             producto.style.opacity = "1";
             producto.style.visibility = "visible";
-            producto.style.position = "relative"; // Restaura la posición original
+            producto.style.position = "relative";
           });
+          button.textContent = "Ver más detalles"; // Restaurar texto del botón
         }, 0);
       }
     });
