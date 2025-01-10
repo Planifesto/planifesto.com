@@ -247,15 +247,29 @@ footer {
   transform: scale(1.05);
 }
 
-.imagen-producto1 {
-  width: 400px;
-  height: auto;
+/* Estilo general para todas las imágenes de producto */
+.imagen-producto {
+  max-width: 100%; /* Se adapta al ancho del contenedor */
+  height: auto; /* Mantiene la proporción */
   margin-bottom: 15px;
 }
-.imagen-producto2 {
-  width: 290px;
-  height: auto;
-  margin-bottom: 15px;
+
+/* Opcional: Ajustes específicos para diferentes tamaños de pantalla */
+@media (min-width: 768px) {
+  .imagen-producto1 {
+    max-width: 500px; /* Tamaño máximo para pantallas más grandes */
+  }
+
+  .imagen-producto2 {
+    max-width: 285px;
+  }
+}
+
+@media (max-width: 768px) {
+  .imagen-producto1,
+  .imagen-producto2 {
+    max-width: 100%; /* Ocupan todo el ancho disponible en pantallas pequeñas */
+  }
 }
 
 .detalle-producto {
