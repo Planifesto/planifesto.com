@@ -247,8 +247,13 @@ footer {
   transform: scale(1.05);
 }
 
-.imagen-producto {
-  width: 400px;
+.imagen-producto1 {
+  width: 500px;
+  height: auto;
+  margin-bottom: 15px;
+}
+.imagen-producto2 {
+  width: 290px;
   height: auto;
   margin-bottom: 15px;
 }
