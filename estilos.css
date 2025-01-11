@@ -263,6 +263,9 @@ footer {
   .imagen-producto2 {
     max-width: 285px;
   }
+  .imagen-producto3 {
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -490,4 +493,36 @@ body {
     padding: 0.6rem 1rem; /* Reduce el tamaño de los botones */
     font-size: 0.9rem;
   }
+}
+/* Formato mejorado para detalles */
+.parrafo {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 1.5em;
+  color: var(
+    --verde-azulado
+  ); /* Asegúrate de usar una variable existente o define un color */
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: var(--rosa); /* Ajusta según tu paleta de colores */
+}
+
+ul {
+  list-style-type: disc;
+  margin: 1em 2em; /* Ajusta los márgenes para dar espacio alrededor */
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.8em;
+  line-height: 1.5;
+  color: black; /* O utiliza otro color según tu diseño */
+}
+
+b {
+  font-weight: bold;
+  color: black; /* Usa un color destacado para enfatizar el texto */
 }
