@@ -270,7 +270,8 @@ footer {
 
 @media (max-width: 768px) {
   .imagen-producto1,
-  .imagen-producto2 {
+  .imagen-producto2,
+  .imagen-producto3 {
     max-width: 100%; /* Ocupan todo el ancho disponible en pantallas pequeñas */
   }
 }
