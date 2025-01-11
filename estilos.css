@@ -527,3 +527,19 @@ b {
   font-weight: bold;
   color: black; /* Usa un color destacado para enfatizar el texto */
 }
+
+/* Ajustes para imágenes en pantallas pequeñas */
+@media (max-width: 768px) {
+  .imagen-producto3 {
+    max-width: 90%; /* Limita el ancho al 90% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 0 auto; /* Centra la imagen dentro de su contenedor */
+  }
+}
+
+@media (max-width: 480px) {
+  .imagen-producto3 {
+    max-width: 80%; /* Aún más pequeño en pantallas muy pequeñas */
+    height: auto; /* Mantiene la proporción */
+  }
+}
