@@ -547,6 +547,6 @@ b b{
     height: auto; /* Mantiene la proporción */
   }
 }
- section img{
+ .imagen-producto1,.imagen-producto2,.imagen-producto3{
   border-radius: 10px;
  }
