@@ -528,6 +528,10 @@ b {
   color: black; /* Usa un color destacado para enfatizar el texto */
 }
 
+b b{
+  color: red;
+}
+
 /* Ajustes para imágenes en pantallas pequeñas */
 @media (max-width: 768px) {
   .imagen-producto3 {
