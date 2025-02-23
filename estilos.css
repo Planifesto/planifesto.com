@@ -553,3 +553,6 @@ b b{
  .imagen-producto1,.imagen-producto2,.imagen-producto3{
   border-radius: 10px;
  }
+ p {
+color: black;
+ }
