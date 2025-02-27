@@ -1,5 +1,5 @@
 /* Variables de color */
-.recibir{
+.recibir {
   font-size: 30px;
   font-weight: bold;
 }
@@ -531,7 +531,7 @@ b {
   color: black; /* Usa un color destacado para enfatizar el texto */
 }
 
-b b{
+b b {
   color: red;
 }
 
@@ -550,9 +550,11 @@ b b{
     height: auto; /* Mantiene la proporción */
   }
 }
- .imagen-producto1,.imagen-producto2,.imagen-producto3{
+.imagen-producto1,
+.imagen-producto2,
+.imagen-producto3 {
   border-radius: 10px;
- }
- p {
-color: black;
- }
+}
+p {
+  color: black;
+}
