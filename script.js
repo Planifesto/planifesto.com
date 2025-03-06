@@ -8,36 +8,46 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentDetails = currentProducto.querySelector(".product-details");
 
       if (currentDetails.classList.contains("hidden")) {
-        // Ocultar todos los productos excepto el seleccionado
+        // Al abrir, ocultamos los demás productos con una clase CSS que mantiene su espacio
         productos.forEach((producto) => {
           if (producto !== currentProducto) {
-            producto.style.opacity = "0";
-            producto.style.visibility = "hidden";
-            producto.style.position = "absolute";
+            producto.classList.add("hidden-others");
           }
         });
 
-        // Mostrar detalles del producto seleccionado
+        // Mostramos los detalles con una animación de altura
         currentDetails.style.height = `${currentDetails.scrollHeight}px`;
         currentDetails.classList.remove("hidden");
-        button.textContent = "Ocultar detalles"; // Cambiar texto del botón
+        button.textContent = "Ocultar detalles";
         setTimeout(() => {
           currentDetails.style.height = "auto";
         }, 500);
       } else {
-        // Cerrar detalles del producto seleccionado y restaurar todos los productos
+        // Al cerrar, colapsamos los detalles y restauramos la visibilidad
         currentDetails.style.height = `${currentDetails.scrollHeight}px`;
         setTimeout(() => {
           currentDetails.style.height = "0";
-          currentDetails.classList.add("hidden");
-          productos.forEach((producto) => {
-            producto.style.opacity = "1";
-            producto.style.visibility = "visible";
-            producto.style.position = "relative";
-          });
-          button.textContent = "Ver más detalles"; // Restaurar texto del botón
+          setTimeout(() => {
+            currentDetails.classList.add("hidden");
+            productos.forEach((producto) => {
+              producto.classList.remove("hidden-others");
+            });
+            button.textContent = "Ver más detalles";
+          }, 500);
         }, 0);
       }
     });
   });
+});
+
+// Usamos window.onload para asegurarnos de que todo esté cargado (imágenes, estilos, etc.)
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    const productId = window.location.hash.substring(1);
+    const targetProduct = document.getElementById(productId);
+    if (targetProduct) {
+      // Desplazar la vista suavemente al producto indicado sin abrir sus detalles
+      targetProduct.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 });

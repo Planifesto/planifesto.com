@@ -1,3 +1,13 @@
+.product-details {
+  transition: height 0.5s ease;
+}
+
+.hidden-others {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
 /* Variables de color */
 .recibir {
   font-size: 30px;
@@ -557,4 +567,20 @@ b b {
 }
 p {
   color: black;
+}
+
+.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--blanco);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
 }
