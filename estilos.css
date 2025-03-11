@@ -468,7 +468,26 @@ body {
   font-style: italic;
 }
 
+/* Aplica un margen superior al segundo botón (o a cualquier botón que vaya después de otro botón) */
+.boton + .boton {
+  margin-top: 1rem; /* Ajusta a tu gusto */
+}
+
 .toggle-details {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--rosa);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: var(--blanco);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-neutral:hover {
+  background-color: var(--verde-azulado);
+}
+.toggle-neutral {
   cursor: pointer;
   font-weight: bold;
   background-color: var(--rosa);
@@ -482,7 +501,6 @@ body {
 .toggle-details:hover {
   background-color: var(--verde-azulado);
 }
-
 @media (max-width: 768px) {
   .producto {
     max-width: 90%; /* Reduce el ancho de los cuadros */
@@ -583,4 +601,8 @@ p {
   align-items: center;
   padding: 20px;
   overflow-y: auto;
+}
+
+p b {
+  text-align: justify;
 }
