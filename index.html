@@ -1,529 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Planifesto - Productos</title>
-    <link rel="stylesheet" href="estilos.css" />
-    <script src="script.js" defer></script>
-    <style>
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #e6d4e7;
-        color: white;
-        padding: 1rem 2rem;
-      }
 
-      header img {
-        height: 50px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planifesto - Productos</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <script src="script.js" defer></script>
+  <style>
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #e6d4e7;
+      color: white;
+      padding: 1rem 2rem;
+    }
 
-      header h1 {
-        font-size: 1.5rem;
-        margin: 0;
-      }
+    header img {
+      height: 50px;
+    }
 
-      nav {
-        display: flex;
-        gap: 1rem;
-      }
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
 
-      nav a {
-        color: white;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
 
-      nav a:hover {
-        color: #5eb6a7;
-      }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-      nav a.activo {
-        color: #5eb6a7;
-        border-bottom: 2px solid #f7a9a8;
-        padding-bottom: 0.2rem;
-      }
+    nav a:hover {
+      color: #5eb6a7;
+    }
 
-      footer {
-        background-color: #e6d4e7;
-        color: white;
-        text-align: center;
-        padding: 1rem 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div>
-        <img src="imagenes/logo.jpg" alt="Logo de Planifesto" class="imagen-producto1"/>
-        <h1>Planifesto</h1>
-      </div>
-      <nav>
-        <a href="index.html" class="activo">Productos</a>
-        <a href="contacto.html">Contacto</a>
-        
-      </nav>
-    </header>
-    <main>
-      <section class="productos">
-        <div class="producto" 
-        id="plantillaParejas">
-          <img
-            src="imagenes/Actualizar a pro.png"
-            alt="Plantilla financiera"
-            class="imagen-producto1"
-          />
-          <div class="detalle-producto">
-            <h2> Plantilla Financiera Mensual de Parejas (3 en 1)-25% OFF</h2>
-            <p>Precio:<s>$57.00 USD</s> <br>$43.00 USD</p>
-             <p>CONTIENE:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                  <li>⭐Presupuesto mensual en pareja</li>
-                  <li>⭐Planificador de pago de deudas</li>
-                  <li>⭐Planificador de metas de ahorro</li>
-                  <li>⭐Bonos Extras</li>
-                </ul>
-            <button class="toggle-details boton">Ver más detalles</button>
-          </div>
-          <div class="product-details hidden">
-            <p>Esta plantilla es tu nueva aliada para construir finanzas sanas juntos (sin drama, sin confusión y sin pasar lucha).</p>
-  
-            <h2>¿Qué incluye?</h2>
-            <ul>
-              <li>💬 <strong>Presupuesto mensual en pareja:</strong> Organicen cada peso que entra y que sale, de manera clara, sencilla y adaptada a su realidad, no a fórmulas genéricas.</li>
-              <li>💬 <strong>Planificador de pago de deuda.</strong></li>
-              <li>💬 <strong>Planificador de metas de ahorro.</strong></li>
-              <li>💬 <strong>Videotutorial de uso.</strong></li>
-            </ul>
-            <p>Todo en un solo lugar. Fácil, visual y súper práctico.</p>
-            <p>Incluye todo lo que amas de nuestra versión PRO (resúmenes, trackers inteligentes, indicadores visuales de progreso, alertas de presupuesto y más).</p>
-            
-            <h2>Ideal para parejas que quieren:</h2>
-            <ul>
-              <li>✔️ Establecer objetivos reales y alcanzables.</li>
-              <li>✔️ Planificar gastos, pagar deudas y ahorrar... sin morir en el intento.</li>
-              <li>✔️ Tomar decisiones financieras juntos con más confianza y claridad.</li>
-            </ul>
-            
-            <p>Incluye un videotutorial de uso con tips y hacks para que le saquen el MÁXIMO provecho.</p>
-            
-            <h2>BONOS</h2>
-            <p>Sí, hay más:</p>
-            <ul>
-              <li>💬 <strong>Guía de presupuesto en pareja</strong> (valorado en 15 USD)</li>
-              <li>💬 <strong>Plantilla para planear actividades</strong> (valorado en 10 USD)</li>
-              <li>💬 <strong>Plantilla Reto de ahorro imprimible</strong> (valorado en 5 USD)</li>
-            </ul>
-            
-            <h2>Notas importantes:</h2>
-            <ul>
-              <li>NO necesitas ser experto en Google Sheets o finanzas. La plantilla está diseñada para que cualquier pareja pueda usarla de manera sencilla y efectiva desde el primer día.</li>
-              <li><strong>IMPORTANTE:</strong> Esta plantilla solo es compatible con Google Sheets.</li>
-              <li><strong>IMPORTANTE:</strong> Al ser un producto digital, todas las ventas son finales, sin reembolso.</li>
-              <li>Esta plantilla está protegida por copyright y es propiedad de Planifesto; su uso es exclusivo para la pareja que la adquiera. Cualquier redistribución, reventa o reproducción (completa o parcial) está estrictamente prohibida.</li>
-              <li><strong>IMPORTANTE:</strong> Luego de realizada la compra, se te enviará el documento al correo ingresado en PayPal. Si ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam. 💖</li>
-            </ul>
-            
-            <div>
-              <style>
-                .pp-NQJNGY6WXKFK4 {
-                  text-align: center;
-                  border: none;
-                  border-radius: 0.25rem;
-                  min-width: 11.625rem;
-                  padding: 0 2rem;
-                  height: 2.625rem;
-                  font-weight: bold;
-                  background-color: #ffd140;
-                  color: #000000;
-                  font-family: "Helvetica Neue", Arial, sans-serif;
-                  font-size: 1rem;
-                  line-height: 1.25rem;
-                  cursor: pointer;
-                }
-              </style>
-              <form
-                action="https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U"
-                method="post"
-                target="_top"
-                style="
-                  display: inline-grid;
-                  justify-items: center;
-                  align-content: start;
-                  gap: 0.5rem;
-                "
-              >
-                <input
-                  class="pp-NQJNGY6WXKFK4"
-                  type="submit"
-                  value="Comprar ahora"
-                />
-                <img src=https://www.paypalobjects.com/images/Debit_Credit.svg
-                alt="cards" />
-                <section>
-                  Con la tecnología de
-                  <img
-                    src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-                    alt="paypal"
-                    style="height: 0.875rem; vertical-align: middle"
-                  />
-                  <p><b>Nota:</b> no es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas:<br>
-                  <p><b>Para consultas escríbenos🫶🏼:<br>
+    nav a.activo {
+      color: #5eb6a7;
+      border-bottom: 2px solid #f7a9a8;
+      padding-bottom: 0.2rem;
+    }
 
-                    
-                    Correo:<a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a></p></b>
-                </section>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="producto" id="comboPlanifesto">
-          <img
-            src="imagenes/comboPlanifesto.png"
-            alt="Plantilla financiera"
-            class="imagen-producto1"
-          />
-          <div class="detalle-producto">
-            <h2>Combo Planifesto<br>Planifesto PRO + Guia de Inversión</h2>
-            <p>Precio:<s>$33.00 USD</s> <br>$25.00 USD</p>
-             <p>CONTIENE:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                  <li>⭐Guia de Inversiones 101</li>
-                  <li>⭐Sistema de metas de ahorro</li>
-                  <li>⭐Plantilla de presupuesto mensual</li>
-                  <li>⭐Planificador inteligente de pago de deudas</li>
-                </ul>
-            <button class="toggle-details boton">Ver más detalles</button>
-          </div>
-          <div class="product-details hidden">
-            <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar + Nuestra guia para aprender a invertir✨</h2>
-  <p>¡Todo automático y conectado entre sí!</p>
-  
-  <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
-  <ul class="no-bullets">
-    <li>⭐ ¡Incluye nuestra Guia de Inversiones 101!</li>
-    <li>⭐ Presupuesto mensual que realmente entiende tu estilo de vida</li>
-    <li>⭐ Planificador inteligente de pago de deudas que hace todos los cálculos por ti</li>
-    <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
-  </ul>
-  
-  <p>Todo esto con un diseño estético que te encantará usar y la practicidad que necesitas.</p>
-  
-  <h3>Imagina tener en <strong>UN SOLO LUGAR:</strong></h3>
-  <ul class="no-bullets">
-    <li>⭐ Tu presupuesto mensual perfectamente organizado</li>
-    <li>⭐ Un plan claro para decir adiós a tus deudas (con calculadora automática incluida 🙌)</li>
-    <li>⭐ Tus metas de ahorro visualizadas y calculadas (desde ese viaje soñado hasta tu primer apto)</li>
-  </ul>
-  
-  <p>
-    <strong>¿Por qué es diferente?</strong> Porque mientras otras plantillas te hacen saltar de un archivo a otro, Planifesto PRO 3-1 integra todo en un sistema cohesivo que:
-  </p>
-  <ul class="no-bullets">
-    <li>⭐ Hace todos los cálculos automáticamente</li>
-    <li>⭐ Mantiene tus finanzas sincronizadas</li>
-    <li>⭐ Te muestra el panorama completo de tu dinero en un dashboard visual súper cute🥰</li>
-  </ul>
-  
-  <h3>Para la chica que:</h3>
-  <ul>
-    <li>Está cansada de tener sus finanzas dispersas en diferentes lugares</li>
-    <li>Quiere un sistema completo que haga el trabajo pesado por ella</li>
-    <li>Busca una solución que combine cuteness y funcionalidad</li>
-    <li>Desea tomar el control de sus finanzas sin sentirse abrumada</li>
-  </ul>
-  
-  <p>
-    Todo esto en un diseño moderno y estético que te motivará a usar día tras día. Sin más archivos perdidos, sin más cálculos complicados, sin más desorganización.
-  </p>
-  
-  <p>Tu futuro financiero nunca se había visto tan bien💅✨</p>
-  
-  <p>¿Estás lista?</p>
-            <p class="parrafo">
-              <b
-                ><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets. 
-                Al ser un producto digital, todas las ventas son finales, sin reembolso. 
-                Esta plantilla está protegida por copyright y es propiedad de Planifesto; es de uso personal y 
-                cualquier redistribución, reventa o reproducción de este producto (completo o parcial) 
-                está estrictamente prohibido.</b
-              >
-            </p>
-            <p class="parrafo">
-              <b
-                ><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en PayPal, si 
-                ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b
-              >
-            </p>
-            <div>
-              <style>
-                .pp-NQJNGY6WXKFK4 {
-                  text-align: center;
-                  border: none;
-                  border-radius: 0.25rem;
-                  min-width: 11.625rem;
-                  padding: 0 2rem;
-                  height: 2.625rem;
-                  font-weight: bold;
-                  background-color: #ffd140;
-                  color: #000000;
-                  font-family: "Helvetica Neue", Arial, sans-serif;
-                  font-size: 1rem;
-                  line-height: 1.25rem;
-                  cursor: pointer;
-                }
-              </style>
-              <form
-                action="https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4"
-                method="post"
-                target="_top"
-                style="
-                  display: inline-grid;
-                  justify-items: center;
-                  align-content: start;
-                  gap: 0.5rem;
-                "
-              >
-                <input
-                  class="pp-NQJNGY6WXKFK4"
-                  type="submit"
-                  value="Comprar ahora"
-                />
-                <img src=https://www.paypalobjects.com/images/Debit_Credit.svg
-                alt="cards" />
-                <section>
-                  Con la tecnología de
-                  <img
-                    src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-                    alt="paypal"
-                    style="height: 0.875rem; vertical-align: middle"
-                  />
-                  <p><b>Nota:</b> no es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas:<br>
-                  <p><b>Para consultas escríbenos🫶🏼:<br>
+    footer {
+      background-color: #e6d4e7;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
 
-                    
-                    Correo:<a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a></p></b>
-                </section>
-              </form>
-            </div>
-          </div>
-        </div>
-<div class="producto" 
-id="plantillaMensualPro" 
-data-neutral-img="imagenes/plantillaProNeutral.png"
-data-neutral-paypal="https://www.paypal.com/ncp/payment/78N5AADLPGV8J">
-  <img
-    src="imagenes/planifestoPro.png"
-    alt="Plantilla financiera"
-    class="imagen-producto1"
-  />
-  <div class="detalle-producto">
-    <h2>Plantilla Financiera PRO (3-1)</h2>
-    <p>Precio:<s>$25 USD</s> <br>$19.99 USD</p>
-
-    <!-- Botón existente para ver detalles -->
-    <button class="toggle-details boton">Ver más detalles</button>
-    <!-- NUEVO Botón para cambiar a Versión Neutral -->
-    <button class="toggle-neutral boton">Versión Neutral</button>
-  </div>
-
-  <div class="product-details hidden">
-    <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar ✨</h2>
-    <p>¡Todo automático y conectado entre sí!</p>
-    
-    <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
-    <ul class="no-bullets">
-      <li>⭐ Presupuesto mensual que realmente entiende tu estilo de vida</li>
-      <li>⭐ Planificador inteligente de pago de deudas que hace todos los cálculos por ti</li>
-      <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
-    </ul>
-    
-    <p>Todo esto con un diseño estético que te encantará usar y la practicidad que necesitas.</p>
-    
-    <h3>Imagina tener en <strong>UN SOLO LUGAR:</strong></h3>
-    <ul class="no-bullets">
-      <li>⭐ Tu presupuesto mensual perfectamente organizado</li>
-      <li>⭐ Un plan claro para decir adiós a tus deudas (con calculadora automática incluida 🙌)</li>
-      <li>⭐ Tus metas de ahorro visualizadas y calculadas (desde ese viaje soñado hasta tu primer apto)</li>
-    </ul>
-    
-    <p>
-      <strong>¿Por qué es diferente?</strong> Porque mientras otras plantillas te hacen saltar de un archivo a otro, Planifesto PRO 3-1 integra todo en un sistema cohesivo que:
-    </p>
-    <ul class="no-bullets">
-      <li>⭐ Hace todos los cálculos automáticamente</li>
-      <li>⭐ Mantiene tus finanzas sincronizadas</li>
-      <li>⭐ Te muestra el panorama completo de tu dinero en un dashboard visual súper cute🥰</li>
-    </ul>
-    
-    <h3>Para la chica que:</h3>
-    <ul>
-      <li>Está cansada de tener sus finanzas dispersas en diferentes lugares</li>
-      <li>Quiere un sistema completo que haga el trabajo pesado por ella</li>
-      <li>Busca una solución que combine cuteness y funcionalidad</li>
-      <li>Desea tomar el control de sus finanzas sin sentirse abrumada</li>
-    </ul>
-    
-    <p>Todo esto en un diseño moderno y estético que te motivará a usar día tras día. Sin más archivos perdidos, sin más cálculos complicados, sin más desorganización.</p>
-    
-    <p>Tu futuro financiero nunca se había visto tan bien💅✨</p>
-    
-    <p>¿Estás lista?</p>
-    <p class="parrafo">
-      <b><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets. 
-      Al ser un producto digital, todas las ventas son finales, sin reembolso. 
-      Esta plantilla está protegida por copyright y es propiedad de Planifesto; 
-      es de uso personal y cualquier redistribución, reventa o reproducción de 
-      este producto (completo o parcial) está estrictamente prohibido.</b>
-    </p>
-    <p class="parrafo">
-      <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento 
-      al correo ingresado en PayPal, si ha pasado 1 minuto y aún no recibes el correo, 
-      revisa la carpeta de spam.💖</b>
-    </p>
+<body>
+  <header>
     <div>
-      <style>
-        .pp-NQJNGY6WXKFK4 {
-          text-align: center;
-          border: none;
-          border-radius: 0.25rem;
-          min-width: 11.625rem;
-          padding: 0 2rem;
-          height: 2.625rem;
-          font-weight: bold;
-          background-color: #ffd140;
-          color: #000000;
-          font-family: "Helvetica Neue", Arial, sans-serif;
-          font-size: 1rem;
-          line-height: 1.25rem;
-          cursor: pointer;
-        }
-      </style>
-      <form
-        action="https://www.paypal.com/ncp/payment/YHWFXT36PGABE"
-        method="post"
-        target="_top"
-        style="
-          display: inline-grid;
-          justify-items: center;
-          align-content: start;
-          gap: 0.5rem;
-        "
-      >
-        <input
-          class="pp-NQJNGY6WXKFK4"
-          type="submit"
-          value="Comprar ahora"
-        />
-        <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
-        <section>
-          Con la tecnología de
-          <img
-            src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-            alt="paypal"
-            style="height: 0.875rem; vertical-align: middle"
-          />
-          <p>
-            <p><b>Nota:</b> no es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas:<br>
-            <b>Para consultas escríbenos🫶🏼:<br>
-            Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a></b>
-          </p>
-        </section>
-      </form>
+      <img src="imagenes/logo.jpg" alt="Logo de Planifesto" class="imagen-producto1" />
+      <h1>Planifesto</h1>
     </div>
-  </div>
-</div>
+    <nav>
+      <a href="index.html" class="activo">Productos</a>
+      <a href="contacto.html">Contacto</a>
 
- <div class="producto" 
- id="presupuestoMensual"
- data-neutral-img="imagenes/plantillaNeutra.png"
- data-neutral-paypal="https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S">
-    <img
-      src="imagenes/presupuestoMensual.png"
-      alt="Plantilla financiera"
-      class="imagen-producto1"
-    />
+    </nav>
+  </header>
+  <main>
+    <section class="productos">
+      <div class="producto" id="plantillaParejas">
+        <img src="imagenes/Actualizar a pro.png" alt="Plantilla financiera" class="imagen-producto1" />
+        <div class="detalle-producto">
+          <h2> Plantilla Financiera Mensual de Parejas (3 en 1)-25% OFF</h2>
+          <p>Precio:<s>$57.00 USD</s> <br>$43.00 USD</p>
+          <p>CONTIENE:</p>
+          <ul style="list-style: none; padding-left: 0;">
+            <li>⭐Presupuesto mensual en pareja</li>
+            <li>⭐Planificador de pago de deudas</li>
+            <li>⭐Planificador de metas de ahorro</li>
+            <li>⭐Bonos Extras</li>
+          </ul>
+          <button class="toggle-details boton">Ver más detalles</button>
+        </div>
+        <div class="product-details hidden">
+          <p>Esta plantilla es tu nueva aliada para construir finanzas sanas juntos (sin drama, sin confusión y sin
+            pasar lucha).</p>
 
-    <div class="detalle-producto">
-      <h2>Plantilla Financiera</h2>
-      <p>Precio: $9.99 USD</p>
-      <!-- Botón existente -->
-      <button class="toggle-details boton">Ver más detalles</button>
-      <!-- Nuevo botón para versión neutral/regular -->
-      <button class="toggle-neutral boton">Version Neutral</button>
-    </div>
+          <h2>¿Qué incluye?</h2>
+          <ul>
+            <li>💬 <strong>Presupuesto mensual en pareja:</strong> Organicen cada peso que entra y que sale, de manera
+              clara, sencilla y adaptada a su realidad, no a fórmulas genéricas.</li>
+            <li>💬 <strong>Planificador de pago de deuda.</strong></li>
+            <li>💬 <strong>Planificador de metas de ahorro.</strong></li>
+            <li>💬 <strong>Videotutorial de uso.</strong></li>
+          </ul>
+          <p>Todo en un solo lugar. Fácil, visual y súper práctico.</p>
+          <p>Incluye todo lo que amas de nuestra versión PRO (resúmenes, trackers inteligentes, indicadores visuales de
+            progreso, alertas de presupuesto y más).</p>
 
-    <div class="product-details hidden">
-      <p class="parrafo">
-        <b>¿Lista para tomar el control de tus finanzas y convertirte en la jefa de tu dinero? 💅✨ Esta plantilla financiera está diseñada especialmente para mujeres como tú, que quieren brillar en todos los aspectos de su vida, incluyendo sus finanzas.</b>
-      </p>
-      <h3>Características principales</h3>
-      <ul>
-        <li>🌸Diseño moderno, estético y super fácil de usar.</li>
-        <li>🌸Dashboard visual súper cute con gráficos.</li>
-        <li>🌸Compatible con tu laptop, tablet y cel.</li>
-        <li>🌸Plantilla estética que te motivará a usarla.</li>
-        <li>🌸Espacio para tus metas financieras (desde ese viaje soñado hasta tu primer apto).</li>
-        <li>🌸Categorías personalizadas para tus gastos reales (sí, incluye Uber, compras online y esas salidas de finde).</li>
-      </ul>
-      <h3>Beneficios que cambiarán tu vida:</h3>
-      <ul>
-        <li>🌸Automatización de cálculos financieros.</li>
-        <li>🌸Di adiós a la ansiedad de fin de mes.</li>
-        <li>🌸Construye tu independencia financiera sin sacrificar tu estilo de vida.</li>
-        <li>🌸Aprende a invertir tu dinero de manera inteligente.</li>
-        <li>🌸Crea un futuro financiero sólido mientras disfrutas tu presente.</li>
-        <li>🌸Ten el control total de tu dinero sin sentirte abrumada.</li>
-        <li>🌸Logra tus metas financieras sin dejar de vivir tu mejor vida.</li>
-        <li>🌸Ahorra para lo que realmente importa (ya sea ese bolso que amas o tu fondo de emergencia).</li>
-      </ul>
-      <p class="parrafo">
-        <b>¡Es momento de ser la CEO de tu vida financiera! Esta plantilla es tu mejor amiga para conseguir esa independencia financiera que mereces y sin complicaciones. ¡Invierte en ti misma hoy! Tu yo del futuro (y tu cuenta bancaria) te lo agradecerán 💖</b>
-      </p>
-      <p class="parrafo">
-        <b><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets. Al ser un producto digital, todas las ventas son finales, sin reembolso. Esta plantilla está protegida por copyright y es propiedad de Planifesto; es de uso personal y cualquier redistribución, reventa o reproducción de este producto (completo o parcial) está estrictamente prohibido.</b>
-      </p>
-      <p class="parrafo">
-        <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en PayPal, si ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b>
-      </p>
-      <!-- Sección de compra -->
-      <div class="compra">
-        <form
-          action="https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4"
-          method="post"
-          target="_top"
-          style="display: inline-grid; justify-items: center; align-content: start; gap: 0.5rem;"
-        >
-          <input class="pp-NQJNGY6WXKFK4" type="submit" value="Comprar ahora" />
-          <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
-          <section>
-            Con la tecnología de
-            <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height: 0.875rem; vertical-align: middle" />
-            <p>
-              <p><b>Nota:</b> no es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas:<br>
-              <b>Para consultas escríbenos🫶🏼:<br>
-              Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a></b>
-            </p>
-          </section>
-        </form>
-      </div>
-    </div>
-  </div>
-        <div class="producto" id="bundleFinanzaInversion">
-          <img
-            src="imagenes/bundle .png"
-            alt="Plantilla financiera"
-            class="imagen-producto3"
-          />
-          <div class="detalle-producto">
-            <h2>Combo Finanzas e Inversión</h2>
-            <p>Precio:<s>$20.98 USD</s> <br>$16.99 USD</p>
+          <h2>Ideal para parejas que quieren:</h2>
+          <ul>
+            <li>✔️ Establecer objetivos reales y alcanzables.</li>
+            <li>✔️ Planificar gastos, pagar deudas y ahorrar... sin morir en el intento.</li>
+            <li>✔️ Tomar decisiones financieras juntos con más confianza y claridad.</li>
+          </ul>
+
+          <p>Incluye un videotutorial de uso con tips y hacks para que le saquen el MÁXIMO provecho.</p>
+
+          <h2>BONOS</h2>
+          <p>Sí, hay más:</p>
+          <ul>
+            <li>💬 <strong>Guía de presupuesto en pareja</strong> (valorado en 15 USD)</li>
+            <li>💬 <strong>Plantilla para planear actividades</strong> (valorado en 10 USD)</li>
+            <li>💬 <strong>Plantilla Reto de ahorro imprimible</strong> (valorado en 5 USD)</li>
+          </ul>
+
+          <h2>Notas importantes:</h2>
+          <ul>
+            <li>NO necesitas ser experto en Google Sheets o finanzas. La plantilla está diseñada para que cualquier
+              pareja pueda usarla de manera sencilla y efectiva desde el primer día.</li>
+            <li><strong>IMPORTANTE:</strong> Esta plantilla solo es compatible con Google Sheets.</li>
+            <li><strong>IMPORTANTE:</strong> Al ser un producto digital, todas las ventas son finales, sin reembolso.
+            </li>
+            <li>Esta plantilla está protegida por copyright y es propiedad de Planifesto; su uso es exclusivo para la
+              pareja que la adquiera. Cualquier redistribución, reventa o reproducción (completa o parcial) está
+              estrictamente prohibida.</li>
+            <li><strong>IMPORTANTE:</strong> Luego de realizada la compra, se te enviará el documento al correo
+              ingresado en PayPal. Si ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam. 💖</li>
+          </ul>
+
+          <div>
             <style>
-              .pp-CF5WFAX8K2C8E {
+              .pp-NQJNGY6WXKFK4 {
                 text-align: center;
                 border: none;
                 border-radius: 0.25rem;
@@ -539,208 +151,517 @@ data-neutral-paypal="https://www.paypal.com/ncp/payment/78N5AADLPGV8J">
                 cursor: pointer;
               }
             </style>
-            <form
-              action="https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E"
-              method="post"
-              target="_top"
-              style="
-                display: inline-grid;
-                justify-items: center;
-                align-content: start;
-                gap: 0.5rem;
-              "
-            >
-              <input
-                class="pp-CF5WFAX8K2C8E"
-                type="submit"
-                value="Comprar ahora"
-              />
-              <img src=https://www.paypalobjects.com/images/Debit_Credit.svg
-              alt="cards" />
-              <section>
-                Con la tecnología de
-                <img
-                  src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-                  alt="paypal"
-                  style="height: 0.875rem; vertical-align: middle"
-                />
-                <p>CONTIENE:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                  <li>⭐Guia de Inversiones 101</li>
-                  <li>⭐Plantilla de presupuesto mensual</li>
-                </ul>
-                <p class="parrafo">
-                  <b
-                    ><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets. 
-                    Al ser un producto digital, todas las ventas son finales, sin reembolso. 
-                    Esta plantilla está protegida por copyright y es propiedad de Planifesto; es de uso personal y 
-                    cualquier redistribución, reventa o reproducción de este producto (completo o parcial) 
-                    está estrictamente prohibido.</b
-                  >
-                </p>
-                <p class="parrafo">
-                  <b
-                    ><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en PayPal, si 
-                    ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b
-                  >
-                </p>
-                <b>Nota: no es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas:</b><br>
-                <p><b>Para consultas escríbenos🫶🏼:<br>
-
-                  
-                  Correo:<a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a></p></b>
-              </section>
-            </form>
-          </div>
-        </div>
-        <div class="producto" id="guiaInversion">
-          <img
-            src="imagenes/guia-producto.jpeg"
-            alt="Nuevo Producto"
-            class="imagen-producto2"
-          />
-          <div class="detalle-producto">
-            <h2>Guia de Inversión</h2>
-            <p>Precio: $10.99 USD</p>
-            <button class="toggle-details boton">Ver más detalles</button>
-          </div>
-          <div class="product-details hidden">
-            <p class="parrafo">
-              <b
-                >Si estás aquí, es porque quieres entrar al mundo de las
-                inversiones pero a lo mejor no sabes por dónde empezar y crees
-                que es complicado o que hay que ser experta… pero te digo algo?
-                NADA más alejado de la realidad! En esta Guía Completa de
-                Inversiones vamos a ir pasito a pasito, con información
-                PRÁCTICA, para abrir tu primera inversión. Lo que te llevas de
-                aquí, la verdad es una joya!</b
-              >
-            </p>
-
-            <h3>Características principales</h3>
-            <ul>
-              <li>🌸Manual completo y estructurado de manera progresiva.</li>
-              <li>🌸Lenguaje claro y accesible para principiantes.</li>
-
-              <li>
-                🌸Incluye test de personalidad para conocer tu perfil de
-                inversor.
-              </li>
-              <li>
-                🌸Recursos adicionales como FAQs y listas de verificación.
-              </li>
-              <li>
-                🌸Contenido práctico enfocado en
-                <b>toma de decisiones REALES</b> . Sí, hay teoría, pero solo lo
-                que <b>NECESITAS saber sí o sí</b>, después todo lo demás es
-                práctica y útil.
-              </li>
-            </ul>
-            <h3>Beneficios que obtendrás</h3>
-            <ul>
-              <li>
-                🌸Aprenderás los conceptos fundamentales de inversión sin
-                abrumarte.
-              </li>
-              <li>
-                🌸Entenderás la relación entre riesgo y recompensa para tomar
-                mejores decisiones.
-              </li>
-              <li>
-                🌸Descubrirás qué instrumentos de inversión se ajustan mejor a
-                tus objetivos.
-              </li>
-              <li>
-                Sabrás exactamente qué pasos seguir antes de realizar tu primera
-                inversión.
-              </li>
-              <li>
-                🌸Ganarás confianza para comenzar a invertir de manera
-                informada.
-              </li>
-              <li>
-                🌸Evitarás errores comunes de principiantes que pueden costarte
-                dinero (mucho).
-              </li>
-              <li>
-                🌸Vas a tener una lista de recomendaciones, con enlaces directos
-                a la página oficial de la institución para que vayas derechito a
-                realizar tu primera inversión.
-              </li>
-            </ul>
-            <p class="parrafo">
-              <b
-                >Esta guía te llevará de la mano desde los conceptos básicos
-                hasta estrategias más avanzadas, incluyendo información crucial
-                sobre cuentas de alto rendimiento, certificados financieros y
-                fondos de inversión. NO más dudas, NO más miedos. Con esta guía,
-                tendrás todas las herramientas necesarias para comenzar tu
-                camino hacia la independencia financiera de manera segura y
-                consciente. ¡Invierte en tu futuro hoy! Tu yo del mañana te lo
-                agradecerá.</b
-              >
-            </p>
-            <p class="parrafo">
-              <b
-                ><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en PayPal, si 
-                ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b
-              >
-            </p>
-            <div>
-              <style>
-                .pp-MK5NL4YTWLU34 {
-                  text-align: center;
-                  border: none;
-                  border-radius: 0.25rem;
-                  min-width: 11.625rem;
-                  padding: 0 2rem;
-                  height: 2.625rem;
-                  font-weight: bold;
-                  background-color: #ffd140;
-                  color: #000000;
-                  font-family: "Helvetica Neue", Arial, sans-serif;
-                  font-size: 1rem;
-                  line-height: 1.25rem;
-                  cursor: pointer;
-                }
-              </style>
-              <form
-                action="https://www.paypal.com/ncp/payment/MK5NL4YTWLU34"
-                method="post"
-                target="_top"
-                style="
+            <form action="https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U" method="post" target="_top" style="
                   display: inline-grid;
                   justify-items: center;
                   align-content: start;
                   gap: 0.5rem;
-                "
-              >
-                <input
-                  class="pp-MK5NL4YTWLU34"
-                  type="submit"
-                  value="Comprar ahora"
-                />
-                <img src=https://www.paypalobjects.com/images/Debit_Credit.svg
-                alt="cards" />
-                <section>
-                  Con la tecnología de
-                  <img
-                    src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-                    alt="paypal"
-                    style="height: 0.875rem; vertical-align: middle"
-                  />
-                  <p><b>Nota:</b> no es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas:<br>
-                  <p><b>Para consultas escríbenos🫶🏼:<br>
-                    Correo:<a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a></p></b>
-                </section>
-              </form>
-            </div>
+                ">
+              <input class="pp-NQJNGY6WXKFK4" type="submit" value="Comprar ahora" />
+              <img src=https://www.paypalobjects.com/images/Debit_Credit.svg alt="cards" />
+              <section>
+                Con la tecnología de
+                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal"
+                  style="height: 0.875rem; vertical-align: middle" />
+
+                <p><b>Nota:</b> No es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas.</p>
+                <p><b>Para consultas escríbenos🫶🏼:<br>
+                    Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a><br><br>
+                    Si vives en RD y quieres pagar por transferencia, escríbenos a <a
+                      href="mailto:PlanifestoRD@gmail.com">planifestoRD@gmail.com</a></b></p>
+
+              </section>
+            </form>
           </div>
         </div>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Planifesto.</p>
-    </footer>
-  </body>
+      </div>
+      <div class="producto" id="comboPlanifesto">
+        <img src="imagenes/comboPlanifesto.png" alt="Plantilla financiera" class="imagen-producto1" />
+        <div class="detalle-producto">
+          <h2>Combo Planifesto<br>Planifesto PRO + Guia de Inversión</h2>
+          <p>Precio:<s>$33.00 USD</s> <br>$25.00 USD</p>
+          <p>CONTIENE:</p>
+          <ul style="list-style: none; padding-left: 0;">
+            <li>⭐Guia de Inversiones 101</li>
+            <li>⭐Sistema de metas de ahorro</li>
+            <li>⭐Plantilla de presupuesto mensual</li>
+            <li>⭐Planificador inteligente de pago de deudas</li>
+          </ul>
+          <button class="toggle-details boton">Ver más detalles</button>
+        </div>
+        <div class="product-details hidden">
+          <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar + Nuestra guia para
+            aprender a invertir✨</h2>
+          <p>¡Todo automático y conectado entre sí!</p>
+
+          <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
+          <ul class="no-bullets">
+            <li>⭐ ¡Incluye nuestra Guia de Inversiones 101!</li>
+            <li>⭐ Presupuesto mensual que realmente entiende tu estilo de vida</li>
+            <li>⭐ Planificador inteligente de pago de deudas que hace todos los cálculos por ti</li>
+            <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
+          </ul>
+
+          <p>Todo esto con un diseño estético que te encantará usar y la practicidad que necesitas.</p>
+
+          <h3>Imagina tener en <strong>UN SOLO LUGAR:</strong></h3>
+          <ul class="no-bullets">
+            <li>⭐ Tu presupuesto mensual perfectamente organizado</li>
+            <li>⭐ Un plan claro para decir adiós a tus deudas (con calculadora automática incluida 🙌)</li>
+            <li>⭐ Tus metas de ahorro visualizadas y calculadas (desde ese viaje soñado hasta tu primer apto)</li>
+          </ul>
+
+          <p>
+            <strong>¿Por qué es diferente?</strong> Porque mientras otras plantillas te hacen saltar de un archivo a
+            otro, Planifesto PRO 3-1 integra todo en un sistema cohesivo que:
+          </p>
+          <ul class="no-bullets">
+            <li>⭐ Hace todos los cálculos automáticamente</li>
+            <li>⭐ Mantiene tus finanzas sincronizadas</li>
+            <li>⭐ Te muestra el panorama completo de tu dinero en un dashboard visual súper cute🥰</li>
+          </ul>
+
+          <h3>Para la chica que:</h3>
+          <ul>
+            <li>Está cansada de tener sus finanzas dispersas en diferentes lugares</li>
+            <li>Quiere un sistema completo que haga el trabajo pesado por ella</li>
+            <li>Busca una solución que combine cuteness y funcionalidad</li>
+            <li>Desea tomar el control de sus finanzas sin sentirse abrumada</li>
+          </ul>
+
+          <p>
+            Todo esto en un diseño moderno y estético que te motivará a usar día tras día. Sin más archivos perdidos,
+            sin más cálculos complicados, sin más desorganización.
+          </p>
+
+          <p>Tu futuro financiero nunca se había visto tan bien💅✨</p>
+
+          <p>¿Estás lista?</p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets.
+              Al ser un producto digital, todas las ventas son finales, sin reembolso.
+              Esta plantilla está protegida por copyright y es propiedad de Planifesto; es de uso personal y
+              cualquier redistribución, reventa o reproducción de este producto (completo o parcial)
+              está estrictamente prohibido.</b>
+          </p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en
+              PayPal, si
+              ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b>
+          </p>
+          <div>
+            <style>
+              .pp-NQJNGY6WXKFK4 {
+                text-align: center;
+                border: none;
+                border-radius: 0.25rem;
+                min-width: 11.625rem;
+                padding: 0 2rem;
+                height: 2.625rem;
+                font-weight: bold;
+                background-color: #ffd140;
+                color: #000000;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 1rem;
+                line-height: 1.25rem;
+                cursor: pointer;
+              }
+            </style>
+            <form action="https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4" method="post" target="_top" style="
+                  display: inline-grid;
+                  justify-items: center;
+                  align-content: start;
+                  gap: 0.5rem;
+                ">
+              <input class="pp-NQJNGY6WXKFK4" type="submit" value="Comprar ahora" />
+              <img src=https://www.paypalobjects.com/images/Debit_Credit.svg alt="cards" />
+              <section>
+                Con la tecnología de
+                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal"
+                  style="height: 0.875rem; vertical-align: middle" />
+                <p><b>Nota:</b> No es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas.</p>
+                <p><b>Para consultas escríbenos🫶🏼:<br>
+                    Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a><br><br>
+                    Si vives en RD y quieres pagar por transferencia, escríbenos a <a
+                      href="mailto:PlanifestoRD@gmail.com">planifestoRD@gmail.com</a></b></p>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="producto" id="plantillaMensualPro" data-neutral-img="imagenes/plantillaProNeutral.png"
+        data-neutral-paypal="https://www.paypal.com/ncp/payment/78N5AADLPGV8J">
+        <img src="imagenes/planifestoPro.png" alt="Plantilla financiera" class="imagen-producto1" />
+        <div class="detalle-producto">
+          <h2>Plantilla Financiera PRO (3-1)</h2>
+          <p>Precio:<s>$25 USD</s> <br>$19.99 USD</p>
+
+          <!-- Botón existente para ver detalles -->
+          <button class="toggle-details boton">Ver más detalles</button>
+          <!-- NUEVO Botón para cambiar a Versión Neutral -->
+          <button class="toggle-neutral boton">Versión Neutral</button>
+        </div>
+
+        <div class="product-details hidden">
+          <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar ✨</h2>
+          <p>¡Todo automático y conectado entre sí!</p>
+
+          <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
+          <ul class="no-bullets">
+            <li>⭐ Presupuesto mensual que realmente entiende tu estilo de vida</li>
+            <li>⭐ Planificador inteligente de pago de deudas que hace todos los cálculos por ti</li>
+            <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
+          </ul>
+
+          <p>Todo esto con un diseño estético que te encantará usar y la practicidad que necesitas.</p>
+
+          <h3>Imagina tener en <strong>UN SOLO LUGAR:</strong></h3>
+          <ul class="no-bullets">
+            <li>⭐ Tu presupuesto mensual perfectamente organizado</li>
+            <li>⭐ Un plan claro para decir adiós a tus deudas (con calculadora automática incluida 🙌)</li>
+            <li>⭐ Tus metas de ahorro visualizadas y calculadas (desde ese viaje soñado hasta tu primer apto)</li>
+          </ul>
+
+          <p>
+            <strong>¿Por qué es diferente?</strong> Porque mientras otras plantillas te hacen saltar de un archivo a
+            otro, Planifesto PRO 3-1 integra todo en un sistema cohesivo que:
+          </p>
+          <ul class="no-bullets">
+            <li>⭐ Hace todos los cálculos automáticamente</li>
+            <li>⭐ Mantiene tus finanzas sincronizadas</li>
+            <li>⭐ Te muestra el panorama completo de tu dinero en un dashboard visual súper cute🥰</li>
+          </ul>
+
+          <h3>Para la chica que:</h3>
+          <ul>
+            <li>Está cansada de tener sus finanzas dispersas en diferentes lugares</li>
+            <li>Quiere un sistema completo que haga el trabajo pesado por ella</li>
+            <li>Busca una solución que combine cuteness y funcionalidad</li>
+            <li>Desea tomar el control de sus finanzas sin sentirse abrumada</li>
+          </ul>
+
+          <p>Todo esto en un diseño moderno y estético que te motivará a usar día tras día. Sin más archivos perdidos,
+            sin más cálculos complicados, sin más desorganización.</p>
+
+          <p>Tu futuro financiero nunca se había visto tan bien💅✨</p>
+
+          <p>¿Estás lista?</p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets.
+              Al ser un producto digital, todas las ventas son finales, sin reembolso.
+              Esta plantilla está protegida por copyright y es propiedad de Planifesto;
+              es de uso personal y cualquier redistribución, reventa o reproducción de
+              este producto (completo o parcial) está estrictamente prohibido.</b>
+          </p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento
+              al correo ingresado en PayPal, si ha pasado 1 minuto y aún no recibes el correo,
+              revisa la carpeta de spam.💖</b>
+          </p>
+          <div>
+            <style>
+              .pp-NQJNGY6WXKFK4 {
+                text-align: center;
+                border: none;
+                border-radius: 0.25rem;
+                min-width: 11.625rem;
+                padding: 0 2rem;
+                height: 2.625rem;
+                font-weight: bold;
+                background-color: #ffd140;
+                color: #000000;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 1rem;
+                line-height: 1.25rem;
+                cursor: pointer;
+              }
+            </style>
+            <form action="https://www.paypal.com/ncp/payment/YHWFXT36PGABE" method="post" target="_top" style="
+          display: inline-grid;
+          justify-items: center;
+          align-content: start;
+          gap: 0.5rem;
+        ">
+              <input class="pp-NQJNGY6WXKFK4" type="submit" value="Comprar ahora" />
+              <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
+              <section>
+                Con la tecnología de
+                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal"
+                  style="height: 0.875rem; vertical-align: middle" />
+                <p><b>Nota:</b> No es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas.</p>
+                <p><b>Para consultas escríbenos🫶🏼:<br>
+                    Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a><br><br>
+                    Si vives en RD y quieres pagar por transferencia, escríbenos a <a
+                      href="mailto:PlanifestoRD@gmail.com">planifestoRD@gmail.com</a></b></p>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="producto" id="presupuestoMensual" data-neutral-img="imagenes/plantillaNeutra.png"
+        data-neutral-paypal="https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S">
+        <img src="imagenes/presupuestoMensual.png" alt="Plantilla financiera" class="imagen-producto1" />
+
+        <div class="detalle-producto">
+          <h2>Plantilla Financiera</h2>
+          <p>Precio: $9.99 USD</p>
+          <!-- Botón existente -->
+          <button class="toggle-details boton">Ver más detalles</button>
+          <!-- Nuevo botón para versión neutral/regular -->
+          <button class="toggle-neutral boton">Version Neutral</button>
+        </div>
+
+        <div class="product-details hidden">
+          <p class="parrafo">
+            <b>¿Lista para tomar el control de tus finanzas y convertirte en la jefa de tu dinero? 💅✨ Esta plantilla
+              financiera está diseñada especialmente para mujeres como tú, que quieren brillar en todos los aspectos de
+              su vida, incluyendo sus finanzas.</b>
+          </p>
+          <h3>Características principales</h3>
+          <ul>
+            <li>🌸Diseño moderno, estético y super fácil de usar.</li>
+            <li>🌸Dashboard visual súper cute con gráficos.</li>
+            <li>🌸Compatible con tu laptop, tablet y cel.</li>
+            <li>🌸Plantilla estética que te motivará a usarla.</li>
+            <li>🌸Espacio para tus metas financieras (desde ese viaje soñado hasta tu primer apto).</li>
+            <li>🌸Categorías personalizadas para tus gastos reales (sí, incluye Uber, compras online y esas salidas de
+              finde).</li>
+          </ul>
+          <h3>Beneficios que cambiarán tu vida:</h3>
+          <ul>
+            <li>🌸Automatización de cálculos financieros.</li>
+            <li>🌸Di adiós a la ansiedad de fin de mes.</li>
+            <li>🌸Construye tu independencia financiera sin sacrificar tu estilo de vida.</li>
+            <li>🌸Aprende a invertir tu dinero de manera inteligente.</li>
+            <li>🌸Crea un futuro financiero sólido mientras disfrutas tu presente.</li>
+            <li>🌸Ten el control total de tu dinero sin sentirte abrumada.</li>
+            <li>🌸Logra tus metas financieras sin dejar de vivir tu mejor vida.</li>
+            <li>🌸Ahorra para lo que realmente importa (ya sea ese bolso que amas o tu fondo de emergencia).</li>
+          </ul>
+          <p class="parrafo">
+            <b>¡Es momento de ser la CEO de tu vida financiera! Esta plantilla es tu mejor amiga para conseguir esa
+              independencia financiera que mereces y sin complicaciones. ¡Invierte en ti misma hoy! Tu yo del futuro (y
+              tu cuenta bancaria) te lo agradecerán 💖</b>
+          </p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets. Al ser un producto digital, todas
+              las ventas son finales, sin reembolso. Esta plantilla está protegida por copyright y es propiedad de
+              Planifesto; es de uso personal y cualquier redistribución, reventa o reproducción de este producto
+              (completo o parcial) está estrictamente prohibido.</b>
+          </p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en
+              PayPal, si ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b>
+          </p>
+          <!-- Sección de compra -->
+          <div class="compra">
+            <form action="https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4" method="post" target="_top"
+              style="display: inline-grid; justify-items: center; align-content: start; gap: 0.5rem;">
+              <input class="pp-NQJNGY6WXKFK4" type="submit" value="Comprar ahora" />
+              <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
+              <section>
+                Con la tecnología de
+                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal"
+                  style="height: 0.875rem; vertical-align: middle" />
+                <p><b>Nota:</b> No es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas.</p>
+                <p><b>Para consultas escríbenos🫶🏼:<br>
+                    Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a><br><br>
+                    Si vives en RD y quieres pagar por transferencia, escríbenos a <a
+                      href="mailto:PlanifestoRD@gmail.com">planifestoRD@gmail.com</a></b></p>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="producto" id="bundleFinanzaInversion">
+        <img src="imagenes/bundle .png" alt="Plantilla financiera" class="imagen-producto3" />
+        <div class="detalle-producto">
+          <h2>Combo Finanzas e Inversión</h2>
+          <p>Precio:<s>$20.98 USD</s> <br>$16.99 USD</p>
+          <style>
+            .pp-CF5WFAX8K2C8E {
+              text-align: center;
+              border: none;
+              border-radius: 0.25rem;
+              min-width: 11.625rem;
+              padding: 0 2rem;
+              height: 2.625rem;
+              font-weight: bold;
+              background-color: #ffd140;
+              color: #000000;
+              font-family: "Helvetica Neue", Arial, sans-serif;
+              font-size: 1rem;
+              line-height: 1.25rem;
+              cursor: pointer;
+            }
+          </style>
+          <form action="https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E" method="post" target="_top" style="
+                display: inline-grid;
+                justify-items: center;
+                align-content: start;
+                gap: 0.5rem;
+              ">
+            <input class="pp-CF5WFAX8K2C8E" type="submit" value="Comprar ahora" />
+            <img src=https://www.paypalobjects.com/images/Debit_Credit.svg alt="cards" />
+            <section>
+              Con la tecnología de
+              <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal"
+                style="height: 0.875rem; vertical-align: middle" />
+              <p>CONTIENE:</p>
+              <ul style="list-style: none; padding-left: 0;">
+                <li>⭐Guia de Inversiones 101</li>
+                <li>⭐Plantilla de presupuesto mensual</li>
+              </ul>
+              <p class="parrafo">
+                <b><b>IMPORTANTE</b>: Esta plantilla solo es compatible con Google Sheets.
+                  Al ser un producto digital, todas las ventas son finales, sin reembolso.
+                  Esta plantilla está protegida por copyright y es propiedad de Planifesto; es de uso personal y
+                  cualquier redistribución, reventa o reproducción de este producto (completo o parcial)
+                  está estrictamente prohibido.</b>
+              </p>
+              <p class="parrafo">
+                <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en
+                  PayPal, si
+                  ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b>
+              <p><b>Nota:</b> <b>No es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas.</b></p>
+              <p><b>Para consultas escríbenos🫶🏼:<br>
+                  Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a><br><br>
+                  Si vives en RD y quieres pagar por transferencia, escríbenos a <a
+                    href="mailto:PlanifestoRD@gmail.com">planifestoRD@gmail.com</a></b></p>
+            </section>
+          </form>
+        </div>
+      </div>
+      <div class="producto" id="guiaInversion">
+        <img src="imagenes/guia-producto.jpeg" alt="Nuevo Producto" class="imagen-producto2" />
+        <div class="detalle-producto">
+          <h2>Guia de Inversión</h2>
+          <p>Precio: $10.99 USD</p>
+          <button class="toggle-details boton">Ver más detalles</button>
+        </div>
+        <div class="product-details hidden">
+          <p class="parrafo">
+            <b>Si estás aquí, es porque quieres entrar al mundo de las
+              inversiones pero a lo mejor no sabes por dónde empezar y crees
+              que es complicado o que hay que ser experta… pero te digo algo?
+              NADA más alejado de la realidad! En esta Guía Completa de
+              Inversiones vamos a ir pasito a pasito, con información
+              PRÁCTICA, para abrir tu primera inversión. Lo que te llevas de
+              aquí, la verdad es una joya!</b>
+          </p>
+
+          <h3>Características principales</h3>
+          <ul>
+            <li>🌸Manual completo y estructurado de manera progresiva.</li>
+            <li>🌸Lenguaje claro y accesible para principiantes.</li>
+
+            <li>
+              🌸Incluye test de personalidad para conocer tu perfil de
+              inversor.
+            </li>
+            <li>
+              🌸Recursos adicionales como FAQs y listas de verificación.
+            </li>
+            <li>
+              🌸Contenido práctico enfocado en
+              <b>toma de decisiones REALES</b> . Sí, hay teoría, pero solo lo
+              que <b>NECESITAS saber sí o sí</b>, después todo lo demás es
+              práctica y útil.
+            </li>
+          </ul>
+          <h3>Beneficios que obtendrás</h3>
+          <ul>
+            <li>
+              🌸Aprenderás los conceptos fundamentales de inversión sin
+              abrumarte.
+            </li>
+            <li>
+              🌸Entenderás la relación entre riesgo y recompensa para tomar
+              mejores decisiones.
+            </li>
+            <li>
+              🌸Descubrirás qué instrumentos de inversión se ajustan mejor a
+              tus objetivos.
+            </li>
+            <li>
+              Sabrás exactamente qué pasos seguir antes de realizar tu primera
+              inversión.
+            </li>
+            <li>
+              🌸Ganarás confianza para comenzar a invertir de manera
+              informada.
+            </li>
+            <li>
+              🌸Evitarás errores comunes de principiantes que pueden costarte
+              dinero (mucho).
+            </li>
+            <li>
+              🌸Vas a tener una lista de recomendaciones, con enlaces directos
+              a la página oficial de la institución para que vayas derechito a
+              realizar tu primera inversión.
+            </li>
+          </ul>
+          <p class="parrafo">
+            <b>Esta guía te llevará de la mano desde los conceptos básicos
+              hasta estrategias más avanzadas, incluyendo información crucial
+              sobre cuentas de alto rendimiento, certificados financieros y
+              fondos de inversión. NO más dudas, NO más miedos. Con esta guía,
+              tendrás todas las herramientas necesarias para comenzar tu
+              camino hacia la independencia financiera de manera segura y
+              consciente. ¡Invierte en tu futuro hoy! Tu yo del mañana te lo
+              agradecerá.</b>
+          </p>
+          <p class="parrafo">
+            <b><b>IMPORTANTE</b>: Luego de realizada la compra, se te enviara el documento al correo ingresado en
+              PayPal, si
+              ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam.💖</b>
+          </p>
+          <div>
+            <style>
+              .pp-MK5NL4YTWLU34 {
+                text-align: center;
+                border: none;
+                border-radius: 0.25rem;
+                min-width: 11.625rem;
+                padding: 0 2rem;
+                height: 2.625rem;
+                font-weight: bold;
+                background-color: #ffd140;
+                color: #000000;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 1rem;
+                line-height: 1.25rem;
+                cursor: pointer;
+              }
+            </style>
+            <form action="https://www.paypal.com/ncp/payment/MK5NL4YTWLU34" method="post" target="_top" style="
+                  display: inline-grid;
+                  justify-items: center;
+                  align-content: start;
+                  gap: 0.5rem;
+                ">
+              <input class="pp-MK5NL4YTWLU34" type="submit" value="Comprar ahora" />
+              <img src=https://www.paypalobjects.com/images/Debit_Credit.svg alt="cards" />
+              <section>
+                Con la tecnología de
+                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal"
+                  style="height: 0.875rem; vertical-align: middle" />
+                <p><b>Nota:</b> No es necesario tener una cuenta de PayPal, PayPal acepta todas las tarjetas.</p>
+                <p><b>Para consultas escríbenos🫶🏼:<br>
+                    Correo: <a href="mailto:infoplanifestord@gmail.com">infoplanifestord@gmail.com</a><br><br>
+                    Si vives en RD y quieres pagar por transferencia, escríbenos a <a
+                      href="mailto:PlanifestoRD@gmail.com">planifestoRD@gmail.com</a></b></p>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Planifesto.</p>
+  </footer>
+</body>
+
 </html>
