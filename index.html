@@ -662,6 +662,257 @@
   <footer>
     <p>&copy; 2025 Planifesto.</p>
   </footer>
+  <!-- BOTÓN FLOTANTE -->
+  <button id="toggleQuizButton" onclick="mostrarQuiz()">¿Ayuda para elegir?</button>
+
+  <!-- POPUP QUIZ -->
+  <div id="popupQuiz">
+    <button onclick="cerrarQuiz()"
+      style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 18px; color: #999;">&times;</button>
+
+
+    <div id="quizPaso1">
+      <p><b>1. ¿Qué tipo de planificación te interesa más?</b></p>
+      <button class="quiz-btn" onclick="irAPaso2('personal')">🧍‍♀️ Solo/a</button>
+      <button class="quiz-btn" onclick="mostrarPareja()">💑 En pareja</button>
+    </div>
+
+    <div id="quizPaso2" style="display: none;">
+      <p><b>2. ¿Qué necesitas controlar?</b> <small>(puedes seleccionar varios)</small></p>
+      <label><input type="checkbox" value="presupuesto"> Presupuesto mensual</label><br>
+      <label><input type="checkbox" value="ahorro"> Ahorros</label><br>
+      <label><input type="checkbox" value="deuda"> Deudas</label><br>
+      <label><input type="checkbox" value="inversion"> Inversiones</label><br><br>
+      <button onclick="verResultado()" class="quiz-btn">Ver recomendación</button>
+    </div>
+
+    <div id="quizResultado" style="display: none;">
+      <p><b>Recomendación:</b></p>
+      <p id="textoResultado"></p>
+      <a id="linkResultado" class="quiz-btn boton-producto" href="#" onclick="irAlProducto(event)">Ir al producto</a>
+      <button onclick="reiniciarQuiz()" class="quiz-btn boton-secundario">Volver a tomar el quiz</button>
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+    @keyframes quizSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes quizFadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
+
+
+    #popupQuiz.aparecer {
+      animation: quizSlideUp 0.6s ease forwards;
+    }
+
+    .quiz-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 15px 30px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      text-decoration: none;
+      background-color: #f7a9a8;
+      color: white;
+    }
+
+    .quiz-btn:hover {
+      background-color: #5eb6a7;
+      color: #f7a9a8;
+    }
+
+    .boton-producto {
+      background-color: #ffd140;
+      color: black;
+    }
+
+    .boton-producto:hover {
+      background-color: #5eb6a7;
+      color: #f7a9a8;
+    }
+
+    .boton-secundario {
+      background-color: #f7a9a8;
+      color: white;
+    }
+
+    .boton-secundario:hover {
+      background-color: #5eb6a7;
+      color: #f7a9a8;
+    }
+
+    #popupQuiz {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 320px;
+      max-width: 90vw;
+      background-color: #e6f1ed;
+      border: 2px solid #f7a9a8;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      z-index: 9999;
+      font-family: 'Poppins', sans-serif;
+      color: #000;
+      max-height: 90vh;
+      overflow-y: auto;
+      font-weight: bold;
+    }
+
+    #popupQuiz p,
+    #popupQuiz label {
+      font-weight: bold;
+    }
+
+    #toggleQuizButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9998;
+      background-color: #f7a9a8;
+      color: white;
+      border: none;
+      border-radius: 35px;
+      padding: 16px 30px;
+      font-weight: bold;
+      font-size: 18px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    #toggleQuizButton:hover {
+      background-color: #5eb6a7;
+      color: #f7a9a8;
+    }
+  </style>
+
+  <!-- FUNCIONALIDAD -->
+  <script>
+    let tipo = '';
+
+    function mostrarQuiz() {
+      const quiz = document.getElementById('popupQuiz');
+      quiz.style.display = 'block';
+      quiz.classList.add('aparecer');
+      document.getElementById('toggleQuizButton').style.display = 'none';
+    }
+
+    function irAPaso2(valor) {
+      tipo = valor;
+      document.getElementById('quizPaso1').style.display = 'none';
+      document.getElementById('quizPaso2').style.display = 'block';
+    }
+
+    function mostrarPareja() {
+      document.getElementById('quizPaso1').style.display = 'none';
+      document.getElementById('quizResultado').style.display = 'block';
+      document.getElementById('textoResultado').innerText = 'Plantilla de Parejas 💑';
+      document.getElementById('linkResultado').setAttribute('href', '#plantillaParejas');
+    }
+
+    function verResultado() {
+      const seleccion = Array.from(document.querySelectorAll('#quizPaso2 input[type=checkbox]:checked')).map(cb => cb.value);
+      if (seleccion.length === 0) {
+        alert('Por favor selecciona al menos una opción para continuar.');
+        return;
+      }
+
+      const tiene = v => seleccion.includes(v);
+      let texto = '', link = '#';
+
+      if (tiene('presupuesto') && !tiene('ahorro') && !tiene('deuda') && !tiene('inversion')) {
+        texto = 'Plantilla Financiera Básica 🧾';
+        link = '#presupuestoMensual';
+      } else if (tiene('presupuesto') && (tiene('ahorro') || tiene('deuda')) && !tiene('inversion')) {
+        texto = 'Plantilla Financiera PRO 💼';
+        link = '#plantillaMensualPro';
+      } else if (!tiene('presupuesto') && !tiene('ahorro') && !tiene('deuda') && tiene('inversion')) {
+        texto = 'Guía de Inversión 📈';
+        link = '#guiaInversion';
+      } else if (tiene('presupuesto') && tiene('inversion') && !tiene('ahorro') && !tiene('deuda')) {
+        texto = 'Combo Finanzas e Inversión 🔁';
+        link = '#bundleFinanzaInversion';
+      } else if (tiene('presupuesto') && tiene('ahorro') && tiene('deuda') && tiene('inversion')) {
+        texto = 'Combo Planifesto 🔥';
+        link = '#comboPlanifesto';
+      } else {
+        texto = 'Plantilla Financiera PRO 💼';
+        link = '#plantillaMensualPro';
+      }
+
+      document.getElementById('quizPaso2').style.display = 'none';
+      document.getElementById('quizResultado').style.display = 'block';
+      document.getElementById('textoResultado').innerText = texto;
+      document.getElementById('linkResultado').setAttribute('href', link);
+    }
+
+    function irAlProducto(event) {
+      event.preventDefault();
+
+      const hash = document.getElementById('linkResultado').getAttribute('href');
+      const destino = document.querySelector(hash);
+
+      if (destino) {
+        destino.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      const quiz = document.getElementById('popupQuiz');
+      quiz.style.animation = 'quizFadeOut 0.4s ease forwards';
+
+      setTimeout(() => {
+        quiz.style.display = 'none';
+        quiz.classList.remove('aparecer'); // reseteamos animación de entrada
+        document.getElementById('toggleQuizButton').style.display = 'block'; // volver a mostrar el botón flotante
+        quiz.style.animation = ''; // reseteamos animación de salida
+      }, 400);
+    }
+
+
+    function reiniciarQuiz() {
+      tipo = '';
+      document.querySelectorAll('#quizPaso2 input[type=checkbox]').forEach(cb => cb.checked = false);
+      document.getElementById('quizResultado').style.display = 'none';
+      document.getElementById('quizPaso1').style.display = 'block';
+    }
+    function cerrarQuiz() {
+      document.getElementById('popupQuiz').style.display = 'none';
+      document.getElementById('toggleQuizButton').style.display = 'block';
+    }
+
+  </script>
+
 </body>
 
 </html>

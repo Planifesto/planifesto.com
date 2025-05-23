@@ -606,3 +606,7 @@ p {
 p b {
   text-align: justify;
 }
+
+#popupQuiz {
+  background-color: #e6d4e7 !important;
+}
