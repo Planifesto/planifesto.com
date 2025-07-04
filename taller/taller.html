@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planifesto - 21 Días para Dejar de Ser un Caos Financiero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #5eb6a7;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header semi-transparente para ver la imagen debajo */
+        header {
+            background-color: rgba(230, 212, 231, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #e6d4e7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo:empty::before {
+            content: 'P';
+            font-size: 22px;
+            font-weight: bold;
+            color: #f7a9a8;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: -1px;
+        }
+
+        /* Hero Section - CORRIDO DEBAJO DEL HEADER */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            left: 50%;
+            transform: translateX(-50%);
+            /* Empezar DESDE donde empieza el header */
+            margin-top: 0;
+            padding: 20px;
+            padding-top: 95px;
+        }
+
+        .hero-background {
+            position: absolute;
+            /* Empezar desde el mismo top que el header */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/portada.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transform: translateY(0) scale(1.05);
+            transition: transform 0.1s ease-out;
+            filter: brightness(0.7) saturate(1.1);
+            will-change: transform;
+            /* Poner debajo del header */
+            z-index: -1;
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(94, 182, 167, 0.15) 0%,
+                    rgba(230, 212, 231, 0.25) 50%,
+                    rgba(247, 169, 168, 0.35) 100%);
+        }
+
+        /* Gradiente de transición entre hero y contenido */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom,
+                    transparent 0%,
+                    rgba(94, 182, 167, 0.3) 30%,
+                    rgba(94, 182, 167, 0.7) 70%,
+                    #5eb6a7 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 20px;
+            padding: 30px 25px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Botón flotante para ir a inscripción - MEJORADO Y DINÁMICO */
+        .scroll-to-cta {
+            position: relative;
+            z-index: 3;
+            background: linear-gradient(135deg, #f7a9a8, #e6d4e7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(247, 169, 168, 0.4);
+            transition: all 0.3s ease;
+            animation: bounceUpDown 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            touch-action: manipulation;
+            margin: 25px auto 0 auto;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .scroll-to-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(247, 169, 168, 0.6);
+            background: linear-gradient(135deg, #e6d4e7, #f7a9a8);
+        }
+
+        .scroll-to-cta:active {
+            transform: translateY(0);
+        }
+
+        .scroll-to-cta::after {
+            content: '↓';
+            font-size: 1.2em;
+            animation: arrowBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes arrowBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(3px);
+            }
+        }
+
+        /* Main Content - ESPACIADO MEJORADO */
+        main {
+            padding: 40px 20px 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(94, 182, 167, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #f7a9a8, #e6d4e7);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f7a9a8 0%, #e6d4e7 100%);
+            padding: 20px 15px;
+            border-radius: 10px;
+            color: white;
+            margin: 20px 0;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            color: white;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+            line-height: 1.5;
+        }
+
+        li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        li:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        li:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+        }
+
+        li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #f7a9a8, #e6d4e7);
+            padding: 25px 20px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-section::after {
+            content: '💥';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            right: -15px;
+            top: -15px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.8;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .discount-price {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .cta-button {
+            background-color: #f7a9a8;
+            color: white;
+            padding: 18px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(247, 169, 168, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            touch-action: manipulation;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(247, 169, 168, 0.6);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .terms-button {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #f7a9a8;
+            padding: 15px 30px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .terms-button:hover {
+            background-color: #f7a9a8;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e6d4e7;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            padding: 12px 25px;
+            background: white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            width: 200px;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .social-link:hover,
+        .social-link:active {
+            background-color: #f7a9a8;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 20px auto;
+            padding: 25px 20px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+            padding: 5px;
+            touch-action: manipulation;
+        }
+
+        .close:hover,
+        .close:active {
+            color: #333;
+        }
+
+        /* Desktop optimizations - PANTALLAS GRANDES MEJORADAS */
+        @media (min-width: 769px) {
+            body {
+                font-size: 18px;
+            }
+
+            .header-content {
+                gap: 15px;
+            }
+
+            .brand-name {
+                font-size: 28px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .hero-content {
+                padding: 40px;
+                max-width: 900px;
+            }
+
+            .content-section {
+                padding: 30px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                width: auto;
+                margin: 20px 10px;
+            }
+
+            .social-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .social-link {
+                width: auto;
+            }
+
+            main {
+                padding: 50px 0 0 0;
+            }
+
+            /* NO modificar el hero-section en desktop para mantener ancho completo */
+
+            /* Botón dinámico para desktop */
+            .scroll-to-cta {
+                padding: 16px 35px;
+                font-size: 1.2em;
+                max-width: 380px;
+                margin: 30px auto 0 auto;
+                box-shadow: 0 10px 30px rgba(247, 169, 168, 0.5);
+            }
+
+            .scroll-to-cta:hover {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 0 15px 40px rgba(247, 169, 168, 0.7);
+                background: linear-gradient(135deg, #e6d4e7, #f7a9a8);
+            }
+
+            .scroll-to-cta:active {
+                transform: translateY(-1px) scale(1);
+            }
+        }
+
+        /* Extra Large Desktop optimizations - PANTALLAS MUY GRANDES */
+        @media (min-width: 1200px) {
+            body {
+                font-size: 20px;
+            }
+
+            .brand-name {
+                font-size: 32px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .hero-content {
+                padding: 50px;
+                max-width: 1000px;
+            }
+
+            .content-section {
+                padding: 40px;
+            }
+
+            /* Botón más prominente en pantallas grandes */
+            .scroll-to-cta {
+                padding: 18px 40px;
+                font-size: 1.3em;
+                max-width: 420px;
+                margin: 35px auto 0 auto;
+                border-radius: 60px;
+            }
+
+            .scroll-to-cta::after {
+                font-size: 1.4em;
+            }
+        }
+
+        /* Ultra Wide Desktop optimizations - PANTALLAS ULTRA ANCHAS */
+        @media (min-width: 1600px) {
+            .hero-content {
+                max-width: 1200px;
+                padding: 60px;
+            }
+
+            .content-section {
+                padding: 50px;
+            }
+
+            main {
+                max-width: 1000px;
+            }
+
+            /* Botón extra prominente para pantallas ultra anchas */
+            .scroll-to-cta {
+                padding: 20px 45px;
+                font-size: 1.4em;
+                max-width: 450px;
+                margin: 40px auto 0 auto;
+            }
+        }
+
+        /* Tablet optimizations - MEJORADO */
+        @media (min-width: 480px) and (max-width: 768px) {
+            .hero-content {
+                padding: 35px 30px;
+                max-width: 700px;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            /* Botón optimizado para tablet */
+            .scroll-to-cta {
+                padding: 15px 32px;
+                font-size: 1.15em;
+                max-width: 350px;
+                margin: 28px auto 0 auto;
+            }
+        }
+
+        /* Small mobile optimizations */
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            header {
+                padding: 12px 15px;
+            }
+
+            .header-content {
+                gap: 10px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo:empty::before {
+                font-size: 18px;
+            }
+
+            .hero-section {
+                margin-top: 65px;
+                padding: 15px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 25px 20px;
+            }
+
+            /* Botón móvil optimizado */
+            .scroll-to-cta {
+                margin: 20px auto 0 auto;
+                padding: 14px 20px;
+                font-size: 1em;
+                max-width: 290px;
+            }
+
+            .scroll-to-cta::after {
+                font-size: 1.1em;
+            }
+
+            main {
+                padding: 45px 15px 0 15px;
+            }
+
+            .content-section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+                line-height: 1.3;
+            }
+
+            h2 {
+                font-size: 1.3em;
+                margin: 20px 0 12px 0;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .highlight {
+                padding: 18px 12px;
+                font-size: 0.95em;
+            }
+
+            li {
+                padding: 6px 0 6px 25px;
+                font-size: 0.95em;
+            }
+
+            .price-section {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+
+            .discount-price {
+                font-size: 2.2em;
+            }
+
+            .cta-button {
+                padding: 16px 25px;
+                font-size: 1.1em;
+                margin: 15px auto;
+            }
+
+            .terms-button {
+                padding: 14px 25px;
+                font-size: 0.95em;
+            }
+
+            footer {
+                padding: 25px 15px;
+            }
+
+            .social-link {
+                width: 180px;
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+
+            .modal {
+                padding: 15px;
+            }
+
+            .modal-content {
+                margin: 10px auto;
+                padding: 20px 15px;
+                font-size: 0.9em;
+            }
+
+            .close {
+                font-size: 24px;
+                right: 10px;
+                top: 10px;
+            }
+        }
+
+        /* Animation improvements for mobile */
+        @media (max-width: 768px) {
+            .content-section {
+                animation: fadeInMobile 0.6s ease-out;
+            }
+
+            @keyframes fadeInMobile {
+                from {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            /* Disable parallax on mobile for better performance */
+            .hero-background {
+                background-attachment: scroll;
+            }
+
+            /* Improve touch targets */
+            .cta-button,
+            .terms-button,
+            .social-link,
+            .close {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Asegurar que el hero mantenga ancho completo en móvil */
+            .hero-section {
+                margin-top: 0;
+                padding: 15px;
+                padding-top: 85px;
+                min-height: 100vh;
+            }
+
+            .hero-background {
+                top: 0;
+                height: 100%;
+                z-index: -1;
+            }
+
+            /* Gradiente más suave en móvil */
+            .hero-section::after {
+                height: 40px;
+            }
+        }
+
+        /* Fix for iOS Safari viewport issues */
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                min-height: -webkit-fill-available;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        .cta-button:focus,
+        .terms-button:focus,
+        .social-link:focus,
+        .close:focus {
+            outline: 2px solid #f7a9a8;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo2.png" alt="Logo de Planifesto" />
+            </div>
+            <h1 class="brand-name">Planifesto</h1>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-content content-section">
+                <h1>💥 21 DÍAS PARA DEJAR DE SER UN CAOS FINANCIERO</h1>
+                <p class="subtitle">— sin dejar de darte gustos, ni volverte contable —</p>
+                <div class="highlight">
+                    <p>✨ Un taller creativo, práctico y aplatanao para aprender a manejar tu dinero con conciencia y sin
+                        culpa y a recuperar el control sobre tu dinero</p>
+                </div>
+
+                <!-- Botón ahora dentro del cuadro en móvil/tablet -->
+                <button class="scroll-to-cta" onclick="scrollToInscription()">
+                    ¡Quiero inscribirme!
+                </button>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>✅ ¿Pa' quién e' je'to?</h2>
+            <p><strong>Este taller es para ti si...</strong></p>
+            <ul>
+                <li>💸 Ganas bien, pero no sabes pa' dónde se van lo' chelitos.</li>
+                <li>😵‍💫 Te da ansiedad cada vez que gastas... pero tampoco quieres vivir contando cada peso.</li>
+                <li>💡 Quieres aprender a sacarle mayor provecho a tus ahorros y preparar tu zapata para el/la futura tú
+                    que será rico/a (amén)</li>
+                <li>🤑 Sueñas con invertir, pero cada vez que oyes "bono", "índice" o "perfil de riesgo" te da un micro
+                    infarto (graciasss)</li>
+                <li>👀 Quieres una guía que hable CLARO, sin juicio, sin tecnicismos, y que te diga paso por paso qué
+                    hacer.</li>
+                <li>✨ Estás lista para cambiar tu relación con el dinero, rainao.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>🧠 ¿Qué vas a aprender?</h2>
+            <p><strong>En 21 días vas a lograr:</strong></p>
+            <ul>
+                <li>Identificar en qué <em>se te está yendo el dinero sin darte cuenta</em>.</li>
+                <li>Crear tu primer sistema de organización financiera (con plantillas prácticas, dinámicas y
+                    funcionales (y muy lindas, como plus hihi)</li>
+                <li>Aprender a ahorrar <em>sin trauma</em> y a planear tus gastos sin frustrarte</li>
+                <li>Invertir y dar tus primeros pasos en el mundo de las inversiones, de una forma segura y regulada
+                </li>
+                <li>Soltar la culpa financiera y empezar a disfrutar tu dinero con intención</li>
+                <li>Ver el dinero como lo que es: <em>una herramienta pa' construir la vida que quieres</em> (no un
+                    castigo).</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>📦 ¿Qué incluye?</h2>
+            <ul>
+                <li>🎯 21 días de contenido práctico y digerible: PDFs ✍🏽 | audios 🎧 | mini videos 🎥 | retos diarios
+                    🧩 | dinámicas 🕺🏽</li>
+                <li>4 clases en vivo (1 por semana más 1 extra muy especial) con ejercicios aplicados en donde no solo
+                    hablaremos el pi a pa del manejo y control del money y las inversiones, sino también de la
+                    psicología del dinero y cómo preparar tu mente para que esté receptiva al cambio</li>
+                <li>🧠 Un lecture grupal con una experta en neuro*psicología * (pa' trabajar la raíz del desorden)</li>
+                <li>Acompañamiento directo de Liss y María en grupo VIP de WhatsApp, con la mejor comunidad del mundo:
+                    llena de personas que comparten tus mismos objetivos!</li>
+                <li>👯‍♀️ Comunidad 10/10: divertida, honesta, con las mismas ganas que tú de poner sus finanzas en
+                    orden.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>🎁 BONOS (porque tú sabes que siempre hay más)</h2>
+            <ul>
+                <li>Plantilla <strong>Planifesto Pro</strong> (valorada en $25 USD)</li>
+                <li>Guía de Inversiones 2.0 (valorada en $11.99 USD)</li>
+                <li>Planificador de actividades personalizado</li>
+                <li>Acceso a todos los materiales por 1 año</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>🕒 ¿Cuándo empieza?</h2>
+            <ul>
+                <li>📅 Fecha de inicio: <strong>Viernes 8 de agosto</strong></li>
+                <li>📅 Fecha de término: <strong>28 de agosto</strong></li>
+                <li>📲 Todo el contenido e información te llegará por WhatsApp, así que puedes hacerlo desde cualquier
+                    lugar y las clases serán grabadas (tendrás acceso a ellas durante 1 año).</li>
+            </ul>
+
+            <div class="highlight" style="margin-top: 30px;">
+                <h3>🚪 Cupo limitado</h3>
+                <p>Los cupos son MUY limitados porque queremos ofrecer la mayor atención posible y esto solo podemos
+                    hacerlo con un grupo controlado, así que una vez se llene el grupo, cerramos inscripciones, sin
+                    excepciones :(</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>💸 Inversión</h2>
+            <p>La idea de este taller surgió por la necesidad de una guía clara, práctica y sencilla de la comunidad tan
+                chula que hemos construido en el último año. Sé lo confuso y solitario que puede ser "aprender de
+                dinero" sin guía ni apoyo, y por eso quise hacerlo <strong>accesible, pero valioso a otro nivel</strong>
+            </p>
+
+            <p>Todo el mundo me dijo que esto debería costar <strong>al menos $400 USD</strong>, pero yo decidí que el
+                precio fuera de <strong>$150 USD Y TAMBIÉN que haría una PRE-VENTA con un descuento del 47% del
+                    valor.</strong></p>
+
+            <p style="color: #5eb6a7; font-weight: bold; font-size: 1.1em;">Esto aplicará solo a las primeras 25
+                personas que separen su cupo.</p>
+
+            <div class="price-section">
+                <p class="original-price">Precio regular: $150 USD</p>
+                <p class="discount-price">$79.99</p>
+                <p style="font-size: 1.2em;">✨ Con 47% de descuento</p>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin: 30px 0;">¿Tú sabes lo que tú
+                puedes hacer con 21 días y una guía clara? Cambiar tu historia financiera pa' siempre💥</p>
+
+            <p style="text-align: center; font-size: 1.1em;">Nos vemos adentro – <em>Liss & María</em> 💛</p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;" id="inscription-section">
+            <a href="https://www.paypal.com/ncp/payment/9WL5T89WZVPCG" class="cta-button">¡INSCRÍBETE AHORA!</a>
+            <button class="cta-button terms-button" onclick="openModal()">Términos y Condiciones</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 1.2em; margin-bottom: 10px;">Síguenos en nuestras redes</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/planifestord/" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z" />
+                </svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@planifestord" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
+                <span>TikTok</span>
+            </a>
+        </div>
+        <p style="margin-top: 20px; color: #666;">© 2025 Planifesto. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal de Términos y Condiciones -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Términos y Condiciones</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;"><strong>¡Gracias por
+                    elegirnos!</strong> 💖 Estamos muy emocionados de que hayas decidido dar este paso hacia una mejor
+                organización financiera con nuestra plantilla. Queremos que te sientas completamente cómoda y
+                respaldada, así que por favor, tómate un momento para leer nuestros términos y condiciones.</p>
+
+            <p><strong>1. Producto Digital</strong></p>
+            <p>La plantilla que has adquirido es un <strong>producto digital</strong>, lo que significa que una vez
+                descargada, no podemos ofrecer devoluciones ni reembolsos. Esta política se debe a la naturaleza del
+                producto digital, que es instantáneamente accesible después de la compra. <strong>Por favor, asegúrate
+                    de revisar todos los detalles antes de completar tu compra.</strong></p>
+
+            <p><strong>2. Política de Devoluciones</strong></p>
+            <p>Queremos que estés completamente satisfecha con tu compra. Debido a que la plantilla es un archivo
+                digital descargable, <strong>no podemos aceptar devoluciones</strong> una vez que se haya descargado.
+                Sin embargo, si tienes algún inconveniente o necesitas ayuda con el uso de la plantilla, <strong>no
+                    dudes en contactarnos</strong>. Estamos más que dispuestos a ofrecerte todo el apoyo que necesites
+                con mucha paciencia y cariño ¡Tu satisfacción es nuestra prioridad! 💌</p>
+
+            <p><strong>3. Asistencia al Cliente</strong></p>
+            <p>Tu experiencia es superimportante para nosotros, por lo que si tienes alguna pregunta, duda o necesitas
+                asistencia con la plantilla, ¡estamos aquí para ti! Puedes enviarnos un mensaje directo o escribirnos
+                por correo electrónico, y nos encargaremos de ayudarte lo antes posible. <strong>Nuestro compromiso es
+                    hacer que tu experiencia con Planifesto sea increíble.</strong></p>
+
+            <p><strong>4. Pago y Acceso</strong></p>
+            <p>El pago se realiza de manera rápida y segura a través de <strong>PayPal</strong>, y tan pronto como tu
+                pago se complete, serás redirigida automáticamente para descargar la plantilla. Si prefieres pagar
+                mediante <strong>transferencia bancaria</strong>, ¡no hay problema! Una vez verificada la compra,
+                enviaremos tu plantilla en un plazo de <strong>hasta 8 horas</strong>. Aunque normalmente lo hacemos
+                casi de inmediato, a veces puede tomar un poquito más de tiempo, ¡pero siempre te aseguramos que te
+                llegará lo antes posible! 💖</p>
+            <p>Si por alguna razón experimentas algún problema al comprar o descargar, por favor avísanos. ¡Nos
+                aseguraremos de resolverlo en un abrir y cerrar de ojos!</p>
+
+            <p><strong>5. Uso de la Plantilla</strong></p>
+            <p>Nuestra plantilla es de <strong>uso personal</strong> y tiene derechos de autor. No está permitida su
+                redistribución, modificación ni venta sin el consentimiento expreso de Planifesto. Queremos que
+                disfrutes de la plantilla y te ayude a alcanzar tus metas financieras, ¡pero también cuidamos el trabajo
+                que hemos creado con mucho amor!</p>
+
+            <p><strong>6. Modificaciones de los Términos y Condiciones</strong></p>
+            <p>Si en algún momento hacemos cambios a nuestros términos y condiciones, los comunicaremos de inmediato a
+                través de nuestras plataformas. <strong>Tu confianza y satisfacción son lo más importante para
+                    nosotros</strong>, y siempre buscamos mejorar para ofrecerte lo mejor.</p>
+
+            <p style="background-color: #f7a9a8; color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">Al
+                completar tu compra, confirmas que aceptas estos términos y condiciones. Pero si tienes alguna duda o
+                necesitas ayuda antes de comprar, <strong>no dudes en contactarnos</strong>. ¡Nos encanta escuchar de
+                ti! 🫶</p>
+
+            <p style="text-align: center; font-size: 1.1em; margin-top: 30px;"><strong>Gracias por ser parte de la
+                    familia Planifesto.</strong> 💛 <strong>¡Estamos emocionados de acompañarte en este viaje hacia tus
+                    metas financieras!</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Funciones del modal
+        function openModal() {
+            document.getElementById('termsModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('termsModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function (event) {
+            var modal = document.getElementById('termsModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Función para scroll suave a la sección de inscripción
+        function scrollToInscription() {
+            const inscriptionSection = document.getElementById('inscription-section');
+            if (inscriptionSection) {
+                inscriptionSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        // Animaciones y efectos
+        document.addEventListener('DOMContentLoaded', function () {
+            // Efecto parallax para el hero (mejorado y reactivo al scroll)
+            const heroBackground = document.querySelector('.hero-background');
+            if (heroBackground) {
+                let ticking = false;
+
+                function updateParallax() {
+                    const scrolled = window.pageYOffset;
+                    const heroHeight = document.querySelector('.hero-section').offsetHeight;
+
+                    // Solo aplicar el efecto cuando el hero esté visible
+                    if (scrolled < heroHeight) {
+                        const parallaxSpeed = 0.5;
+                        const scaleSpeed = 0.0001;
+
+                        // Efecto parallax más suave
+                        const translateY = scrolled * parallaxSpeed;
+                        const scale = 1.05 + (scrolled * scaleSpeed);
+
+                        // Cambio sutil de brillo basado en scroll
+                        const brightness = Math.max(0.7, 0.85 - (scrolled * 0.0002));
+
+                        heroBackground.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                        heroBackground.style.filter = `brightness(${brightness}) saturate(1.1)`;
+                    }
+
+                    ticking = false;
+                }
+
+                function requestTick() {
+                    if (!ticking) {
+                        requestAnimationFrame(updateParallax);
+                        ticking = true;
+                    }
+                }
+
+                // Solo en desktop aplicar el efecto completo
+                if (window.innerWidth > 768) {
+                    window.addEventListener('scroll', requestTick);
+                } else {
+                    // En móvil, efecto más simple para mejor rendimiento
+                    window.addEventListener('scroll', () => {
+                        if (!ticking) {
+                            requestAnimationFrame(() => {
+                                const scrolled = window.pageYOffset;
+                                const translateY = scrolled * 0.3;
+                                heroBackground.style.transform = `translateY(${translateY}px) scale(1.02)`;
+                                ticking = false;
+                            });
+                            ticking = true;
+                        }
+                    });
+                }
+            }
+
+            /* Animación de entrada para las secciones */
+            const sections = document.querySelectorAll('.content-section');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease-out';
+                observer.observe(section);
+            });
+
+            // Mejorar la experiencia de scroll en móvil
+            if (window.innerWidth <= 768) {
+                // Suavizar el scroll en móvil
+                document.documentElement.style.scrollBehavior = 'smooth';
+
+                // En móvil mantener el parallax pero optimizado
+                if (heroBackground) {
+                    heroBackground.style.backgroundAttachment = 'scroll';
+                }
+            }
+
+            // Prevenir zoom en inputs en iOS
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function () {
+                    if (window.innerWidth < 768) {
+                        document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                    }
+                });
+
+                input.addEventListener('blur', function () {
+                    if (window.innerWidth < 768) {
+                        document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, initial-scale=1.0');
+                    }
+                });
+            });
+        });
+
+        // Optimización para dispositivos táctiles
+        if ('ontouchstart' in window) {
+            // Agregar clase para dispositivos táctiles
+            document.body.classList.add('touch-device');
+
+            // Mejorar el feedback táctil para botones
+            const buttons = document.querySelectorAll('.cta-button, .terms-button, .social-link');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function () {
+                    this.style.transform = 'scale(0.98)';
+                });
+
+                button.addEventListener('touchend', function () {
+                    this.style.transform = '';
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
