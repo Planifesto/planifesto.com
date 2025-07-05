@@ -27,7 +27,7 @@
         header {
             background-color: rgba(230, 212, 231, 0.95);
             backdrop-filter: blur(10px);
-            padding: 15px 20px;
+            padding: 10px 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -54,15 +54,15 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            min-height: 70px;
-            /* Más altura para mejor centrado */
-            padding: 10px 0;
-            /* Más padding para centrado perfecto */
+            min-height: 50px;
+            /* Reducido para header más delgado */
+            padding: 5px 0;
+            /* Padding reducido */
         }
 
         .logo {
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             overflow: hidden;
             background-color: #e6d4e7;
@@ -80,18 +80,18 @@
 
         .logo:empty::before {
             content: 'P';
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             color: #f7a9a8;
         }
 
         .brand-name {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: bold;
             color: #333;
             letter-spacing: -1px;
-            line-height: 45px;
-            /* Igual altura que el logo para alineación perfecta */
+            line-height: 35px;
+            /* Ajustado para el logo más pequeño */
             margin: 0;
             padding: 0;
         }
@@ -113,8 +113,8 @@
             /* Empezar DESDE donde empieza el header */
             margin-top: 0;
             padding: 20px;
-            padding-top: 90px;
-            /* Reducido para eliminar el espacio verde */
+            padding-top: 70px;
+            /* Ajustado para el header más delgado */
         }
 
         .hero-background {
@@ -627,7 +627,7 @@
         .modal-content {
             background-color: white;
             margin: 20px auto;
-            padding: 25px 20px;
+            padding: 25px 20px 80px 20px;
             border-radius: 20px;
             width: 100%;
             max-width: 600px;
@@ -648,15 +648,11 @@
             margin-bottom: 15px;
         }
 
-        .modal-content p:first-of-type {
-            text-align: center;
-        }
-
         .modal-content p[style*="background-color"] {
             text-align: center;
         }
 
-        .modal-content p:last-child {
+        .modal-content p:last-of-type {
             text-align: center;
         }
 
@@ -695,23 +691,48 @@
                 font-size: 18px;
             }
 
+            /* Adaptaciones para desktop con header dinámico */
             .header-content {
                 gap: 15px;
-                min-height: 75px;
-                /* Aumentado para desktop */
-                padding: 12px 0;
-                /* Más padding en desktop */
+                min-height: 55px;
+                padding: 8px 0;
+                transition: min-height 0.4s ease, padding 0.4s ease, gap 0.4s ease;
+            }
+
+            header.scrolled .header-content {
+                min-height: 45px;
+                padding: 5px 0;
+                gap: 12px;
             }
 
             .brand-name {
-                font-size: 28px;
-                line-height: 50px;
-                /* Ajustado para el logo más grande en desktop */
+                font-size: 24px;
+                line-height: 40px;
+                transition: font-size 0.4s ease, line-height 0.4s ease;
+            }
+
+            header.scrolled .brand-name {
+                font-size: 20px;
+                line-height: 32px;
             }
 
             .logo {
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
+                transition: width 0.4s ease, height 0.4s ease;
+            }
+
+            header.scrolled .logo {
+                width: 32px;
+                height: 32px;
+            }
+
+            .logo:empty::before {
+                transition: font-size 0.4s ease;
+            }
+
+            header.scrolled .logo:empty::before {
+                font-size: 16px;
             }
 
             h1 {
@@ -876,31 +897,53 @@
                 padding: 12px 15px;
             }
 
+            /* Adaptaciones para móvil con header dinámico */
             .header-content {
                 gap: 10px;
-                min-height: 65px;
-                /* Ajustado para móvil */
-                padding: 10px 0;
-                /* Padding para centrado en móvil */
+                min-height: 50px;
+                padding: 5px 0;
+                transition: min-height 0.4s ease, padding 0.4s ease, gap 0.4s ease;
+            }
+
+            header.scrolled .header-content {
+                min-height: 40px;
+                padding: 3px 0;
+                gap: 8px;
             }
 
             .brand-name {
-                font-size: 22px;
-                line-height: 40px;
-                /* Ajustado para el logo más pequeño en móvil */
+                font-size: 20px;
+                line-height: 30px;
+                transition: font-size 0.4s ease, line-height 0.4s ease;
+            }
+
+            header.scrolled .brand-name {
+                font-size: 16px;
+                line-height: 24px;
             }
 
             .logo {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
+                transition: width 0.4s ease, height 0.4s ease;
+            }
+
+            header.scrolled .logo {
+                width: 24px;
+                height: 24px;
             }
 
             .logo:empty::before {
-                font-size: 18px;
+                font-size: 15px;
+                transition: font-size 0.4s ease;
+            }
+
+            header.scrolled .logo:empty::before {
+                font-size: 12px;
             }
 
             .hero-section {
-                margin-top: 65px;
+                margin-top: 55px;
                 padding: 15px;
                 min-height: auto;
             }
@@ -991,13 +1034,14 @@
             }
 
             .modal {
-                padding: 15px;
+                padding: 10px;
             }
 
             .modal-content {
                 margin: 10px auto;
-                padding: 20px 15px;
+                padding: 20px 15px 90px 15px;
                 font-size: 0.9em;
+                max-height: 95vh;
             }
 
             .close {
@@ -1043,8 +1087,8 @@
             .hero-section {
                 margin-top: 0;
                 padding: 15px;
-                padding-top: 75px;
-                /* Ajustado para móvil para eliminar espacio verde */
+                padding-top: 60px;
+                /* Ajustado para móvil para el header más delgado */
                 min-height: 100vh;
             }
 
@@ -1262,7 +1306,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Términos y Condiciones de Planifesto</h2>
-            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;"><strong>¡Gracias por elegirnos y ser
+            <p style="text-align: justify; font-size: 1.2em; margin-bottom: 20px;"><strong>¡Gracias por elegirnos y ser
                     parte de nuestra comunidad!</strong> 💛 Estamos súper emocionados de acompañarte en este camino
                 hacia una mejor organización financiera. Antes de comenzar, te pedimos que leas detenidamente estos
                 términos y condiciones para asegurarte de que todo está claro.</p>
@@ -1392,6 +1436,64 @@
 
         // Animaciones y efectos
         document.addEventListener('DOMContentLoaded', function () {
+            // Header dinámico con detección de dirección de scroll - MEJORADO
+            const header = document.querySelector('header');
+            let lastScrollY = window.scrollY;
+            let currentState = 'normal'; // 'normal', 'scrolled', 'expanded'
+            let ticking = false;
+            let scrollTimeout;
+
+            function updateHeader() {
+                const scrollY = window.scrollY;
+                const scrollDirection = scrollY > lastScrollY ? 'down' : 'up';
+                const scrollDifference = Math.abs(scrollY - lastScrollY);
+
+                // Limpiar timeout anterior
+                clearTimeout(scrollTimeout);
+
+                // Lógica para cambiar estados del header con mayor sensibilidad
+                if (scrollY <= 80) {
+                    // Zona normal (top de la página)
+                    if (currentState !== 'normal') {
+                        header.classList.remove('scrolled', 'expanded');
+                        currentState = 'normal';
+                    }
+                } else if (scrollDirection === 'down' && scrollDifference > 3) {
+                    // Scroll hacia abajo - compactar inmediatamente
+                    if (currentState !== 'scrolled') {
+                        header.classList.remove('expanded');
+                        header.classList.add('scrolled');
+                        currentState = 'scrolled';
+                    }
+                } else if (scrollDirection === 'up' && scrollDifference > 2) {
+                    // Scroll hacia arriba - expandir con delay mínimo
+                    scrollTimeout = setTimeout(() => {
+                        if (currentState !== 'expanded' && scrollY > 80) {
+                            header.classList.remove('scrolled');
+                            header.classList.add('expanded');
+                            currentState = 'expanded';
+                        }
+                    }, 50); // Delay muy pequeño para suavizar
+                }
+
+                lastScrollY = scrollY;
+                ticking = false;
+            }
+
+            function requestHeaderTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateHeader);
+                    ticking = true;
+                }
+            }
+
+            // Escuchar el evento de scroll para el header con throttling
+            let scrollTimer;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(requestHeaderTick, 5);
+            }, { passive: true });
+
             // Efecto parallax para el hero (mejorado y reactivo al scroll)
             const heroBackground = document.querySelector('.hero-background');
             if (heroBackground) {
