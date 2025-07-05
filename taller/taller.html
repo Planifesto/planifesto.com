@@ -54,6 +54,10 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
+            min-height: 70px;
+            /* Más altura para mejor centrado */
+            padding: 10px 0;
+            /* Más padding para centrado perfecto */
         }
 
         .logo {
@@ -86,6 +90,10 @@
             font-weight: bold;
             color: #333;
             letter-spacing: -1px;
+            line-height: 45px;
+            /* Igual altura que el logo para alineación perfecta */
+            margin: 0;
+            padding: 0;
         }
 
         /* Hero Section - CORRIDO DEBAJO DEL HEADER */
@@ -105,7 +113,8 @@
             /* Empezar DESDE donde empieza el header */
             margin-top: 0;
             padding: 20px;
-            padding-top: 95px;
+            padding-top: 90px;
+            /* Reducido para eliminar el espacio verde */
         }
 
         .hero-background {
@@ -500,6 +509,62 @@
             color: white;
         }
 
+        /* Nueva sección de pago por transferencia */
+        .payment-info {
+            background: linear-gradient(135deg, #f7a9a8, #e6d4e7);
+            padding: 25px 20px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            margin: 30px auto;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .payment-info::before {
+            content: '🇩🇴';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.08;
+            right: -20px;
+            top: -25px;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .payment-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .payment-info p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .email-link {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .email-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             background-color: #e6d4e7;
@@ -572,6 +637,29 @@
             animation: slideUp 0.3s ease;
         }
 
+        .modal-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            text-align: justify;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p:first-of-type {
+            text-align: center;
+        }
+
+        .modal-content p[style*="background-color"] {
+            text-align: center;
+        }
+
+        .modal-content p:last-child {
+            text-align: center;
+        }
+
         @keyframes slideUp {
             from {
                 transform: translateY(100px);
@@ -609,10 +697,16 @@
 
             .header-content {
                 gap: 15px;
+                min-height: 75px;
+                /* Aumentado para desktop */
+                padding: 12px 0;
+                /* Más padding en desktop */
             }
 
             .brand-name {
                 font-size: 28px;
+                line-height: 50px;
+                /* Ajustado para el logo más grande en desktop */
             }
 
             .logo {
@@ -784,10 +878,16 @@
 
             .header-content {
                 gap: 10px;
+                min-height: 65px;
+                /* Ajustado para móvil */
+                padding: 10px 0;
+                /* Padding para centrado en móvil */
             }
 
             .brand-name {
                 font-size: 22px;
+                line-height: 40px;
+                /* Ajustado para el logo más pequeño en móvil */
             }
 
             .logo {
@@ -874,6 +974,12 @@
                 font-size: 0.95em;
             }
 
+            .payment-info {
+                padding: 20px 15px;
+                margin: 25px auto;
+                font-size: 0.95em;
+            }
+
             footer {
                 padding: 25px 15px;
             }
@@ -937,7 +1043,8 @@
             .hero-section {
                 margin-top: 0;
                 padding: 15px;
-                padding-top: 85px;
+                padding-top: 75px;
+                /* Ajustado para móvil para eliminar espacio verde */
                 min-height: 100vh;
             }
 
@@ -986,10 +1093,13 @@
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">
-                <img src="images/logo2.png" alt="Logo de Planifesto" />
-            </div>
-            <h1 class="brand-name">Planifesto</h1>
+            <a href="/index.html"
+                style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
+                <div class="logo">
+                    <img src="images/logo2.png" alt="Logo de Planifesto" />
+                </div>
+                <h1 class="brand-name">Planifesto</h1>
+            </a>
         </div>
     </header>
 
@@ -1033,7 +1143,7 @@
             <p><strong>En 21 días vas a lograr:</strong></p>
             <ul>
                 <li>Identificar en qué <em>se te está yendo el dinero sin darte cuenta</em>.</li>
-                <li>Crear tu primer sistema de organización financiera (con plantillas prácticas, dinámicas y
+                <li>Crear tu primer sistema de organización financiera con plantillas prácticas, dinámicas y
                     funcionales (y muy lindas, como plus hihi)</li>
                 <li>Aprender a ahorrar <em>sin trauma</em> y a planear tus gastos sin frustrarte</li>
                 <li>Invertir y dar tus primeros pasos en el mundo de las inversiones, de una forma segura y regulada
@@ -1052,7 +1162,6 @@
                 <li>4 clases en vivo (1 por semana más 1 extra muy especial) con ejercicios aplicados en donde no solo
                     hablaremos el pi a pa del manejo y control del money y las inversiones, sino también de la
                     psicología del dinero y cómo preparar tu mente para que esté receptiva al cambio</li>
-                <li>🧠 Un lecture grupal con una experta en neuro*psicología * (pa' trabajar la raíz del desorden)</li>
                 <li>Acompañamiento directo de Liss y María en grupo VIP de WhatsApp, con la mejor comunidad del mundo:
                     llena de personas que comparten tus mismos objetivos!</li>
                 <li>👯‍♀️ Comunidad 10/10: divertida, honesta, con las mismas ganas que tú de poner sus finanzas en
@@ -1073,8 +1182,8 @@
         <div class="content-section">
             <h2>🕒 ¿Cuándo empieza?</h2>
             <ul>
-                <li>📅 Fecha de inicio: <strong>Viernes 8 de agosto</strong></li>
-                <li>📅 Fecha de término: <strong>28 de agosto</strong></li>
+                <li>📅 Fecha de inicio: <strong>Viernes 8 de Agosto</strong></li>
+                <li>📅 Fecha de término: <strong>Viernes 29 de Agosto</strong></li>
                 <li>📲 Todo el contenido e información te llegará por WhatsApp, así que puedes hacerlo desde cualquier
                     lugar y las clases serán grabadas (tendrás acceso a ellas durante 1 año).</li>
             </ul>
@@ -1117,6 +1226,13 @@
             <a href="https://www.paypal.com/ncp/payment/9WL5T89WZVPCG" class="cta-button">¡INSCRÍBETE AHORA!</a>
             <button class="cta-button terms-button" onclick="openModal()">Términos y Condiciones</button>
         </div>
+
+        <!-- Nueva sección de pago por transferencia -->
+        <div class="payment-info">
+            <h3>🇩🇴 ¿Eres de República Dominicana?</h3>
+            <p>Puedes pagar por transferencia bancaria escribiendo al correo:</p>
+            <p><a href="mailto:planifestord@gmail.com" class="email-link">planifestord@gmail.com</a></p>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -1145,60 +1261,94 @@
     <div id="termsModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Términos y Condiciones</h2>
-            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;"><strong>¡Gracias por
-                    elegirnos!</strong> 💖 Estamos muy emocionados de que hayas decidido dar este paso hacia una mejor
-                organización financiera con nuestra plantilla. Queremos que te sientas completamente cómoda y
-                respaldada, así que por favor, tómate un momento para leer nuestros términos y condiciones.</p>
+            <h2>Términos y Condiciones de Planifesto</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;"><strong>¡Gracias por elegirnos y ser
+                    parte de nuestra comunidad!</strong> 💛 Estamos súper emocionados de acompañarte en este camino
+                hacia una mejor organización financiera. Antes de comenzar, te pedimos que leas detenidamente estos
+                términos y condiciones para asegurarte de que todo está claro.</p>
 
-            <p><strong>1. Producto Digital</strong></p>
-            <p>La plantilla que has adquirido es un <strong>producto digital</strong>, lo que significa que una vez
-                descargada, no podemos ofrecer devoluciones ni reembolsos. Esta política se debe a la naturaleza del
-                producto digital, que es instantáneamente accesible después de la compra. <strong>Por favor, asegúrate
-                    de revisar todos los detalles antes de completar tu compra.</strong></p>
+            <p><strong>1. Producto Digital y Talleres</strong></p>
+            <p>La plantilla y los talleres ofrecidos por Planifesto son productos digitales. Al ser archivos o
+                experiencias descargables o virtuales, no podemos ofrecer devoluciones ni reembolsos. Esto se debe a la
+                naturaleza instantánea y no recuperable de estos productos.</p>
 
             <p><strong>2. Política de Devoluciones</strong></p>
-            <p>Queremos que estés completamente satisfecha con tu compra. Debido a que la plantilla es un archivo
-                digital descargable, <strong>no podemos aceptar devoluciones</strong> una vez que se haya descargado.
-                Sin embargo, si tienes algún inconveniente o necesitas ayuda con el uso de la plantilla, <strong>no
-                    dudes en contactarnos</strong>. Estamos más que dispuestos a ofrecerte todo el apoyo que necesites
-                con mucha paciencia y cariño ¡Tu satisfacción es nuestra prioridad! 💌</p>
+            <p>Por respeto a la naturaleza digital de nuestros productos, no aceptamos devoluciones ni reembolsos, ni
+                total ni parcial, una vez que la plantilla haya sido descargada o el acceso al taller haya sido
+                otorgado. Sin embargo, si tienes algún inconveniente con el uso de la plantilla o si encuentras
+                dificultades en la asistencia al taller, ¡estamos aquí para ayudarte! No dudes en contactarnos; nuestro
+                equipo se compromete a ofrecerte la mejor atención.</p>
 
-            <p><strong>3. Asistencia al Cliente</strong></p>
-            <p>Tu experiencia es superimportante para nosotros, por lo que si tienes alguna pregunta, duda o necesitas
-                asistencia con la plantilla, ¡estamos aquí para ti! Puedes enviarnos un mensaje directo o escribirnos
-                por correo electrónico, y nos encargaremos de ayudarte lo antes posible. <strong>Nuestro compromiso es
-                    hacer que tu experiencia con Planifesto sea increíble.</strong></p>
+            <p><strong>3. Acceso a Talleres</strong></p>
+            <p>Los talleres de Planifesto están diseñados para brindarte el conocimiento que necesitas en finanzas
+                personales, ahorros, inversiones y más. Debido a la naturaleza digital y en vivo de los talleres, una
+                vez realizado el pago y adquirido el acceso, este es no reembolsable. Los materiales o grabaciones del
+                taller serán proporcionados bajo las condiciones descritas y no podrán ser redistribuidos sin
+                autorización expresa de Planifesto.</p>
 
-            <p><strong>4. Pago y Acceso</strong></p>
-            <p>El pago se realiza de manera rápida y segura a través de <strong>PayPal</strong>, y tan pronto como tu
-                pago se complete, serás redirigida automáticamente para descargar la plantilla. Si prefieres pagar
-                mediante <strong>transferencia bancaria</strong>, ¡no hay problema! Una vez verificada la compra,
-                enviaremos tu plantilla en un plazo de <strong>hasta 8 horas</strong>. Aunque normalmente lo hacemos
-                casi de inmediato, a veces puede tomar un poquito más de tiempo, ¡pero siempre te aseguramos que te
-                llegará lo antes posible! 💖</p>
-            <p>Si por alguna razón experimentas algún problema al comprar o descargar, por favor avísanos. ¡Nos
-                aseguraremos de resolverlo en un abrir y cerrar de ojos!</p>
+            <p><strong>4. Pago y Acceso Inmediato</strong></p>
+            <p>El pago de nuestros productos y talleres se realiza de manera rápida y segura a través de
+                <strong>PayPal</strong>. Una vez que tu pago se haya procesado, recibirás un enlace para descargar la
+                plantilla o acceso a la plataforma de los talleres. Si prefieres realizar el pago por
+                <strong>transferencia bancaria</strong>, no hay problema, una vez verificada la compra, se enviará la
+                plantilla o el acceso en un plazo máximo de <strong>8 horas</strong>. Sin embargo, en ocasiones, esto
+                podría demorar un poco más.
+            </p>
+            <p>Si experimentas cualquier problema en el proceso de compra o acceso, ¡avísanos y resolveremos la
+                situación lo más rápido posible!</p>
 
-            <p><strong>5. Uso de la Plantilla</strong></p>
-            <p>Nuestra plantilla es de <strong>uso personal</strong> y tiene derechos de autor. No está permitida su
-                redistribución, modificación ni venta sin el consentimiento expreso de Planifesto. Queremos que
-                disfrutes de la plantilla y te ayude a alcanzar tus metas financieras, ¡pero también cuidamos el trabajo
-                que hemos creado con mucho amor!</p>
+            <p><strong>5. Uso de la Plantilla y Contenido del Taller</strong></p>
+            <p>La plantilla y los materiales del taller son para <strong>uso personal únicamente</strong> y están
+                protegidos por derechos de autor. No está permitido compartir, distribuir, modificar, ni revender la
+                plantilla ni los materiales sin el consentimiento explícito de Planifesto. Nos enorgullece compartir
+                nuestro trabajo contigo, y te pedimos que respetes los derechos sobre los mismos.</p>
 
-            <p><strong>6. Modificaciones de los Términos y Condiciones</strong></p>
-            <p>Si en algún momento hacemos cambios a nuestros términos y condiciones, los comunicaremos de inmediato a
-                través de nuestras plataformas. <strong>Tu confianza y satisfacción son lo más importante para
-                    nosotros</strong>, y siempre buscamos mejorar para ofrecerte lo mejor.</p>
+            <p><strong>6. Cancelación de Talleres</strong></p>
+            <p>Planifesto se reserva el derecho de cancelar, modificar o reprogramar cualquier taller en caso de que sea
+                necesario, por razones imprevistas. En tales casos, ofreceremos a los participantes la opción de un
+                reembolso total o un acceso alternativo. Sin embargo, esta política solo aplicaría en casos
+                excepcionales que impliquen una cancelación total del taller, no en cambios menores como ajustes en la
+                agenda o fechas.</p>
+
+            <p><strong>7. Exención de Responsabilidad</strong></p>
+            <p>Todos los materiales, talleres y plantillas proporcionados por Planifesto se brindan "tal cual", y no
+                ofrecemos garantías sobre su efectividad en resultados específicos. Las recomendaciones y sugerencias de
+                Planifesto no deben interpretarse como asesoría financiera profesional ni como una garantía de
+                resultados. Cada usuario es responsable de tomar sus propias decisiones basadas en su situación
+                personal.</p>
+
+            <p><strong>8. Modificaciones de los Términos y Condiciones</strong></p>
+            <p>En Planifesto, nos comprometemos a brindarte siempre la mejor experiencia. Por esta razón, podemos
+                actualizar nuestros términos y condiciones en cualquier momento. Te recomendamos que revises esta página
+                regularmente para estar al tanto de cualquier cambio. Cualquier modificación será publicada
+                inmediatamente en nuestras plataformas.</p>
+
+            <p><strong>9. Protección de Datos Personales</strong></p>
+            <p>Planifesto respeta la privacidad de sus usuarios. Todos los datos proporcionados para la compra de
+                plantillas y el registro en talleres serán tratados con confidencialidad y de acuerdo con nuestras
+                políticas de privacidad. No compartimos tus datos con terceros sin tu consentimiento.</p>
+
+            <p><strong>10. Aceptación de los Términos</strong></p>
+            <p>Al realizar una compra de nuestros productos digitales (plantillas o talleres) y acceder a ellos, aceptas
+                estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguna de las condiciones aquí
+                descritas, te pedimos que no completes tu compra. Si tienes alguna duda o necesitas más información, no
+                dudes en contactarnos.</p>
 
             <p style="background-color: #f7a9a8; color: white; padding: 20px; border-radius: 10px; margin: 20px 0;">Al
                 completar tu compra, confirmas que aceptas estos términos y condiciones. Pero si tienes alguna duda o
                 necesitas ayuda antes de comprar, <strong>no dudes en contactarnos</strong>. ¡Nos encanta escuchar de
                 ti! 🫶</p>
 
-            <p style="text-align: center; font-size: 1.1em; margin-top: 30px;"><strong>Gracias por ser parte de la
-                    familia Planifesto.</strong> 💛 <strong>¡Estamos emocionados de acompañarte en este viaje hacia tus
-                    metas financieras!</strong></p>
+            <p style="text-align: center; font-size: 1.1em; margin-top: 30px;"><strong>¡Gracias por confiar en
+                    Planifesto! Estamos aquí para acompañarte en cada paso de tu camino hacia una mejor gestión de tus
+                    finanzas.</strong> 💖</p>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="cta-button" onclick="closeModal()"
+                    style="max-width: 200px; padding: 15px 25px; font-size: 1em;">
+                    Cerrar
+                </button>
+            </div>
         </div>
     </div>
 
