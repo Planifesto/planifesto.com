@@ -1495,6 +1495,51 @@
   <section class="products-section" id="productos">
     <h2 class="section-title">Nuestros Productos</h2>
     <div class="products-grid">
+      <!-- Plantilla PRO -->
+      <div class="product-card" data-product="plantillaPro">
+        <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
+        <div class="product-content">
+          <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
+          <div class="product-price">
+            <span class="price-original">$25.00 USD</span>
+            <span class="price-current">$19.99 USD</span>
+          </div>
+          <ul class="product-features">
+            <li>⭐ Presupuesto mensual inteligente</li>
+            <li>⭐ Planificador de deudas automático</li>
+            <li>⭐ Sistema de metas de ahorro</li>
+            <li>⭐ Dashboard visual completo</li>
+          </ul>
+          <div class="product-buttons">
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaPro')">Ver detalles</button>
+            <button class="btn btn-secondary" onclick="toggleNeutral('pro')">Versión Neutral</button>
+          </div>
+        </div>
+      </div>
+      <!-- Combo Planifesto -->
+      <div class="product-card" data-product="comboPlanifesto">
+        <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
+        <div class="product-content">
+          <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
+          <div class="product-price">
+            <span class="price-original">$33.00 USD</span>
+            <span class="price-current">$25.00 USD</span>
+          </div>
+          <ul class="product-features">
+            <li>⭐ Guía de Inversiones 101</li>
+            <li>⭐ Sistema de metas de ahorro</li>
+            <li>⭐ Plantilla de presupuesto mensual</li>
+            <li>⭐ Planificador de pago de deudas</li>
+          </ul>
+          <div class="product-buttons">
+            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
+              detalles</button>
+            <button class="btn btn-secondary"
+              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar
+              ahora</button>
+          </div>
+        </div>
+      </div>
       <!-- Plantilla Parejas -->
       <div class="product-card" data-product="plantillaParejas">
         <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
@@ -1519,51 +1564,9 @@
         </div>
       </div>
 
-      <!-- Combo Planifesto -->
-      <div class="product-card" data-product="comboPlanifesto">
-        <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
-          <div class="product-price">
-            <span class="price-original">$33.00 USD</span>
-            <span class="price-current">$25.00 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Guía de Inversiones 101</li>
-            <li>⭐ Sistema de metas de ahorro</li>
-            <li>⭐ Plantilla de presupuesto mensual</li>
-            <li>⭐ Planificador de pago de deudas</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
-              detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar ahora</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Plantilla PRO -->
-      <div class="product-card" data-product="plantillaPro">
-        <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
-        <div class="product-content">
-          <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
-          <div class="product-price">
-            <span class="price-original">$25.00 USD</span>
-            <span class="price-current">$19.99 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Presupuesto mensual inteligente</li>
-            <li>⭐ Planificador de deudas automático</li>
-            <li>⭐ Sistema de metas de ahorro</li>
-            <li>⭐ Dashboard visual completo</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaPro')">Ver detalles</button>
-            <button class="btn btn-secondary" onclick="toggleNeutral('pro')">Versión Neutral</button>
-          </div>
-        </div>
-      </div>
+
+
 
       <!-- Plantilla Básica -->
       <div class="product-card" data-product="plantillaBasica">
