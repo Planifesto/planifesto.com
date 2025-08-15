@@ -1445,6 +1445,89 @@
       }
     }
   </style>
+
+  <!-- Mobile animation optimizations injected -->
+  <style>
+    @keyframes fadeInUpMobile {
+      from {
+        transform: translate3d(0, 32px, 0);
+        opacity: 0;
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .product-card {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Mobile-friendly animations */
+    @media (max-width: 768px) {
+      .product-card {
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        will-change: transform, opacity;
+        transform: translate3d(0, 32px, 0);
+        opacity: 0;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .10);
+      }
+
+      .product-card.animate {
+        animation-name: fadeInUpMobile !important;
+        animation-duration: .45s !important;
+        animation-timing-function: cubic-bezier(.22, .61, .36, 1) !important;
+        animation-fill-mode: both !important;
+      }
+
+      .product-card.animate:nth-child(1) {
+        animation-delay: 0s !important;
+      }
+
+      .product-card.animate:nth-child(2) {
+        animation-delay: .08s !important;
+      }
+
+      .product-card.animate:nth-child(3) {
+        animation-delay: .16s !important;
+      }
+
+      .product-card.animate:nth-child(4) {
+        animation-delay: .24s !important;
+      }
+
+      .product-card.animate:nth-child(5) {
+        animation-delay: .32s !important;
+      }
+
+      .product-card.animate:nth-child(6) {
+        animation-delay: .40s !important;
+      }
+
+      .product-card:hover {
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .12);
+        transform: translate3d(0, -4px, 0);
+      }
+    }
+
+    /* Performance on long lists */
+    .products-grid,
+    .products-list,
+    [data-products],
+    .product-grid,
+    .lista-productos {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 800px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -2302,6 +2385,64 @@
       }
     }
   </script>
+
+  <!-- Mobile animation JS injected -->
+  <script>
+      (function () {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const unifiedSelector = '.product-card, .product, .product-item, .card, [data-product], .producto, .producto-item, .productCard';
+
+        const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -10% 0px' };
+
+        function setupProductAnimations() {
+          // Normalize: add .product-card to common product elements
+          document.querySelectorAll(unifiedSelector).forEach(el => {
+            if (!el.classList.contains('product-card')) {
+              el.classList.add('product-card');
+            }
+          });
+
+          const cards = document.querySelectorAll('.product-card');
+          if (!cards.length) return;
+
+          if (reduceMotion) {
+            cards.forEach(c => { c.style.opacity = 1; c.style.transform = 'none'; });
+            return;
+          }
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              const el = entry.target;
+              if (entry.isIntersecting && !el.classList.contains('animate') && !el.classList.contains('no-scroll-animate') && !el.hasAttribute('data-quiz-processed')) {
+                el.style.willChange = 'transform, opacity';
+                el.classList.add('animate');
+                observer.unobserve(el);
+                el.addEventListener('animationend', () => {
+                  el.style.willChange = '';
+                  el.style.transform = 'none';
+                  el.style.opacity = '1';
+                }, { once: true });
+              }
+            });
+          }, observerOptions);
+
+          // Observe in batches to reduce main-thread spikes on mobile
+          const batchSize = 6;
+          const delayPerItem = 50; // ms
+          cards.forEach((card, i) => {
+            setTimeout(() => observer.observe(card), (i % batchSize) * delayPerItem);
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupProductAnimations);
+        } else {
+          setupProductAnimations();
+        }
+      })();
+  </script>
+
 </body>
 
 </html>
