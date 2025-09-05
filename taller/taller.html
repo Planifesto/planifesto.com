@@ -4,8 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planifesto - 21 Días para Dejar de Ser un Caos Financiero</title>
+    <title>Planifesto - 15 Días para Dejar de Ser un Caos Financiero</title>
     <style>
+        html,
+        body {
+            touch-action: manipulation;
+            /* evita double tap zoom */
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -1145,7 +1151,346 @@
             outline: 2px solid #f7a9a8;
             outline-offset: 2px;
         }
+
+        /* Styling opiniones*/
+        .opinions-carousel-section * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .opinions-carousel-section {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            width: 100%;
+            max-width: 800px;
+            /* Aumentado de 500px a 800px */
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .opinions-carousel-section h2 {
+            text-align: center;
+            color: #000;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .opinions-carousel-container {
+            position: relative;
+            width: 100%;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            /* Cambiado de 1 (cuadrado) a 16/9 (rectangular ancho) */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Alternativa: si prefieres un carrusel más cuadrado pero más grande */
+        /* Comenta la línea de arriba y descomenta esta: */
+        /* aspect-ratio: 4/3; */
+
+        .opinions-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .opinions-carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .opinions-carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+        }
+
+        .opinions-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Cambiado de 'cover' a 'contain' para mostrar la imagen completa */
+            background: #fff;
+            /* Fondo negro para las barras laterales si la imagen no llena todo */
+        }
+
+        /* Si prefieres que las imágenes llenen todo el espacio (puede recortar partes): */
+        /* .opinions-carousel-slide img {
+    object-fit: cover;
+} */
+
+        /* Botones de navegación */
+        .opinions-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            /* Aumentado ligeramente */
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .opinions-nav-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .opinions-nav-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .opinions-nav-btn.op-prev {
+            left: 15px;
+        }
+
+        .opinions-nav-btn.op-next {
+            right: 15px;
+        }
+
+        .opinions-nav-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: #333;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        /* Indicadores */
+        .opinions-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .opinions-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .opinions-indicator.op-active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Contador estilo Instagram */
+        .opinions-image-counter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Barra de progreso para auto-scroll */
+        .opinions-progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 11;
+        }
+
+        .opinions-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0;
+        }
+
+        @keyframes opinionsFillProgress {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Animación de entrada */
+        @keyframes opinionsSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .opinions-carousel-slide.op-slide-active {
+            animation: opinionsSlideIn 0.5s ease;
+        }
+
+        /* Responsive para tablets */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .opinions-carousel-section {
+                max-width: 700px;
+            }
+
+            .opinions-carousel-container {
+                aspect-ratio: 16/10;
+                /* Un poco más alto en tablets */
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 640px) {
+            .opinions-carousel-section {
+                padding: 20px 15px;
+                max-width: 100%;
+                /* Ancho completo en móvil */
+            }
+
+            .opinions-carousel-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .opinions-carousel-container {
+                aspect-ratio: 4/3;
+                /* Más cuadrado en móvil para mejor visualización */
+                border-radius: 10px;
+            }
+
+            .opinions-nav-btn {
+                width: 35px;
+                height: 35px;
+
+            }
+
+            .opinions-nav-btn.op-prev {
+                left: 10px;
+
+            }
+
+            .opinions-nav-btn.op-next {
+                right: 10px;
+
+            }
+
+            .opinions-nav-btn svg {
+                width: 18px;
+                height: 18px;
+
+            }
+
+            .opinions-image-counter {
+                font-size: 12px;
+                padding: 5px 12px;
+            }
+        }
+
+        /* Para pantallas muy grandes */
+        @media (min-width: 1200px) {
+            .opinions-carousel-section {
+                max-width: 900px;
+                /* Aún más grande en pantallas grandes */
+            }
+
+            .opinions-nav-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .opinions-nav-btn svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        /* ==== GUTTERS LATERALES PARA QUE LOS BOTONES NO TAPEN LA IMAGEN ==== */
+        .opinions-carousel-container {
+            /* crea un espacio lateral donde vivirán los botones */
+            --op-gutter: 56px;
+            /* escritorio */
+            padding: 0 var(--op-gutter);
+        }
+
+        /* el wrapper debe seguir ocupando todo el alto disponible */
+        .opinions-carousel-wrapper {
+            height: 100%;
+        }
+
+        /* coloca los botones dentro del gutter, no encima de la imagen */
+        .opinions-nav-btn.op-prev {
+            left: 12px;
+            /* dentro del gutter izquierdo */
+        }
+
+        .opinions-nav-btn.op-next {
+            right: 12px;
+            /* dentro del gutter derecho */
+        }
+
+        /* Ajustes responsivos: reduce el gutter en pantallas pequeñas */
+        @media (max-width: 640px) {
+            .opinions-carousel-container {
+                --op-gutter: 38px;
+                /* móvil */
+                padding: 0 var(--op-gutter);
+            }
+
+            .opinions-nav-btn.op-prev {
+                left: 8px;
+            }
+
+            .opinions-nav-btn.op-next {
+                right: 8px;
+            }
+        }
+
+        /* En pantallas muy grandes, un poco más de gutter opcional */
+        @media (min-width: 1200px) {
+            .opinions-carousel-container {
+                --op-gutter: 64px;
+                /* desktop grande */
+                padding: 0 var(--op-gutter);
+            }
+        }
     </style>
+    </style>
+
 </head>
 
 <body>
@@ -1166,10 +1511,11 @@
         <div class="hero-section">
             <div class="hero-background"></div>
             <div class="hero-content content-section">
-                <h1>💥 21 DÍAS PARA DEJAR DE SER UN CAOS FINANCIERO</h1>
+                <h1>💥 15 DÍAS PARA DEJAR DE SER UN CAOS FINANCIERO</h1>
                 <p class="subtitle">— sin dejar de darte gustos, ni volverte contable —</p>
                 <div class="highlight">
-                    <p>✨ Un taller creativo, práctico y aplatanao para aprender a manejar tu dinero con conciencia y sin
+                    <p>✨ Un taller creativo, práctico y aplatana'o para aprender a manejar tu dinero con conciencia y
+                        sin
                         culpa y a recuperar el control sobre tu dinero</p>
                 </div>
 
@@ -1184,12 +1530,10 @@
             <h2>✅ ¿Pa' quién e' je'to?</h2>
             <p><strong>Este taller es para ti si...</strong></p>
             <ul>
-                <li>💸 Ganas bien, pero no sabes pa' dónde se van lo' chelitos.</li>
+                <li>💸 Ganas bien, pero no sabes pa’ dónde se van lo’ chelitos y sientes que necesitas organizarte</li>
                 <li>😵‍💫 Te da ansiedad cada vez que gastas... pero tampoco quieres vivir contando cada peso.</li>
                 <li>💡 Quieres aprender a sacarle mayor provecho a tus ahorros y preparar tu zapata para el/la futura tú
                     que será rico/a (amén)</li>
-                <li>🤑 Sueñas con invertir, pero cada vez que oyes "bono", "índice" o "perfil de riesgo" te da un micro
-                    infarto (graciasss)</li>
                 <li>👀 Quieres una guía que hable CLARO, sin juicio, sin tecnicismos, y que te diga paso por paso qué
                     hacer.</li>
                 <li>✨ Estás lista para cambiar tu relación con el dinero, rainao.</li>
@@ -1215,16 +1559,21 @@
         <div class="content-section">
             <h2>📦 ¿Qué incluye?</h2>
             <ul>
-                <li>🎯 21 días de contenido práctico y digerible: PDFs ✍🏽 | audios 🎧 | mini videos 🎥 | retos diarios
+                <li>🎯 14 días de contenido práctico y digerible: PDFs ✍🏽 | audios 🎧 | mini videos 🎥 | retos diarios
                     🧩 | dinámicas 🕺🏽</li>
-                <li>4 clases en vivo (1 por semana más 1 extra muy especial) con ejercicios aplicados en donde no solo
-                    hablaremos el pi a pa del manejo y control del money y las inversiones, sino también de la
-                    psicología del dinero y cómo preparar tu mente para que esté receptiva al cambio</li>
+                <li>3 clases en vivo (1 cada viernes a las 7:00pm) con ejercicios aplicados</li>
                 <li>Acompañamiento directo de Liss y María en grupo VIP de WhatsApp, con la mejor comunidad del mundo:
                     llena de personas que comparten tus mismos objetivos!</li>
                 <li>👯‍♀️ Comunidad 10/10: divertida, honesta, con las mismas ganas que tú de poner sus finanzas en
                     orden.</li>
             </ul>
+            <p>Y como dijo nuestra querida Ishu de la primera edición del taller: “No saben lo lindo que se siente esta
+                comunidad.
+                Todos preparándonos para alcanzar nuestras metas. No me canso de decir que este taller tiene muchísimo
+                valor. Te lleva
+                de cero a experto”</p>
+            <p>O como dijo nuestra querida Aure: “Gracias a la tribu Planifesto” hehehe</p>
+
         </div>
 
         <div class="content-section">
@@ -1232,53 +1581,115 @@
             <ul>
                 <li>Plantilla <strong>Planifesto Pro</strong> (valorada en $25 USD)</li>
                 <li>Guía de Inversiones 2.0 (valorada en $11.99 USD)</li>
-                <li>Planificador de actividades personalizado</li>
                 <li>Acceso a todos los materiales por 1 año</li>
             </ul>
+        </div>
+        <div class="content-section">
+            <div class="opinions-carousel-section">
+                <h2>✨LO QUE OPINAN NUESTRAS ALUMNAS :3✨</h2>
+
+                <div class="opinions-carousel-container">
+                    <div class="opinions-progress-bar">
+                        <div class="opinions-progress-fill" id="opinionsProgressFill"></div>
+                    </div>
+
+                    <div class="opinions-image-counter">
+                        <span id="opinionsCurrentSlide">1</span> / <span id="opinionsTotalSlides">8</span>
+                    </div>
+
+                    <div class="opinions-carousel-wrapper">
+                        <div class="opinions-carousel-track" id="opinionsCarouselTrack">
+                            <div class="opinions-carousel-slide op-slide-active">
+                                <img src="images/feedback 1.jpeg" alt="Opinión 1">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 2.jpeg" alt="Opinión 2">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 3.jpeg" alt="Opinión 3">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 4.jpeg" alt="Opinión 4">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 5.jpeg" alt="Opinión 5">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 6.jpeg" alt="Opinión 6">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 7.jpeg" alt="Opinión 7">
+                            </div>
+                            <div class="opinions-carousel-slide">
+                                <img src="images/feedback 8.jpeg" alt="Opinión 8">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="opinions-nav-btn op-prev" id="opinionsPrevBtn">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <button class="opinions-nav-btn op-next" id="opinionsNextBtn">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="opinions-indicators" id="opinionsIndicators"></div>
+                </div>
+            </div>
         </div>
 
         <div class="content-section">
             <h2>🕒 ¿Cuándo empieza?</h2>
             <ul>
-                <li>📅 Fecha de inicio: <strong>Viernes 8 de Agosto</strong></li>
-                <li>📅 Fecha de término: <strong>Viernes 29 de Agosto</strong></li>
-                <li>📲 Todo el contenido e información te llegará por WhatsApp, así que puedes hacerlo desde cualquier
+                <li>📅 Fecha de inicio: <strong>Viernes 26 de septiembre</strong></li>
+                <li>📅 Fecha de término: <strong>Viernes 10 de octubre</strong></li>
+                <li>📲 Todo el contenido e información te llegará por WhatsApp, así que puedes hacerlo desde
+                    cualquier
                     lugar y las clases serán grabadas (tendrás acceso a ellas durante 1 año).</li>
             </ul>
 
             <div class="highlight" style="margin-top: 30px;">
                 <h3>🚪 Cupo limitado</h3>
                 <p>Los cupos son MUY limitados porque queremos ofrecer la mayor atención posible y esto solo podemos
-                    hacerlo con un grupo controlado, así que una vez se llene el grupo, cerramos inscripciones, sin
-                    excepciones :</p>
+                    hacerlo con un grupo
+                    controlado, así que una vez se llene el grupo, cerramos inscripciones.</p>
             </div>
         </div>
 
         <div class="content-section">
+            <h2>💸 Inversión</h2>
+            <div class="price-section">
+                <p class="original-price">$97 USD</p>
+                <p class="discount-price">$74.99<br> (Early Bird)</p>
 
-            <div class="price-section" style="background: linear-gradient(135deg, #95a5a6, #7f8c8d);">
-                <p style="font-size: 1.5em; margin-bottom: 15px;">🎉 ¡CUPOS COMPLETOS!</p>
-                <p style="font-size: 1.2em; margin-bottom: 10px;">Gracias por el increíble interés en nuestro taller</p>
-                <p style="font-size: 1.1em; opacity: 0.9;">✨ Próximo taller: (Coming Soon) ✨</p>
-                <p style="font-size: 1em; margin-top: 15px; opacity: 0.8;">Suscríbete a nuestras redes para ser la
-                    primera en enterarte</p>
+                <p style="margin-top:8px; opacity:0.9;">Early bird con <strong>22% de descuento</strong> por las
+                    primeras 24
+                    horas.</p>
             </div>
-
-            <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin: 30px 0;">¿Tú sabes lo que tú
-                puedes hacer con 21 días y una guía clara? Cambiar tu historia financiera pa' siempre💥</p>
-
-            <p style="text-align: center; font-size: 1.1em;">Nos vemos en el próximo – <em>Liss & María</em> 💛</p>
+            <div class="highlight" style="margin-top: 30px;">
+                <p>La idea de este taller surgió por la necesidad de una guía clara, práctica y sencilla de la
+                    comunidad
+                    tan
+                    chula que hemos construido en el último año. Sé lo confuso y solitario que puede ser “aprender
+                    de
+                    dinero”
+                    sin guía ni apoyo, y por eso quisimos hacerlo accesible, pero valioso a otro nivel</p>
+            </div>
+            <p style="text-align: center; font-size: 1.2em; font-weight: bold; margin: 20px 0;">¿Tú sabes lo que tú
+                puedes hacer
+                con 15 días y una guía clara? Cambiar tu historia financiera pa' siempre💥</p>
+            <p style="text-align: center; font-size: 1.1em;">Nos vemos adentro – <em>Liss & María</em> 💛</p>
         </div>
 
         <div style="text-align: center; margin: 40px 0;" id="inscription-section">
-            <div
-                style="background: linear-gradient(135deg, #bdc3c7, #95a5a6); color: white; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 500px;">
-                <p style="font-size: 1.3em; margin-bottom: 10px; font-weight: bold;">¿Quieres ser la primera en
-                    enterarte del próximo taller?</p>
-                <p style="font-size: 1.1em; margin-bottom: 15px;">Síguenos en nuestras redes sociales para no perderte
-                    ninguna novedad</p>
-                <p style="font-size: 1em; opacity: 0.9;">👇 Encuentra los enlaces al final de la página</p>
-            </div>
+            <a href="https://www.paypal.com/ncp/payment/SGDCUUSWBJNZJ" target="_blank" class="cta-button">¡Inscribirme
+                ahora!</a>
+            <button class="cta-button" onclick="openModal()">Ver Términos y Condiciones</button>
         </div>
 
         <!-- Nueva sección de pago por transferencia -->
@@ -1287,7 +1698,7 @@
             <p>Puedes pagar por transferencia bancaria escribiendo al correo:</p>
             <p><a href="mailto:planifestord@gmail.com" class="email-link">planifestord@gmail.com</a></p>
             <p style="margin-top: 20px; margin-bottom: 10px;">O contáctanos directamente por WhatsApp:</p>
-            <p><a href="https://wa.me/18299441515?text=Hola,%20estoy%20interesada%20en%20el%20taller%20de%2021%20d%C3%ADas%20y%20quiero%20pagar%20por%20transferencia%20bancaria.%20%C2%BFMe%20pueden%20ayudar?"
+            <p><a href="https://wa.me/18299441515?text=Hola,%20estoy%20interesada%20en%20el%20taller%20de%2015%20d%C3%ADas%20y%20quiero%20pagar%20por%20transferencia%20bancaria.%20%C2%BFMe%20pueden%20ayudar?"
                     target="_blank" class="email-link"
                     style="background: #25D366; color: #ffffff; text-decoration: none;">
                     📱 Escribir por WhatsApp
@@ -1632,6 +2043,216 @@
                 });
             });
         }
+    </script>
+    <!-- REEMPLAZA el script existente del carrusel con este código -->
+    <!-- Coloca este script JUSTO ANTES de </body> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Encapsulamos todo el código del carrusel
+            (function () {
+                // Variables locales del carrusel
+                let currentIndex = 0;
+                const slides = document.querySelectorAll('.opinions-carousel-slide');
+                const totalSlides = slides.length;
+                const track = document.getElementById('opinionsCarouselTrack');
+                const currentSlideEl = document.getElementById('opinionsCurrentSlide');
+                const totalSlidesEl = document.getElementById('opinionsTotalSlides');
+                const indicatorsContainer = document.getElementById('opinionsIndicators');
+                const progressFill = document.getElementById('opinionsProgressFill');
+                const prevBtn = document.getElementById('opinionsPrevBtn');
+                const nextBtn = document.getElementById('opinionsNextBtn');
+                const carousel = document.querySelector('.opinions-carousel-wrapper');
+
+                // Verificar que todos los elementos existan
+                if (!track || !currentSlideEl || !totalSlidesEl || !indicatorsContainer ||
+                    !progressFill || !prevBtn || !nextBtn || !carousel || totalSlides === 0) {
+                    console.error('Error: No se encontraron todos los elementos del carrusel');
+                    return;
+                }
+
+                // Configuración de tiempos
+                const AUTO_SCROLL_DELAY = 10000; // 10 segundos para cambiar
+                const INACTIVITY_DELAY = 1000;  // 1 segundo de espera antes de auto-scroll
+
+                let autoScrollInterval = null;
+                let inactivityTimer = null;
+
+                // Inicializar contador total
+                totalSlidesEl.textContent = totalSlides;
+
+                // Crear indicadores
+                function createIndicators() {
+                    // Limpiar indicadores existentes
+                    indicatorsContainer.innerHTML = '';
+
+                    for (let i = 0; i < totalSlides; i++) {
+                        const indicator = document.createElement('button');
+                        indicator.className = 'opinions-indicator';
+                        indicator.setAttribute('aria-label', `Ir a imagen ${i + 1}`);
+                        if (i === 0) indicator.classList.add('op-active');
+
+                        // Usar closure para capturar el índice correcto
+                        (function (index) {
+                            indicator.addEventListener('click', function () {
+                                goToSlide(index);
+                            });
+                        })(i);
+
+                        indicatorsContainer.appendChild(indicator);
+                    }
+                }
+
+                // Actualizar indicadores
+                function updateIndicators() {
+                    const indicators = document.querySelectorAll('.opinions-indicator');
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('op-active');
+                        } else {
+                            indicator.classList.remove('op-active');
+                        }
+                    });
+                }
+
+                // Ir a una diapositiva específica
+                function goToSlide(index) {
+                    currentIndex = index;
+                    updateSlider();
+                    resetAutoScroll();
+                }
+
+                // Actualizar el slider
+                function updateSlider() {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    currentSlideEl.textContent = currentIndex + 1;
+                    updateIndicators();
+
+                    // Actualizar clase active para animación
+                    slides.forEach((slide, index) => {
+                        if (index === currentIndex) {
+                            slide.classList.add('op-slide-active');
+                        } else {
+                            slide.classList.remove('op-slide-active');
+                        }
+                    });
+                }
+
+                // Siguiente diapositiva
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateSlider();
+                    resetAutoScroll();
+                }
+
+                // Diapositiva anterior
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                    resetAutoScroll();
+                }
+
+                // Iniciar auto-scroll
+                function startAutoScroll() {
+                    // Limpiar cualquier intervalo anterior
+                    stopAutoScroll();
+
+                    // Iniciar la animación de la barra
+                    progressFill.style.animation = 'none';
+                    void progressFill.offsetHeight; // Trigger reflow
+                    progressFill.style.animation = `opinionsFillProgress ${AUTO_SCROLL_DELAY}ms linear forwards`;
+
+                    // Configurar el cambio de slide
+                    autoScrollInterval = setTimeout(function () {
+                        nextSlide();
+                        startAutoScroll(); // Continuar el ciclo
+                    }, AUTO_SCROLL_DELAY);
+                }
+
+                // Detener auto-scroll
+                function stopAutoScroll() {
+                    if (autoScrollInterval) {
+                        clearTimeout(autoScrollInterval);
+                        autoScrollInterval = null;
+                    }
+                    if (inactivityTimer) {
+                        clearTimeout(inactivityTimer);
+                        inactivityTimer = null;
+                    }
+                    progressFill.style.animation = 'none';
+                    progressFill.style.width = '0%';
+                }
+
+                // Resetear auto-scroll después de interacción
+                function resetAutoScroll() {
+                    stopAutoScroll();
+
+                    // Esperar antes de iniciar auto-scroll
+                    inactivityTimer = setTimeout(function () {
+                        startAutoScroll();
+                    }, INACTIVITY_DELAY);
+                }
+
+                // Eventos táctiles para móvil
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                carousel.addEventListener('touchstart', function (e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                    resetAutoScroll();
+                }, { passive: true });
+
+                carousel.addEventListener('touchend', function (e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, { passive: true });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = touchStartX - touchEndX;
+
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            nextSlide();
+                        } else {
+                            prevSlide();
+                        }
+                    }
+                }
+
+                // Eventos de botones
+                prevBtn.addEventListener('click', prevSlide);
+                nextBtn.addEventListener('click', nextSlide);
+
+                // Eventos de teclado (solo cuando el carrusel tiene focus)
+                carousel.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlide();
+                        e.preventDefault();
+                    }
+                });
+
+                // Pausar en hover (para desktop)
+                carousel.addEventListener('mouseenter', function () {
+                    stopAutoScroll();
+                });
+
+                carousel.addEventListener('mouseleave', function () {
+                    resetAutoScroll();
+                });
+
+                // Inicializar el carrusel
+                createIndicators();
+                resetAutoScroll();
+
+                // Log de confirmación
+                console.log('Carrusel de opiniones inicializado correctamente');
+
+            })(); // Fin del IIFE
+        }); // Fin del DOMContentLoaded
     </script>
 </body>
 
