@@ -1445,89 +1445,6 @@
       }
     }
   </style>
-
-  <!-- Mobile animation optimizations injected -->
-  <style>
-    @keyframes fadeInUpMobile {
-      from {
-        transform: translate3d(0, 32px, 0);
-        opacity: 0;
-      }
-
-      to {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-      }
-    }
-
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .product-card {
-        animation: none !important;
-        transition: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
-
-    /* Mobile-friendly animations */
-    @media (max-width: 768px) {
-      .product-card {
-        transition: transform 0.2s ease, opacity 0.2s ease;
-        will-change: transform, opacity;
-        transform: translate3d(0, 32px, 0);
-        opacity: 0;
-        box-shadow: 0 8px 18px rgba(0, 0, 0, .10);
-      }
-
-      .product-card.animate {
-        animation-name: fadeInUpMobile !important;
-        animation-duration: .45s !important;
-        animation-timing-function: cubic-bezier(.22, .61, .36, 1) !important;
-        animation-fill-mode: both !important;
-      }
-
-      .product-card.animate:nth-child(1) {
-        animation-delay: 0s !important;
-      }
-
-      .product-card.animate:nth-child(2) {
-        animation-delay: .08s !important;
-      }
-
-      .product-card.animate:nth-child(3) {
-        animation-delay: .16s !important;
-      }
-
-      .product-card.animate:nth-child(4) {
-        animation-delay: .24s !important;
-      }
-
-      .product-card.animate:nth-child(5) {
-        animation-delay: .32s !important;
-      }
-
-      .product-card.animate:nth-child(6) {
-        animation-delay: .40s !important;
-      }
-
-      .product-card:hover {
-        box-shadow: 0 10px 22px rgba(0, 0, 0, .12);
-        transform: translate3d(0, -4px, 0);
-      }
-    }
-
-    /* Performance on long lists */
-    .products-grid,
-    .products-list,
-    [data-products],
-    .product-grid,
-    .lista-productos {
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 800px;
-    }
-  </style>
-
 </head>
 
 <body>
@@ -1540,6 +1457,7 @@
       </div>
       <nav class="nav">
         <a href="index.html" class="nav-link nav-link--active">Productos</a>
+        <a href="teen.html" class="nav-link">Planifesto Teen</a>
         <a href="contacto.html" class="nav-link">Contacto y FAQ</a>
         <a href="taller/taller.html" class="nav-link">Taller</a>
       </nav>
@@ -1551,7 +1469,7 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">Transforma tus Finanzas con <span class="brand-highlight">Planifesto</span></h1>
-        <p class="hero-subtitle">Herramientas diseñadas especialmente para quienes quieren tomar el control
+        <p class="hero-subtitle">Herramientas diseñadas especialmente para mujeres que quieren tomar el control
           de su dinero y construir el futuro financiero que merecen 💅✨</p>
         <button class="hero-cta" onclick="scrollToProducts()">Explorar Productos</button>
       </div>
@@ -1578,51 +1496,6 @@
   <section class="products-section" id="productos">
     <h2 class="section-title">Nuestros Productos</h2>
     <div class="products-grid">
-      <!-- Plantilla PRO -->
-      <div class="product-card" data-product="plantillaPro">
-        <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
-        <div class="product-content">
-          <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
-          <div class="product-price">
-            <span class="price-original">$25.00 USD</span>
-            <span class="price-current">$19.99 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Presupuesto mensual inteligente</li>
-            <li>⭐ Planificador de deudas automático</li>
-            <li>⭐ Sistema de metas de ahorro</li>
-            <li>⭐ Dashboard visual completo</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaPro')">Ver detalles</button>
-            <button class="btn btn-secondary" onclick="toggleNeutral('pro')">Versión Neutral</button>
-          </div>
-        </div>
-      </div>
-      <!-- Combo Planifesto -->
-      <div class="product-card" data-product="comboPlanifesto">
-        <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
-          <div class="product-price">
-            <span class="price-original">$33.00 USD</span>
-            <span class="price-current">$25.00 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Guía de Inversiones 101</li>
-            <li>⭐ Sistema de metas de ahorro</li>
-            <li>⭐ Plantilla de presupuesto mensual</li>
-            <li>⭐ Planificador de pago de deudas</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
-              detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar
-              ahora</button>
-          </div>
-        </div>
-      </div>
       <!-- Plantilla Parejas -->
       <div class="product-card" data-product="plantillaParejas">
         <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
@@ -1647,9 +1520,51 @@
         </div>
       </div>
 
+      <!-- Combo Planifesto -->
+      <div class="product-card" data-product="comboPlanifesto">
+        <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
+        <div class="product-content">
+          <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
+          <div class="product-price">
+            <span class="price-original">$33.00 USD</span>
+            <span class="price-current">$25.00 USD</span>
+          </div>
+          <ul class="product-features">
+            <li>⭐ Guía de Inversiones 101</li>
+            <li>⭐ Sistema de metas de ahorro</li>
+            <li>⭐ Plantilla de presupuesto mensual</li>
+            <li>⭐ Planificador de pago de deudas</li>
+          </ul>
+          <div class="product-buttons">
+            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
+              detalles</button>
+            <button class="btn btn-secondary"
+              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar ahora</button>
+          </div>
+        </div>
+      </div>
 
-
-
+      <!-- Plantilla PRO -->
+      <div class="product-card" data-product="plantillaPro">
+        <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
+        <div class="product-content">
+          <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
+          <div class="product-price">
+            <span class="price-original">$25.00 USD</span>
+            <span class="price-current">$19.99 USD</span>
+          </div>
+          <ul class="product-features">
+            <li>⭐ Presupuesto mensual inteligente</li>
+            <li>⭐ Planificador de deudas automático</li>
+            <li>⭐ Sistema de metas de ahorro</li>
+            <li>⭐ Dashboard visual completo</li>
+          </ul>
+          <div class="product-buttons">
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaPro')">Ver detalles</button>
+            <button class="btn btn-secondary" onclick="toggleNeutral('pro')">Versión Neutral</button>
+          </div>
+        </div>
+      </div>
 
       <!-- Plantilla Básica -->
       <div class="product-card" data-product="plantillaBasica">
@@ -2385,64 +2300,6 @@
       }
     }
   </script>
-
-  <!-- Mobile animation JS injected -->
-  <script>
-      (function () {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        const unifiedSelector = '.product-card, .product, .product-item, .card, [data-product], .producto, .producto-item, .productCard';
-
-        const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -10% 0px' };
-
-        function setupProductAnimations() {
-          // Normalize: add .product-card to common product elements
-          document.querySelectorAll(unifiedSelector).forEach(el => {
-            if (!el.classList.contains('product-card')) {
-              el.classList.add('product-card');
-            }
-          });
-
-          const cards = document.querySelectorAll('.product-card');
-          if (!cards.length) return;
-
-          if (reduceMotion) {
-            cards.forEach(c => { c.style.opacity = 1; c.style.transform = 'none'; });
-            return;
-          }
-
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              const el = entry.target;
-              if (entry.isIntersecting && !el.classList.contains('animate') && !el.classList.contains('no-scroll-animate') && !el.hasAttribute('data-quiz-processed')) {
-                el.style.willChange = 'transform, opacity';
-                el.classList.add('animate');
-                observer.unobserve(el);
-                el.addEventListener('animationend', () => {
-                  el.style.willChange = '';
-                  el.style.transform = 'none';
-                  el.style.opacity = '1';
-                }, { once: true });
-              }
-            });
-          }, observerOptions);
-
-          // Observe in batches to reduce main-thread spikes on mobile
-          const batchSize = 6;
-          const delayPerItem = 50; // ms
-          cards.forEach((card, i) => {
-            setTimeout(() => observer.observe(card), (i % batchSize) * delayPerItem);
-          });
-        }
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', setupProductAnimations);
-        } else {
-          setupProductAnimations();
-        }
-      })();
-  </script>
-
 </body>
 
 </html>
