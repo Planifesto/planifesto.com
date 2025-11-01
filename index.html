@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎉 Aniversario Planifesto - 50% OFF en Todo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>Planifesto - Tu Aliado Financiero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --verde-azulado: #5eb6a7;
@@ -13,8 +13,6 @@
       --morado-claro: #e6d4e7;
       --blanco: #ffffff;
       --negro: #333333;
-      --dorado: #FFD700;
-      --rojo-oferta: #ff3366;
       --sombra: 0 10px 30px rgba(0, 0, 0, 0.1);
       --sombra-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
@@ -31,146 +29,6 @@
       color: var(--blanco);
       line-height: 1.6;
       overflow-x: hidden;
-    }
-
-    /* Confetti Animation */
-    @keyframes confetti-fall {
-      0% {
-        transform: translateY(-100vh) rotate(0deg);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
-
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      top: -10px;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    .confetti:nth-child(1) {
-      left: 10%;
-      background: var(--rosa);
-      animation: confetti-fall 8s linear infinite;
-    }
-
-    .confetti:nth-child(2) {
-      left: 30%;
-      background: var(--dorado);
-      animation: confetti-fall 10s linear infinite 1s;
-    }
-
-    .confetti:nth-child(3) {
-      left: 50%;
-      background: var(--morado-claro);
-      animation: confetti-fall 9s linear infinite 2s;
-    }
-
-    .confetti:nth-child(4) {
-      left: 70%;
-      background: var(--rojo-oferta);
-      animation: confetti-fall 11s linear infinite 0.5s;
-    }
-
-    .confetti:nth-child(5) {
-      left: 90%;
-      background: var(--rosa);
-      animation: confetti-fall 8s linear infinite 1.5s;
-    }
-
-    /* Anniversary Banner */
-    .anniversary-banner {
-      background: linear-gradient(45deg,
-          var(--dorado) 0%,
-          #FFE55A 25%,
-          var(--dorado) 50%,
-          #FFE55A 75%,
-          var(--dorado) 100%);
-      background-size: 200% 200%;
-      animation: shine 3s ease-in-out infinite;
-      padding: 1rem;
-      text-align: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1001;
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
-      border-bottom: 3px solid var(--rosa);
-    }
-
-    @keyframes shine {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .anniversary-text {
-      color: var(--negro);
-      font-size: 1.2rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .anniversary-text span {
-      animation: bounce 1.5s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .discount-badge {
-      background: var(--rojo-oferta);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-size: 1.1rem;
-      font-weight: 800;
-      display: inline-block;
-      animation: pulse 2s ease-in-out infinite;
-      box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.05);
-      }
-
-      100% {
-        transform: scale(1);
-      }
     }
 
     /* Header */
@@ -236,34 +94,12 @@
       color: var(--blanco);
     }
 
-    /* Hero Section Enhanced with Anniversary Theme */
+    /* Hero Section Enhanced */
     .hero {
-      padding: 8rem 1.5rem 6rem;
-      /* Extra padding for banner */
+      padding: 4rem 1.5rem 6rem;
       background: linear-gradient(135deg, var(--verde-azulado) 0%, #4a9d8e 100%);
       position: relative;
       overflow: hidden;
-    }
-
-    /* Anniversary decoration background */
-    .hero::before {
-      content: '🎉';
-      position: absolute;
-      font-size: 200px;
-      opacity: 0.05;
-      top: 10%;
-      left: -50px;
-      transform: rotate(-15deg);
-    }
-
-    .hero::after {
-      content: '🎊';
-      position: absolute;
-      font-size: 200px;
-      opacity: 0.05;
-      bottom: 10%;
-      right: -50px;
-      transform: rotate(15deg);
     }
 
     .hero-content {
@@ -281,32 +117,6 @@
       position: relative;
     }
 
-    /* Anniversary Special Title */
-    .anniversary-hero-title {
-      background: linear-gradient(45deg, var(--dorado), var(--rosa), var(--dorado));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      animation: shimmer 3s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
     .hero-title {
       font-size: 3rem;
       font-weight: 700;
@@ -319,8 +129,6 @@
     .brand-highlight {
       color: var(--rosa);
       position: relative;
-      display: inline-block;
-      /* Permite centrar el texto dentro de su contenedor */
     }
 
     .brand-highlight::after {
@@ -334,54 +142,12 @@
       animation: slideInRight 1s ease-out 0.5s both;
     }
 
-    .products-section .section-subtitle {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
     .hero-subtitle {
       font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 2rem;
       line-height: 1.6;
       animation: slideInLeft 1s ease-out 0.3s both;
-    }
-
-    /* Mega discount badge for hero */
-    .hero-mega-discount {
-      background: var(--rojo-oferta);
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 2rem;
-      font-weight: 800;
-      border-radius: 50px;
-      display: inline-block;
-      margin-bottom: 2rem;
-      animation: megaPulse 2s ease-in-out infinite;
-      box-shadow: 0 8px 30px rgba(255, 51, 102, 0.5);
-      border: 3px solid var(--dorado);
-    }
-
-    @keyframes megaPulse {
-      0% {
-        transform: scale(1) rotate(0deg);
-      }
-
-      25% {
-        transform: scale(1.1) rotate(-5deg);
-      }
-
-      50% {
-        transform: scale(1.05) rotate(0deg);
-      }
-
-      75% {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      100% {
-        transform: scale(1) rotate(0deg);
-      }
     }
 
     .hero-benefits {
@@ -413,7 +179,7 @@
     }
 
     .hero-cta {
-      background: linear-gradient(45deg, var(--rojo-oferta), var(--rosa));
+      background: var(--rosa);
       color: white;
       border: none;
       padding: 1rem 2.5rem;
@@ -424,27 +190,11 @@
       transition: all 0.3s ease;
       animation: slideInUp 1s ease-out 0.9s both;
       box-shadow: 0 5px 20px rgba(247, 169, 168, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-cta::before {
-      content: '✨';
-      position: absolute;
-      top: 50%;
-      left: -30px;
-      transform: translateY(-50%);
-      animation: sparkle 3s linear infinite;
-    }
-
-    @keyframes sparkle {
-      to {
-        left: calc(100% + 30px);
-      }
     }
 
     .hero-cta:hover {
-      transform: translateY(-3px) scale(1.05);
+      background: #f7a9a8;
+      transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(247, 169, 168, 0.4);
     }
 
@@ -673,32 +423,18 @@
       animation: none !important;
     }
 
-    /* Quiz Section with Anniversary Theme */
+    /* Quiz Section */
     .quiz-section {
-      background: linear-gradient(135deg, var(--morado-claro), #f0e6f1);
+      background: var(--morado-claro);
       padding: 3rem 1.5rem;
       margin: 2rem 0;
       box-shadow: var(--sombra);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quiz-section::before {
-      content: '🎁';
-      position: absolute;
-      font-size: 150px;
-      opacity: 0.1;
-      top: -30px;
-      right: 10%;
-      transform: rotate(20deg);
     }
 
     .quiz-container {
       max-width: 600px;
       margin: 0 auto;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
 
     .quiz-title {
@@ -713,8 +449,8 @@
     }
 
     .quiz-start-btn {
-      background: linear-gradient(45deg, var(--dorado), #FFE55A);
-      color: var(--negro);
+      background: #ffd140;
+      color: #000;
       border: none;
       padding: 1rem 2rem;
       font-size: 1.1rem;
@@ -722,51 +458,16 @@
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
     }
 
     .quiz-start-btn:hover {
-      transform: translateY(-2px) scale(1.05);
+      background-color: var(--morado-claro);
+      color: var(--verde-azulado);
+      transform: translateY(-2px);
       box-shadow: var(--sombra-hover);
     }
 
-
-
-    .countdown-title {
-      font-size: 1.8rem;
-      color: white;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-
-    .countdown-boxes {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .countdown-box {
-      background: white;
-      padding: 1rem;
-      border-radius: 15px;
-      min-width: 80px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .countdown-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--rojo-oferta);
-    }
-
-    .countdown-label {
-      font-size: 0.9rem;
-      color: var(--verde-azulado);
-      font-weight: 600;
-    }
-
-    /* Products Section with Anniversary Theme */
+    /* Products Section */
     .products-section {
       padding: 2rem 1rem;
       max-width: 1200px;
@@ -777,33 +478,7 @@
       text-align: center;
       font-size: 2rem;
       color: var(--rosa);
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    /* Anniversary subtitle */
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.3rem;
-      color: white;
       margin-bottom: 3rem;
-      font-weight: 600;
-    }
-
-    .section-subtitle .highlight {
-      background: var(--rojo-oferta);
-      padding: 0.3rem 1rem;
-      border-radius: 25px;
-      display: block;
-      width: max-content;
-      animation: pulse 2s ease-in-out infinite;
-      margin: 0 auto;
-      /* 🔥 Esto centra horizontalmente */
-    }
-
-    .section-subtitle {
-      text-align: center;
-      /* Centra todo lo que esté dentro de esta sección */
     }
 
     .products-grid {
@@ -813,7 +488,7 @@
       padding: 0 1rem;
     }
 
-    /* Enhanced Product Cards with Anniversary Theme */
+    /* Product Cards */
     .product-card {
       background: var(--morado-claro);
       border: 4px solid var(--rosa);
@@ -823,35 +498,6 @@
       transition: all 0.3s ease;
       opacity: 0;
       transform: translateY(60px);
-      position: relative;
-    }
-
-    /* Anniversary ribbon */
-    .anniversary-ribbon {
-      position: absolute;
-      top: 20px;
-      right: -35px;
-      background: var(--rojo-oferta);
-      color: white;
-      padding: 0.5rem 3rem;
-      font-weight: 800;
-      font-size: 0.9rem;
-      transform: rotate(45deg);
-      z-index: 10;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      animation: ribbonPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes ribbonPulse {
-
-      0%,
-      100% {
-        transform: rotate(45deg) scale(1);
-      }
-
-      50% {
-        transform: rotate(45deg) scale(1.05);
-      }
     }
 
     .product-card.animate {
@@ -898,7 +544,6 @@
     .product-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--sombra-hover);
-      border-color: var(--dorado);
     }
 
     .product-image {
@@ -942,63 +587,23 @@
       line-height: 1.4;
     }
 
-    /* Enhanced price display for anniversary */
     .product-price {
       display: flex;
       align-items: baseline;
       gap: 0.5rem;
       margin-bottom: 1rem;
-      position: relative;
     }
 
     .price-original {
       text-decoration: line-through;
       color: #999;
-      font-size: 1rem;
-      opacity: 0.7;
+      font-size: 0.9rem;
     }
 
     .price-current {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--rojo-oferta);
-      animation: priceGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes priceGlow {
-
-      0%,
-      100% {
-        text-shadow: 0 0 5px rgba(255, 51, 102, 0.5);
-      }
-
-      50% {
-        text-shadow: 0 0 20px rgba(255, 51, 102, 0.8);
-      }
-    }
-
-    /* Discount percentage badge */
-    .discount-percentage {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background: var(--dorado);
-      color: var(--negro);
-      padding: 0.3rem 0.6rem;
-      border-radius: 50%;
-      font-weight: 800;
-      font-size: 0.9rem;
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--verde-azulado);
     }
 
     .product-features {
@@ -1028,93 +633,30 @@
       transition: all 0.3s ease;
       text-align: center;
       font-size: 0.9rem;
-      position: relative;
-      overflow: hidden;
     }
 
     .btn-primary {
-      background: linear-gradient(45deg, var(--dorado), #FFE55A);
-      color: var(--negro);
+      background: #ffd140;
+      color: #000;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+      background-color: var(--morado-claro);
+      color: var(--verde-azulado);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(247, 169, 168, 0.4);
     }
 
     .btn-secondary {
-      background: linear-gradient(45deg, var(--rojo-oferta), var(--rosa));
-      color: white;
+      background: transparent;
+      color: var(--rosa);
+      border: 2px solid var(--rosa);
     }
 
     .btn-secondary:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
-    }
-
-    /* Special Offer Banner */
-    .special-offer-banner {
-      background: linear-gradient(135deg, var(--rojo-oferta), var(--rosa));
+      background: var(--rosa);
       color: white;
-      padding: 3rem 2rem;
-      /* aumenté el padding horizontal */
-      text-align: center;
-      margin: 3rem auto;
-      /* mantiene separación arriba/abajo y centra horizontalmente */
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(255, 51, 102, 0.3);
-      max-width: 90%;
-      /* 🔥 evita que toque los bordes del viewport */
     }
-
-    /* efecto decorativo rotatorio */
-    .special-offer-banner::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
-    }
-
-    /* para pantallas pequeñas */
-    @media (max-width: 768px) {
-      .special-offer-banner {
-        padding: 2.5rem 1.5rem;
-        max-width: 95%;
-      }
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .offer-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .offer-subtitle {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-
 
     /* Modal */
     .modal {
@@ -1326,7 +868,7 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      background: linear-gradient(45deg, var(--rosa), var(--rojo-oferta));
+      background-color: var(--rosa);
       color: white;
       border: none;
       padding: 1rem 1.5rem;
@@ -1339,7 +881,7 @@
     }
 
     .floating-quiz:hover {
-      background: linear-gradient(45deg, var(--rojo-oferta), var(--rosa));
+      background-color: var(--verde-azulado);
       transform: scale(1.05);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     }
@@ -1493,24 +1035,10 @@
 
     /* Responsive Mobile First */
     @media (max-width: 768px) {
-      .anniversary-banner {
-        padding: 0.8rem;
-      }
-
-      .anniversary-text {
-        font-size: 1rem;
-      }
-
-      .discount-badge {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-      }
-
       .header {
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
-        top: 0px;
       }
 
       .header-content {
@@ -1535,7 +1063,7 @@
 
       /* Hero Mobile */
       .hero {
-        padding: 6rem 1rem 4rem;
+        padding: 2rem 1rem 4rem;
       }
 
       .hero-content {
@@ -1545,17 +1073,8 @@
         min-height: auto;
       }
 
-      .anniversary-hero-title {
-        font-size: 1.2rem;
-      }
-
       .hero-title {
         font-size: 2rem;
-      }
-
-      .hero-mega-discount {
-        font-size: 1.5rem;
-        padding: 0.8rem 1.5rem;
       }
 
       .hero-benefits {
@@ -1585,51 +1104,35 @@
         font-size: 1.5rem;
       }
 
-      /* Countdown Mobile */
-      .countdown-section {
-        padding: 1.5rem 0.5rem;
+      .card-1 {
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        animation: floatLeft 3s ease-in-out infinite;
+        animation-delay: 0s;
       }
 
-      .countdown-title {
-        font-size: 1.4rem;
+      .card-2 {
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        animation: floatRight 3s ease-in-out infinite;
+        animation-delay: 1s;
       }
 
-      .countdown-box {
-        min-width: 70px;
-        padding: 0.8rem;
+      .card-3 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: floatCenter 3s ease-in-out infinite;
+        animation-delay: 2s;
       }
-
-      .countdown-number {
-        font-size: 1.5rem;
-      }
-
-      .countdown-label {
-        font-size: 0.8rem;
-      }
-
-      /* Special Offer Banner Mobile */
-      .offer-title {
-        font-size: 1.8rem;
-      }
-
-      .offer-subtitle {
-        font-size: 1rem;
-      }
-
-
 
       /* Products Mobile */
       .products-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0 0.5rem;
-      }
-
-      .anniversary-ribbon {
-        font-size: 0.8rem;
-        padding: 0.4rem 2.5rem;
-        top: 15px;
-        right: -30px;
       }
 
       .product-card {
@@ -1664,12 +1167,7 @@
       }
 
       .price-current {
-        font-size: 1.5rem;
-      }
-
-      .discount-percentage {
-        font-size: 0.8rem;
-        padding: 0.25rem 0.5rem;
+        font-size: 1.3rem;
       }
 
       .product-features {
@@ -1695,6 +1193,34 @@
       .product-card.animate {
         animation-duration: 0.4s;
         animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .product-card.animate:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .product-card.animate:nth-child(2) {
+        animation-delay: 0.05s;
+      }
+
+      .product-card.animate:nth-child(3) {
+        animation-delay: 0.1s;
+      }
+
+      .product-card.animate:nth-child(4) {
+        animation-delay: 0.15s;
+      }
+
+      .product-card.animate:nth-child(5) {
+        animation-delay: 0.2s;
+      }
+
+      .product-card.animate:nth-child(6) {
+        animation-delay: 0.25s;
+      }
+
+      .product-card.animate:nth-child(7) {
+        animation-delay: 0.3s;
       }
 
       /* Modal Mobile */
@@ -1735,17 +1261,8 @@
     }
 
     @media (max-width: 480px) {
-      .anniversary-text {
-        font-size: 0.9rem;
-        gap: 0.5rem;
-      }
-
       .hero-title {
         font-size: 1.8rem;
-      }
-
-      .hero-mega-discount {
-        font-size: 1.2rem;
       }
 
       .hero-benefits {
@@ -1766,6 +1283,30 @@
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
+      }
+
+      .card-1 {
+        top: 50%;
+        left: 2%;
+        transform: translateY(-50%);
+        animation: floatLeft 3s ease-in-out infinite;
+        animation-delay: 0s;
+      }
+
+      .card-2 {
+        top: 50%;
+        right: 2%;
+        transform: translateY(-50%);
+        animation: floatRight 3s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+
+      .card-3 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: floatCenter 3s ease-in-out infinite;
+        animation-delay: 2s;
       }
 
       .modal-content {
@@ -1799,7 +1340,7 @@
       }
 
       .price-current {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
 
       .product-features li {
@@ -1811,19 +1352,102 @@
         padding: 0.8rem 1rem;
         font-size: 0.8rem;
       }
+
+      /* Mobile-specific gentle animations */
+      @media (max-width: 480px) {
+        @keyframes fadeInUpMobile {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInFromLeftMobile {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInFromRightMobile {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scaleInMobile {
+          from {
+            opacity: 0;
+            transform: scale(0.96);
+          }
+
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .product-card.animate {
+          animation-duration: 0.5s;
+          animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card.animate:nth-child(1) {
+          animation-name: fadeInUpMobile;
+          animation-delay: 0s;
+        }
+
+        .product-card.animate:nth-child(2) {
+          animation-name: slideInFromLeftMobile;
+          animation-delay: 0.08s;
+        }
+
+        .product-card.animate:nth-child(3) {
+          animation-name: slideInFromRightMobile;
+          animation-delay: 0.16s;
+        }
+
+        .product-card.animate:nth-child(4) {
+          animation-name: scaleInMobile;
+          animation-delay: 0.24s;
+        }
+
+        .product-card.animate:nth-child(5) {
+          animation-name: fadeInUpMobile;
+          animation-delay: 0.32s;
+        }
+
+        .product-card.animate:nth-child(6) {
+          animation-name: slideInFromLeftMobile;
+          animation-delay: 0.4s;
+        }
+
+        .product-card.animate:nth-child(7) {
+          animation-name: slideInFromRightMobile;
+          animation-delay: 0.48s;
+        }
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Confetti Elements -->
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-  <div class="confetti"></div>
-
-
   <!-- Header -->
   <header class="header">
     <div class="header-content">
@@ -1844,56 +1468,42 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <p class="anniversary-hero-title">🎊 CELEBRANDO NUESTRO ANIVERSARIO 🎊</p>
         <h1 class="hero-title">Transforma tus Finanzas con <span class="brand-highlight">Planifesto</span></h1>
-        <div class="hero-mega-discount">¡50% OFF EN TODO!</div>
-        <p class="hero-subtitle">Este es el momento perfecto para empezar tu viaje financiero. Herramientas diseñadas
-          especialmente para mujeres que quieren tomar el control de su dinero 💅✨</p>
-        <button class="hero-cta" onclick="scrollToProducts()">Ver Ofertas de Aniversario</button>
+        <p class="hero-subtitle">Herramientas diseñadas especialmente para mujeres que quieren tomar el control
+          de su dinero y construir el futuro financiero que merecen 💅✨</p>
+        <button class="hero-cta" onclick="scrollToProducts()">Explorar Productos</button>
       </div>
       <div class="hero-visual">
-        <div class="floating-card card-1">🎁</div>
-        <div class="floating-card card-2">💰</div>
-        <div class="floating-card card-3">🎉</div>
+        <div class="floating-card card-1">💰</div>
+        <div class="floating-card card-2">📊</div>
+        <div class="floating-card card-3">💎</div>
         <div class="hero-circle"></div>
       </div>
     </div>
   </section>
 
-
-
   <!-- Quiz Section -->
   <section class="quiz-section">
     <div class="quiz-container">
-      <h2 class="quiz-title">🎁 ¿No sabes qué plantilla elegir?</h2>
-      <p class="quiz-subtitle">Responde unas preguntas rápidas y te ayudamos a encontrar la herramienta perfecta con 50%
-        OFF</p>
+      <h2 class="quiz-title">¿No sabes qué plantilla elegir?</h2>
+      <p class="quiz-subtitle">Responde unas preguntas rápidas y te ayudamos a encontrar la herramienta perfecta
+        para ti</p>
       <button class="quiz-start-btn" onclick="startQuizSection()">Comenzar Quiz</button>
     </div>
   </section>
 
-  <!-- Special Offer Banner -->
-  <section class="special-offer-banner">
-    <h2 class="offer-title">🎊 OFERTA ESPECIAL DE ANIVERSARIO 🎊</h2>
-    <p class="offer-subtitle">Todos nuestros productos con el 50% de descuento</p>
-    <div class="offer-timer">¡No te pierdas esta oportunidad única!</div>
-  </section>
-
   <!-- Products Section -->
   <section class="products-section" id="productos">
-    <h2 class="section-title">🎉 Nuestros Productos</h2>
-
+    <h2 class="section-title">Nuestros Productos</h2>
     <div class="products-grid">
       <!-- Plantilla Parejas -->
       <div class="product-card" data-product="plantillaParejas">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Plantilla Financiera Mensual de Parejas (3 en 1)</h3>
           <div class="product-price">
             <span class="price-original">$57.00 USD</span>
-            <span class="price-current">$28.50 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$43.00 USD</span>
           </div>
           <ul class="product-features">
             <li>⭐ Presupuesto mensual en pareja</li>
@@ -1902,23 +1512,22 @@
             <li>⭐ Bonos Extras</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver
+              detalles</button>
             <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">¡Aprovecha 50% OFF!</button>
+              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar ahora</button>
           </div>
         </div>
       </div>
 
       <!-- Combo Planifesto -->
       <div class="product-card" data-product="comboPlanifesto">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
           <div class="product-price">
             <span class="price-original">$33.00 USD</span>
-            <span class="price-current">$16.50 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$25.00 USD</span>
           </div>
           <ul class="product-features">
             <li>⭐ Guía de Inversiones 101</li>
@@ -1927,23 +1536,22 @@
             <li>⭐ Planificador de pago de deudas</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
+              detalles</button>
             <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">¡Aprovecha 50% OFF!</button>
+              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar ahora</button>
           </div>
         </div>
       </div>
 
       <!-- Plantilla PRO -->
       <div class="product-card" data-product="plantillaPro">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
         <div class="product-content">
           <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
           <div class="product-price">
             <span class="price-original">$25.00 USD</span>
-            <span class="price-current">$12.50 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$19.99 USD</span>
           </div>
           <ul class="product-features">
             <li>⭐ Presupuesto mensual inteligente</li>
@@ -1960,14 +1568,11 @@
 
       <!-- Plantilla Básica -->
       <div class="product-card" data-product="plantillaBasica">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/presupuestoMensual.png" alt="Plantilla Básica" class="product-image" id="basicProdImg">
         <div class="product-content">
           <h3 class="product-title" id="basicProdTitle">Plantilla Financiera</h3>
           <div class="product-price">
-            <span class="price-original">$9.99 USD</span>
-            <span class="price-current">$5.00 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$9.99 USD</span>
           </div>
           <ul class="product-features">
             <li>🌸 Diseño moderno y fácil de usar</li>
@@ -1976,7 +1581,8 @@
             <li>🌸 Categorías personalizadas</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaBasica')">Ver detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaBasica')">Ver
+              detalles</button>
             <button class="btn btn-secondary" onclick="toggleNeutral('basic')">Versión Neutral</button>
           </div>
         </div>
@@ -1984,14 +1590,12 @@
 
       <!-- Bundle Finanzas e Inversión -->
       <div class="product-card" data-product="bundleFinanzas">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/bundle .png" alt="Bundle Finanzas" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Combo Finanzas e Inversión</h3>
           <div class="product-price">
             <span class="price-original">$20.98 USD</span>
-            <span class="price-current">$10.49 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$16.99 USD</span>
           </div>
           <ul class="product-features">
             <li>⭐ Guía de Inversiones 101</li>
@@ -2000,21 +1604,18 @@
           <div class="product-buttons">
             <button class="btn btn-primary" onclick="showProductDetails('bundleFinanzas')">Ver detalles</button>
             <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E')">¡Aprovecha 50% OFF!</button>
+              onclick="buyNow('https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E')">Comprar ahora</button>
           </div>
         </div>
       </div>
 
       <!-- Planificador de Viajes -->
       <div class="product-card" data-product="planificadorViajes">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/PLANTILLA VIAJES PORTADA.png" alt="Planificador Viajes" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Planificador de Viajes</h3>
           <div class="product-price">
-            <span class="price-original">$15.00 USD</span>
-            <span class="price-current">$7.50 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$15.00 USD</span>
           </div>
           <ul class="product-features">
             <li>✅ Videoguía paso a paso incluida</li>
@@ -2023,23 +1624,21 @@
             <li>✅ Itinerario y control de gastos</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('planificadorViajes')">Ver detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('planificadorViajes')">Ver
+              detalles</button>
             <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/J6DVR9FNVQW28')">¡Aprovecha 50% OFF!</button>
+              onclick="buyNow('https://www.paypal.com/ncp/payment/J6DVR9FNVQW28')">Comprar ahora</button>
           </div>
         </div>
       </div>
 
       <!-- Guía de Inversión -->
       <div class="product-card" data-product="guiaInversion">
-        <div class="anniversary-ribbon">-50%</div>
         <img src="imagenes/guia-producto.jpeg" alt="Guía de Inversión" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Guía de Inversión</h3>
           <div class="product-price">
-            <span class="price-original">$10.99 USD</span>
-            <span class="price-current">$5.50 USD</span>
-            <span class="discount-percentage">-50%</span>
+            <span class="price-current">$10.99 USD</span>
           </div>
           <ul class="product-features">
             <li>🌸 Manual completo y estructurado</li>
@@ -2050,7 +1649,7 @@
           <div class="product-buttons">
             <button class="btn btn-primary" onclick="showProductDetails('guiaInversion')">Ver detalles</button>
             <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MK5NL4YTWLU34')">¡Aprovecha 50% OFF!</button>
+              onclick="buyNow('https://www.paypal.com/ncp/payment/MK5NL4YTWLU34')">Comprar ahora</button>
           </div>
         </div>
       </div>
@@ -2058,7 +1657,7 @@
   </section>
 
   <!-- Floating Quiz Button -->
-  <button class="floating-quiz" onclick="toggleQuizPopup()">🎁 ¿Ayuda para elegir?</button>
+  <button class="floating-quiz" onclick="toggleQuizPopup()">¿Ayuda para elegir?</button>
 
   <!-- Quiz Popup -->
   <div class="quiz-popup" id="quizPopup">
@@ -2097,7 +1696,6 @@
     <div id="quizResult" style="display: none;">
       <h3>Te recomendamos:</h3>
       <p id="recommendationText" style="text-align: center; font-weight: 600; color: var(--verde-azulado);"></p>
-      <p style="text-align: center; color: var(--rojo-oferta); font-weight: 700;">¡Con 50% OFF por aniversario!</p>
       <div class="quiz-options">
         <button class="quiz-btn" id="goToProductBtn">Ir al producto</button>
         <button class="quiz-btn" onclick="resetQuiz()"
@@ -2147,16 +1745,13 @@
   </footer>
 
   <script>
-
-
-    // Product Data (Updated with anniversary theme)
+    // Product Data
     const productData = {
       plantillaParejas: {
         title: 'Plantilla Financiera Mensual de Parejas (3 en 1)',
         paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
         content: `
-        <h2>🎉 OFERTA DE ANIVERSARIO - 50% OFF 🎉</h2>
-        <h2>Plantilla Financiera Mensual de Parejas (3 en 1)</h2>
+        <h2>Plantilla Financiera Mensual de Parejas (3 en 1) - 25% OFF</h2>
         <p>Esta plantilla es tu nueva aliada para construir finanzas sanas juntos (sin drama, sin confusión y sin pasar lucha).</p>
         
         <h3>¿Qué incluye?</h3>
@@ -2201,7 +1796,6 @@
         title: 'Combo Planifesto - PRO + Guía de Inversión',
         paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
         content: `
-        <h2>🎊 PRECIO ESPECIAL DE ANIVERSARIO - 50% OFF 🎊</h2>
         <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar + Nuestra guía para aprender a invertir ✨</h2>
         <p>¡Todo automático y conectado entre sí!</p>
         
@@ -2247,7 +1841,6 @@
         paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
         content: `
-        <h2>🎁 OFERTA ESPECIAL DE ANIVERSARIO - 50% OFF 🎁</h2>
         <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar ✨</h2>
         <p>¡Todo automático y conectado entre sí!</p>
         
@@ -2292,7 +1885,6 @@
         paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
         content: `
-        <h2>🎉 CELEBRA NUESTRO ANIVERSARIO - 50% OFF 🎉</h2>
         <h2>Plantilla Financiera</h2>
         <p><strong>¿Lista para tomar el control de tus finanzas y convertirte en la jefa de tu dinero? 💅✨</strong></p>
         <p>Esta plantilla financiera está diseñada especialmente para mujeres como tú, que quieren brillar en todos los aspectos de su vida, incluyendo sus finanzas.</p>
@@ -2326,7 +1918,6 @@
         title: 'Combo Finanzas e Inversión',
         paypalLink: 'https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E',
         content: `
-        <h2>🎊 PRECIO DE ANIVERSARIO - 50% OFF 🎊</h2>
         <h2>Combo Finanzas e Inversión</h2>
         <p>El combo perfecto para empezar tu camino financiero</p>
         
@@ -2335,15 +1926,12 @@
           <li>⭐ Guía de Inversiones 101</li>
           <li>⭐ Plantilla de presupuesto mensual</li>
         </ul>
-        
-        <p>¡Aprovecha esta oferta especial de aniversario!</p>
       `
       },
       planificadorViajes: {
         title: 'Planificador de Viajes',
         paypalLink: 'https://www.paypal.com/ncp/payment/J6DVR9FNVQW28',
         content: `
-        <h2>🎁 OFERTA DE ANIVERSARIO - 50% OFF 🎁</h2>
         <h2>Planificador de Viajes</h2>
         <p><strong>Tu viaje soñado comienza antes de hacer la maleta</strong></p>
         
@@ -2410,7 +1998,6 @@
         title: 'Guía de Inversión',
         paypalLink: 'https://www.paypal.com/ncp/payment/MK5NL4YTWLU34',
         content: `
-        <h2>🎉 PRECIO ESPECIAL DE ANIVERSARIO - 50% OFF 🎉</h2>
         <h2>Guía de Inversión</h2>
         <p><strong>Si estás aquí, es porque quieres entrar al mundo de las inversiones pero a lo mejor no sabes por dónde empezar y crees que es complicado o que hay que ser experta… pero te digo algo? NADA más alejado de la realidad!</strong></p>
         <p>En esta Guía Completa de Inversiones vamos a ir pasito a pasito, con información PRÁCTICA, para abrir tu primera inversión. Lo que te llevas de aquí, la verdad es una joya!</p>
@@ -2440,23 +2027,21 @@
       }
     };
 
-    // Continue with the rest of your existing JavaScript code...
-    // (All the other functions remain the same)
-
     // State variables
     let currentNeutralStates = {
       pro: false,
       basic: false
     };
 
-    // Scroll Animation Observer
+    // Scroll Animation Observer - More responsive
     const observerOptions = {
-      threshold: 0.05,
-      rootMargin: '50px 0px -20px 0px'
+      threshold: 0.05, // Trigger earlier
+      rootMargin: '50px 0px -20px 0px' // Start animations before fully visible
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        // No animar si ya fue procesado por el quiz o ya tiene la clase animate
         if (entry.isIntersecting &&
           !entry.target.classList.contains('animate') &&
           !entry.target.hasAttribute('data-quiz-processed') &&
@@ -2481,6 +2066,7 @@
       const modal = document.getElementById('productModal');
       const modalContent = document.getElementById('modalContent');
 
+      // Determine current PayPal link based on neutral state
       let currentPaypalLink = product.paypalLink;
       if (productId === 'plantillaPro' && currentNeutralStates.pro && product.neutralPaypalLink) {
         currentPaypalLink = product.neutralPaypalLink;
@@ -2492,7 +2078,7 @@
       modalContent.innerHTML = `
       ${product.content}
       <div class="payment-options">
-        <h3 class="payment-title">🎉 Opciones de Pago - Oferta de Aniversario 🎉</h3>
+        <h3 class="payment-title">Opciones de Pago</h3>
         
         <div class="payment-section">
           <h4>💳 Pago Online</h4>
@@ -2511,7 +2097,7 @@
         <div class="payment-section">
           <h4>🏦 Transferencias Bancarias (RD)</h4>
           <div class="transfer-buttons">
-            <a href="https://wa.me/18299441515?text=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20con%20el%2050%25%20OFF%20de%20aniversario" class="payment-btn whatsapp-btn">
+            <a href="https://wa.me/18299441515?text=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20-%20Transferencia%20bancaria" class="payment-btn whatsapp-btn">
               <span class="payment-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -2519,7 +2105,7 @@
               </span>
               <span>WhatsApp</span>
             </a>
-            <a href="mailto:planifestoRD@gmail.com?subject=Oferta%20Aniversario%20-%20${encodeURIComponent(product.title)}&body=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20con%20el%2050%25%20OFF%20de%20aniversario" class="payment-btn email-btn">
+            <a href="mailto:planifestoRD@gmail.com?subject=Consulta%20sobre%20${encodeURIComponent(product.title)}&body=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20y%20quisiera%20información%20sobre%20transferencias%20bancarias." class="payment-btn email-btn">
               <span class="payment-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -2531,8 +2117,7 @@
         </div>
         
         <div class="payment-note">
-          <p><strong>🎉 Nota de Aniversario:</strong></p>
-          <p>• Aprovecha el 50% de descuento por tiempo limitado</p>
+          <p><strong>Nota importante:</strong></p>
           <p>• No es necesario tener cuenta PayPal para pagar con tarjeta</p>
           <p>• Para transferencias bancarias en República Dominicana, contáctanos</p>
           <p>• Recibirás el producto al correo de PayPal (revisar spam)</p>
@@ -2664,18 +2249,28 @@
       toggleQuizPopup();
       const productCard = document.querySelector(`[data-product="${productId}"]`);
       if (productCard) {
+        // Marcar como ya procesado para evitar re-animaciones
         productCard.setAttribute('data-quiz-processed', 'true');
+
         productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(() => {
+          // Forzar estado final visible y remover todas las animaciones CSS
           productCard.style.opacity = '1';
           productCard.style.transform = 'translateY(0)';
           productCard.style.animation = 'none';
+
+          // Force reflow
           productCard.offsetHeight;
+
+          // Aplicar solo el pulso
           productCard.style.animation = 'cardPulse 0.8s ease 3';
+
+          // Después del pulso, mantener estado final y bloquear futuras animaciones
           setTimeout(() => {
             productCard.style.animation = 'none';
             productCard.style.opacity = '1';
             productCard.style.transform = 'translateY(0)';
+            // Agregar clase para prevenir futuras animaciones
             productCard.classList.add('no-scroll-animate');
           }, 2400);
         }, 800);
