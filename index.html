@@ -1496,30 +1496,6 @@
   <section class="products-section" id="productos">
     <h2 class="section-title">Nuestros Productos</h2>
     <div class="products-grid">
-      <!-- Plantilla Parejas -->
-      <div class="product-card" data-product="plantillaParejas">
-        <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Plantilla Financiera Mensual de Parejas (3 en 1)</h3>
-          <div class="product-price">
-            <span class="price-original">$57.00 USD</span>
-            <span class="price-current">$43.00 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Presupuesto mensual en pareja</li>
-            <li>⭐ Planificador de pago de deudas</li>
-            <li>⭐ Planificador de metas de ahorro</li>
-            <li>⭐ Bonos Extras</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver
-              detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar ahora</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Combo Planifesto -->
       <div class="product-card" data-product="comboPlanifesto">
         <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
@@ -1565,6 +1541,31 @@
           </div>
         </div>
       </div>
+      <!-- Plantilla Parejas -->
+      <div class="product-card" data-product="plantillaParejas">
+        <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
+        <div class="product-content">
+          <h3 class="product-title">Plantilla Financiera Mensual de Parejas (3 en 1)</h3>
+          <div class="product-price">
+            <span class="price-original">$57.00 USD</span>
+            <span class="price-current">$43.00 USD</span>
+          </div>
+          <ul class="product-features">
+            <li>⭐ Presupuesto mensual en pareja</li>
+            <li>⭐ Planificador de pago de deudas</li>
+            <li>⭐ Planificador de metas de ahorro</li>
+            <li>⭐ Bonos Extras</li>
+          </ul>
+          <div class="product-buttons">
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver
+              detalles</button>
+            <button class="btn btn-secondary"
+              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar
+              ahora</button>
+          </div>
+        </div>
+      </div>
+
 
       <!-- Plantilla Básica -->
       <div class="product-card" data-product="plantillaBasica">
@@ -1609,51 +1610,7 @@
         </div>
       </div>
 
-      <!-- Planificador de Viajes -->
-      <div class="product-card" data-product="planificadorViajes">
-        <img src="imagenes/PLANTILLA VIAJES PORTADA.png" alt="Planificador Viajes" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Planificador de Viajes</h3>
-          <div class="product-price">
-            <span class="price-current">$15.00 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>✅ Videoguía paso a paso incluida</li>
-            <li>✅ Para cualquier tipo de viaje</li>
-            <li>✅ BONUS: Guía con hacks y tips</li>
-            <li>✅ Itinerario y control de gastos</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('planificadorViajes')">Ver
-              detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/J6DVR9FNVQW28')">Comprar ahora</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Guía de Inversión -->
-      <div class="product-card" data-product="guiaInversion">
-        <img src="imagenes/guia-producto.jpeg" alt="Guía de Inversión" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Guía de Inversión</h3>
-          <div class="product-price">
-            <span class="price-current">$10.99 USD</span>
-          </div>
-          <ul class="product-features">
-            <li>🌸 Manual completo y estructurado</li>
-            <li>🌸 Test de personalidad inversor</li>
-            <li>🌸 Recursos y listas de verificación</li>
-            <li>🌸 Enlaces directos a instituciones</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('guiaInversion')">Ver detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MK5NL4YTWLU34')">Comprar ahora</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Floating Quiz Button -->
@@ -1667,7 +1624,6 @@
       <div class="quiz-options">
         <button class="quiz-btn" onclick="quizStep2('personal')">🧍‍♀️ Solo/a</button>
         <button class="quiz-btn" onclick="showQuizResult('pareja')">💑 En pareja</button>
-        <button class="quiz-btn" onclick="showQuizResult('viajes')">✈️ Viajes</button>
       </div>
     </div>
     <div id="quizStep2" style="display: none;">
@@ -2198,9 +2154,6 @@
       if (type === 'pareja') {
         recommendation = 'Plantilla Financiera de Parejas 💑';
         productId = 'plantillaParejas';
-      } else if (type === 'viajes') {
-        recommendation = 'Planificador de Viajes ✈️';
-        productId = 'planificadorViajes';
       }
 
       document.getElementById('recommendationText').textContent = recommendation;
@@ -2225,15 +2178,18 @@
       } else if (selected.includes('presupuesto') && (selected.includes('ahorro') || selected.includes('deuda')) && !selected.includes('inversion')) {
         recommendation = 'Plantilla Financiera PRO 💼';
         productId = 'plantillaPro';
-      } else if (!selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda') && selected.includes('inversion')) {
-        recommendation = 'Guía de Inversión 📈';
-        productId = 'guiaInversion';
-      } else if (selected.includes('presupuesto') && selected.includes('inversion') && !selected.includes('ahorro') && !selected.includes('deuda')) {
-        recommendation = 'Combo Finanzas e Inversión 🔁';
-        productId = 'bundleFinanzas';
-      } else if (selected.includes('presupuesto') && selected.includes('ahorro') && selected.includes('deuda') && selected.includes('inversion')) {
-        recommendation = 'Combo Planifesto 🔥';
-        productId = 'comboPlanifesto';
+      } else if (selected.includes('inversion')) {
+        // Cualquier selección que incluya inversión
+        if (selected.length === 1) {
+          recommendation = 'Combo Planifesto 🔥';
+          productId = 'comboPlanifesto';
+        } else if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda')) {
+          recommendation = 'Combo Finanzas e Inversión 🔁';
+          productId = 'bundleFinanzas';
+        } else {
+          recommendation = 'Combo Planifesto 🔥';
+          productId = 'comboPlanifesto';
+        }
       } else {
         recommendation = 'Plantilla Financiera PRO 💼';
         productId = 'plantillaPro';
@@ -2244,7 +2200,6 @@
       document.getElementById('recommendationText').textContent = recommendation;
       document.getElementById('goToProductBtn').onclick = () => goToProduct(productId);
     }
-
     function goToProduct(productId) {
       toggleQuizPopup();
       const productCard = document.querySelector(`[data-product="${productId}"]`);
