@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planifesto - Tu Aliado Financiero</title>
+  <title>Black Friday - Planifesto | 40% OFF</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -13,6 +13,7 @@
       --morado-claro: #e6d4e7;
       --blanco: #ffffff;
       --negro: #333333;
+      --rojo-oferta: #ff3366;
       --sombra: 0 10px 30px rgba(0, 0, 0, 0.1);
       --sombra-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
@@ -31,6 +32,54 @@
       overflow-x: hidden;
     }
 
+    /* Simple Black Friday Banner */
+    .bf-banner {
+      background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+      padding: 0.8rem;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .bf-banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .bf-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blanco);
+    }
+
+    @keyframes pulse-discount {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .bf-discount {
+      background: var(--rojo-oferta);
+      color: var(--blanco);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      animation: pulse-discount 2s ease-in-out infinite;
+    }
+
     /* Header */
     .header {
       display: flex;
@@ -40,7 +89,7 @@
       padding: 1rem 2rem;
       border-bottom: 3px solid var(--rosa);
       position: sticky;
-      top: 0;
+      top: 48px;
       z-index: 100;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     }
@@ -96,7 +145,7 @@
 
     /* Hero Section Enhanced */
     .hero {
-      padding: 4rem 1.5rem 6rem;
+      padding: 5rem 1.5rem 4rem;
       background: linear-gradient(135deg, var(--verde-azulado) 0%, #4a9d8e 100%);
       position: relative;
       overflow: hidden;
@@ -115,6 +164,18 @@
     .hero-text {
       z-index: 2;
       position: relative;
+    }
+
+    /* Black Friday Badge */
+    .bf-badge {
+      display: inline-block;
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 20px;
+      margin-bottom: 1rem;
     }
 
     .hero-title {
@@ -290,18 +351,6 @@
       }
     }
 
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
     @keyframes floatLeft {
 
       0%,
@@ -350,79 +399,6 @@
       }
     }
 
-    /* Scroll animations for products */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideInFromLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInFromRight {
-      from {
-        opacity: 0;
-        transform: translateX(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes cardPulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow: var(--sombra);
-      }
-
-      50% {
-        transform: scale(1.05);
-        box-shadow: var(--sombra-hover);
-      }
-    }
-
-    /* Prevent scroll animations on quiz-processed cards */
-    .product-card.no-scroll-animate {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-
-    .product-card.no-scroll-animate.animate {
-      animation: none !important;
-    }
-
     /* Quiz Section */
     .quiz-section {
       background: var(--morado-claro);
@@ -467,6 +443,28 @@
       box-shadow: var(--sombra-hover);
     }
 
+    /* Special Offer Banner */
+    .offer-banner {
+      background: linear-gradient(135deg, var(--rosa) 0%, #ff8a8a 100%);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin: 2rem 0;
+      border-radius: 20px;
+      box-shadow: var(--sombra);
+    }
+
+    .offer-title {
+      font-size: 2rem;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .offer-subtitle {
+      font-size: 1.2rem;
+      color: white;
+    }
+
     /* Products Section */
     .products-section {
       padding: 2rem 1rem;
@@ -488,7 +486,7 @@
       padding: 0 1rem;
     }
 
-    /* Product Cards */
+    /* Product Cards - Improved animations */
     .product-card {
       background: var(--morado-claro);
       border: 4px solid var(--rosa);
@@ -497,48 +495,55 @@
       box-shadow: var(--sombra);
       transition: all 0.3s ease;
       opacity: 0;
-      transform: translateY(60px);
+      transform: translateY(20px);
+      position: relative;
+    }
+
+    /* Black Friday ribbon */
+    .discount-ribbon {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: var(--rojo-oferta);
+      color: white;
+      padding: 0.5rem 3rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transform: rotate(45deg);
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Smooth fade in animation */
+    @keyframes smoothFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .product-card.animate {
-      animation-duration: 0.3s;
-      animation-fill-mode: both;
-      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: smoothFadeIn 0.6s ease-out forwards;
     }
 
-    .product-card.animate:nth-child(1) {
-      animation-name: fadeInUp;
-      animation-delay: 0s;
-    }
-
-    .product-card.animate:nth-child(2) {
-      animation-name: slideInFromLeft;
-      animation-delay: 0.02s;
-    }
-
-    .product-card.animate:nth-child(3) {
-      animation-name: slideInFromRight;
-      animation-delay: 0.04s;
-    }
-
-    .product-card.animate:nth-child(4) {
-      animation-name: scaleIn;
-      animation-delay: 0.06s;
-    }
-
-    .product-card.animate:nth-child(5) {
-      animation-name: fadeInUp;
-      animation-delay: 0.08s;
-    }
-
-    .product-card.animate:nth-child(6) {
-      animation-name: slideInFromLeft;
+    .product-card:nth-child(1) {
       animation-delay: 0.1s;
     }
 
-    .product-card.animate:nth-child(7) {
-      animation-name: slideInFromRight;
-      animation-delay: 0.12s;
+    .product-card:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .product-card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .product-card:nth-child(4) {
+      animation-delay: 0.25s;
+    }
+
+    .product-card:nth-child(5) {
+      animation-delay: 0.3s;
     }
 
     .product-card:hover {
@@ -556,18 +561,6 @@
       padding: 15px;
       border-radius: 20px;
       margin: 10px;
-      border-radius: 15px !important;
-    }
-
-    .product-card img.product-image {
-      border-radius: 15px !important;
-    }
-
-    .product-card .product-image {
-      border-radius: 15px !important;
-    }
-
-    img.product-image {
       border-radius: 15px !important;
     }
 
@@ -604,6 +597,15 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--verde-azulado);
+    }
+
+    .discount-badge {
+      background: var(--rojo-oferta);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
     .product-features {
@@ -1035,10 +1037,24 @@
 
     /* Responsive Mobile First */
     @media (max-width: 768px) {
+      .bf-banner {
+        padding: 0.6rem;
+      }
+
+      .bf-text {
+        font-size: 0.85rem;
+      }
+
+      .bf-discount {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.8rem;
+      }
+
       .header {
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
+        top: 40px;
       }
 
       .header-content {
@@ -1063,7 +1079,7 @@
 
       /* Hero Mobile */
       .hero {
-        padding: 2rem 1rem 4rem;
+        padding: 4rem 1rem 3rem;
       }
 
       .hero-content {
@@ -1104,46 +1120,60 @@
         font-size: 1.5rem;
       }
 
-      .card-1 {
-        top: 50%;
-        left: 5%;
-        transform: translateY(-50%);
-        animation: floatLeft 3s ease-in-out infinite;
-        animation-delay: 0s;
-      }
-
-      .card-2 {
-        top: 50%;
-        right: 5%;
-        transform: translateY(-50%);
-        animation: floatRight 3s ease-in-out infinite;
-        animation-delay: 1s;
-      }
-
-      .card-3 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: floatCenter 3s ease-in-out infinite;
-        animation-delay: 2s;
-      }
-
-      /* Products Mobile */
+      /* Products Mobile - Better animations */
       .products-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0 0.5rem;
       }
 
+      @keyframes smoothFadeInMobile {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       .product-card {
+        transform: translateY(15px);
         border-radius: 15px;
         margin: 0 0.5rem;
         border-width: 3px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .product-card.animate {
+        animation: smoothFadeInMobile 0.4s ease-out forwards;
+      }
+
+      .product-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+
+      .product-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      .product-card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+
+      .product-card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+
+      .product-card:nth-child(5) {
+        animation-delay: 0.25s;
       }
 
       .product-card:hover {
         transform: translateY(-3px);
+      }
+
+      .discount-ribbon {
+        font-size: 0.8rem;
+        padding: 0.4rem 2.5rem;
+        top: 15px;
+        right: -30px;
       }
 
       .product-image {
@@ -1189,38 +1219,13 @@
         border-radius: 25px;
       }
 
-      /* Gentle animations on mobile */
-      .product-card.animate {
-        animation-duration: 0.4s;
-        animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+      /* Offer Banner Mobile */
+      .offer-title {
+        font-size: 1.5rem;
       }
 
-      .product-card.animate:nth-child(1) {
-        animation-delay: 0s;
-      }
-
-      .product-card.animate:nth-child(2) {
-        animation-delay: 0.05s;
-      }
-
-      .product-card.animate:nth-child(3) {
-        animation-delay: 0.1s;
-      }
-
-      .product-card.animate:nth-child(4) {
-        animation-delay: 0.15s;
-      }
-
-      .product-card.animate:nth-child(5) {
-        animation-delay: 0.2s;
-      }
-
-      .product-card.animate:nth-child(6) {
-        animation-delay: 0.25s;
-      }
-
-      .product-card.animate:nth-child(7) {
-        animation-delay: 0.3s;
+      .offer-subtitle {
+        font-size: 1rem;
       }
 
       /* Modal Mobile */
@@ -1285,30 +1290,6 @@
         font-size: 1.2rem;
       }
 
-      .card-1 {
-        top: 50%;
-        left: 2%;
-        transform: translateY(-50%);
-        animation: floatLeft 3s ease-in-out infinite;
-        animation-delay: 0s;
-      }
-
-      .card-2 {
-        top: 50%;
-        right: 2%;
-        transform: translateY(-50%);
-        animation: floatRight 3s ease-in-out infinite;
-        animation-delay: 1s;
-      }
-
-      .card-3 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: floatCenter 3s ease-in-out infinite;
-        animation-delay: 2s;
-      }
-
       .modal-content {
         padding: 1.5rem;
       }
@@ -1322,6 +1303,11 @@
       .product-card {
         margin: 0 0.25rem;
         border-width: 2px;
+        transform: translateY(10px);
+      }
+
+      .product-card.animate {
+        animation-duration: 0.3s;
       }
 
       .product-image {
@@ -1352,102 +1338,20 @@
         padding: 0.8rem 1rem;
         font-size: 0.8rem;
       }
-
-      /* Mobile-specific gentle animations */
-      @media (max-width: 480px) {
-        @keyframes fadeInUpMobile {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideInFromLeftMobile {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInFromRightMobile {
-          from {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes scaleInMobile {
-          from {
-            opacity: 0;
-            transform: scale(0.96);
-          }
-
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        .product-card.animate {
-          animation-duration: 0.5s;
-          animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .product-card.animate:nth-child(1) {
-          animation-name: fadeInUpMobile;
-          animation-delay: 0s;
-        }
-
-        .product-card.animate:nth-child(2) {
-          animation-name: slideInFromLeftMobile;
-          animation-delay: 0.08s;
-        }
-
-        .product-card.animate:nth-child(3) {
-          animation-name: slideInFromRightMobile;
-          animation-delay: 0.16s;
-        }
-
-        .product-card.animate:nth-child(4) {
-          animation-name: scaleInMobile;
-          animation-delay: 0.24s;
-        }
-
-        .product-card.animate:nth-child(5) {
-          animation-name: fadeInUpMobile;
-          animation-delay: 0.32s;
-        }
-
-        .product-card.animate:nth-child(6) {
-          animation-name: slideInFromLeftMobile;
-          animation-delay: 0.4s;
-        }
-
-        .product-card.animate:nth-child(7) {
-          animation-name: slideInFromRightMobile;
-          animation-delay: 0.48s;
-        }
-      }
     }
   </style>
 </head>
 
 <body>
+  <!-- Simple Black Friday Banner -->
+  <div class="bf-banner">
+    <div class="bf-banner-content">
+      <span class="bf-text">🛍️ BLACK FRIDAY</span>
+      <span class="bf-discount">40% OFF EN TODO</span>
+      <span class="bf-text">OFERTAS LIMITADAS 🛍️</span>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="header">
     <div class="header-content">
@@ -1468,14 +1372,25 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
+        <span class="bf-badge">Black Friday Especial</span>
         <h1 class="hero-title">Transforma tus Finanzas con <span class="brand-highlight">Planifesto</span></h1>
-        <p class="hero-subtitle">Herramientas diseñadas especialmente para mujeres que quieren tomar el control
-          de su dinero y construir el futuro financiero que merecen 💅✨</p>
-        <button class="hero-cta" onclick="scrollToProducts()">Explorar Productos</button>
+        <p class="hero-subtitle">Herramientas diseñadas especialmente para mujeres que quieren tomar el control de su
+          dinero y construir el futuro financiero que merecen 💅✨</p>
+        <div class="hero-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">🎯</span>
+            <span class="benefit-text">40% OFF</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">✨</span>
+            <span class="benefit-text">Ofertas Limitadas</span>
+          </div>
+        </div>
+        <button class="hero-cta" onclick="scrollToProducts()">Ver Productos con Descuento</button>
       </div>
       <div class="hero-visual">
         <div class="floating-card card-1">💰</div>
-        <div class="floating-card card-2">📊</div>
+        <div class="floating-card card-2">🛍️</div>
         <div class="floating-card card-3">💎</div>
         <div class="hero-circle"></div>
       </div>
@@ -1486,24 +1401,32 @@
   <section class="quiz-section">
     <div class="quiz-container">
       <h2 class="quiz-title">¿No sabes qué plantilla elegir?</h2>
-      <p class="quiz-subtitle">Responde unas preguntas rápidas y te ayudamos a encontrar la herramienta perfecta
-        para ti</p>
+      <p class="quiz-subtitle">Responde unas preguntas rápidas y te ayudamos a encontrar la herramienta perfecta para ti
+      </p>
       <button class="quiz-start-btn" onclick="startQuizSection()">Comenzar Quiz</button>
     </div>
   </section>
 
+  <!-- Special Offer Banner -->
+  <section class="offer-banner">
+    <h2 class="offer-title">🛍️ Black Friday Exclusivo 🛍️</h2>
+    <p class="offer-subtitle">40% de descuento en todas nuestras plantillas financieras</p>
+  </section>
+
   <!-- Products Section -->
   <section class="products-section" id="productos">
-    <h2 class="section-title">Nuestros Productos</h2>
+    <h2 class="section-title">Nuestros Productos - Black Friday</h2>
     <div class="products-grid">
       <!-- Combo Planifesto -->
       <div class="product-card" data-product="comboPlanifesto">
+        <div class="discount-ribbon">-40%</div>
         <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
           <div class="product-price">
             <span class="price-original">$33.00 USD</span>
-            <span class="price-current">$25.00 USD</span>
+            <span class="price-current">$19.80 USD</span>
+            <span class="discount-badge">-40%</span>
           </div>
           <ul class="product-features">
             <li>⭐ Guía de Inversiones 101</li>
@@ -1512,8 +1435,7 @@
             <li>⭐ Planificador de pago de deudas</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
-              detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver detalles</button>
             <button class="btn btn-secondary"
               onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar ahora</button>
           </div>
@@ -1522,12 +1444,14 @@
 
       <!-- Plantilla PRO -->
       <div class="product-card" data-product="plantillaPro">
+        <div class="discount-ribbon">-40%</div>
         <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
         <div class="product-content">
           <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
           <div class="product-price">
             <span class="price-original">$25.00 USD</span>
-            <span class="price-current">$19.99 USD</span>
+            <span class="price-current">$15.00 USD</span>
+            <span class="discount-badge">-40%</span>
           </div>
           <ul class="product-features">
             <li>⭐ Presupuesto mensual inteligente</li>
@@ -1541,14 +1465,17 @@
           </div>
         </div>
       </div>
+
       <!-- Plantilla Parejas -->
       <div class="product-card" data-product="plantillaParejas">
+        <div class="discount-ribbon">-40%</div>
         <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Plantilla Financiera Mensual de Parejas (3 en 1)</h3>
           <div class="product-price">
             <span class="price-original">$57.00 USD</span>
-            <span class="price-current">$43.00 USD</span>
+            <span class="price-current">$34.20 USD</span>
+            <span class="discount-badge">-40%</span>
           </div>
           <ul class="product-features">
             <li>⭐ Presupuesto mensual en pareja</li>
@@ -1557,23 +1484,23 @@
             <li>⭐ Bonos Extras</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver
-              detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver detalles</button>
             <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar
-              ahora</button>
+              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar ahora</button>
           </div>
         </div>
       </div>
 
-
       <!-- Plantilla Básica -->
       <div class="product-card" data-product="plantillaBasica">
+        <div class="discount-ribbon">-40%</div>
         <img src="imagenes/presupuestoMensual.png" alt="Plantilla Básica" class="product-image" id="basicProdImg">
         <div class="product-content">
           <h3 class="product-title" id="basicProdTitle">Plantilla Financiera</h3>
           <div class="product-price">
-            <span class="price-current">$9.99 USD</span>
+            <span class="price-original">$9.99 USD</span>
+            <span class="price-current">$5.99 USD</span>
+            <span class="discount-badge">-40%</span>
           </div>
           <ul class="product-features">
             <li>🌸 Diseño moderno y fácil de usar</li>
@@ -1582,8 +1509,7 @@
             <li>🌸 Categorías personalizadas</li>
           </ul>
           <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaBasica')">Ver
-              detalles</button>
+            <button class="btn btn-primary" onclick="showProductDetails('plantillaBasica')">Ver detalles</button>
             <button class="btn btn-secondary" onclick="toggleNeutral('basic')">Versión Neutral</button>
           </div>
         </div>
@@ -1591,12 +1517,14 @@
 
       <!-- Bundle Finanzas e Inversión -->
       <div class="product-card" data-product="bundleFinanzas">
+        <div class="discount-ribbon">-40%</div>
         <img src="imagenes/bundle .png" alt="Bundle Finanzas" class="product-image">
         <div class="product-content">
           <h3 class="product-title">Combo Finanzas e Inversión</h3>
           <div class="product-price">
             <span class="price-original">$20.98 USD</span>
-            <span class="price-current">$16.99 USD</span>
+            <span class="price-current">$12.59 USD</span>
+            <span class="discount-badge">-40%</span>
           </div>
           <ul class="product-features">
             <li>⭐ Guía de Inversiones 101</li>
@@ -1609,8 +1537,7 @@
           </div>
         </div>
       </div>
-
-
+    </div>
   </section>
 
   <!-- Floating Quiz Button -->
@@ -1652,6 +1579,7 @@
     <div id="quizResult" style="display: none;">
       <h3>Te recomendamos:</h3>
       <p id="recommendationText" style="text-align: center; font-weight: 600; color: var(--verde-azulado);"></p>
+      <p style="text-align: center; color: var(--rojo-oferta); font-weight: 700;">¡Con 40% OFF Black Friday!</p>
       <div class="quiz-options">
         <button class="quiz-btn" id="goToProductBtn">Ir al producto</button>
         <button class="quiz-btn" onclick="resetQuiz()"
@@ -1701,13 +1629,13 @@
   </footer>
 
   <script>
-    // Product Data
+    // Product Data with 40% OFF
     const productData = {
       plantillaParejas: {
         title: 'Plantilla Financiera Mensual de Parejas (3 en 1)',
         paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
         content: `
-        <h2>Plantilla Financiera Mensual de Parejas (3 en 1) - 25% OFF</h2>
+        <h2>Plantilla Financiera Mensual de Parejas (3 en 1) - BLACK FRIDAY 40% OFF</h2>
         <p>Esta plantilla es tu nueva aliada para construir finanzas sanas juntos (sin drama, sin confusión y sin pasar lucha).</p>
         
         <h3>¿Qué incluye?</h3>
@@ -1721,15 +1649,6 @@
         <p>Todo en un solo lugar. Fácil, visual y súper práctico.</p>
         <p>Incluye todo lo que amas de nuestra versión PRO (resúmenes, trackers inteligentes, indicadores visuales de progreso, alertas de presupuesto y más).</p>
 
-        <h3>Ideal para parejas que quieren:</h3>
-        <ul>
-          <li>✔️ Establecer objetivos reales y alcanzables.</li>
-          <li>✔️ Planificar gastos, pagar deudas y ahorrar... sin morir en el intento.</li>
-          <li>✔️ Tomar decisiones financieras juntos con más confianza y claridad.</li>
-        </ul>
-
-        <p>Incluye un videotutorial de uso con tips y hacks para que le saquen el MÁXIMO provecho.</p>
-
         <h3>BONOS</h3>
         <p>Sí, hay más:</p>
         <ul>
@@ -1737,22 +1656,13 @@
           <li>💬 <strong>Plantilla para planear actividades</strong> (valorado en 10 USD)</li>
           <li>💬 <strong>Plantilla Reto de ahorro imprimible</strong> (valorado en 5 USD)</li>
         </ul>
-
-        <h3>Notas importantes:</h3>
-        <ul>
-          <li>NO necesitas ser experto en Google Sheets o finanzas. La plantilla está diseñada para que cualquier pareja pueda usarla de manera sencilla y efectiva desde el primer día.</li>
-          <li><strong>IMPORTANTE:</strong> Esta plantilla solo es compatible con Google Sheets.</li>
-          <li><strong>IMPORTANTE:</strong> Al ser un producto digital, todas las ventas son finales, sin reembolso.</li>
-          <li>Esta plantilla está protegida por copyright y es propiedad de Planifesto; su uso es exclusivo para la pareja que la adquiera. Cualquier redistribución, reventa o reproducción (completa o parcial) está estrictamente prohibida.</li>
-          <li><strong>IMPORTANTE:</strong> Luego de realizada la compra, se te enviará el documento al correo ingresado en PayPal. Si ha pasado 1 minuto y aún no recibes el correo, revisa la carpeta de spam. 💖</li>
-        </ul>
       `
       },
       comboPlanifesto: {
         title: 'Combo Planifesto - PRO + Guía de Inversión',
         paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
         content: `
-        <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar + Nuestra guía para aprender a invertir ✨</h2>
+        <h2>✨ COMBO PLANIFESTO - BLACK FRIDAY 40% OFF ✨</h2>
         <p>¡Todo automático y conectado entre sí!</p>
         
         <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
@@ -1762,34 +1672,6 @@
           <li>⭐ Planificador inteligente de pago de deudas que hace todos los cálculos por ti</li>
           <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
         </ul>
-        
-        <p>Todo esto con un diseño estético que te encantará usar y la practicidad que necesitas.</p>
-
-        <h3>Imagina tener en <strong>UN SOLO LUGAR:</strong></h3>
-        <ul>
-          <li>⭐ Tu presupuesto mensual perfectamente organizado</li>
-          <li>⭐ Un plan claro para decir adiós a tus deudas (con calculadora automática incluida 🙌)</li>
-          <li>⭐ Tus metas de ahorro visualizadas y calculadas (desde ese viaje soñado hasta tu primer apto)</li>
-        </ul>
-
-        <p><strong>¿Por qué es diferente?</strong> Porque mientras otras plantillas te hacen saltar de un archivo a otro, Planifesto PRO 3-1 integra todo en un sistema cohesivo que:</p>
-        <ul>
-          <li>⭐ Hace todos los cálculos automáticamente</li>
-          <li>⭐ Mantiene tus finanzas sincronizadas</li>
-          <li>⭐ Te muestra el panorama completo de tu dinero en un dashboard visual súper cute🥰</li>
-        </ul>
-
-        <h3>Para la chica que:</h3>
-        <ul>
-          <li>Está cansada de tener sus finanzas dispersas en diferentes lugares</li>
-          <li>Quiere un sistema completo que haga el trabajo pesado por ella</li>
-          <li>Busca una solución que combine cuteness y funcionalidad</li>
-          <li>Desea tomar el control de sus finanzas sin sentirse abrumada</li>
-        </ul>
-
-        <p>Todo esto en un diseño moderno y estético que te motivará a usar día tras día. Sin más archivos perdidos, sin más cálculos complicados, sin más desorganización.</p>
-        <p>Tu futuro financiero nunca se había visto tan bien💅✨</p>
-        <p>¿Estás lista?</p>
       `
       },
       plantillaPro: {
@@ -1797,8 +1679,7 @@
         paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
         content: `
-        <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar ✨</h2>
-        <p>¡Todo automático y conectado entre sí!</p>
+        <h2>✨ PLANTILLA PRO - BLACK FRIDAY 40% OFF ✨</h2>
         
         <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
         <ul>
@@ -1806,34 +1687,6 @@
           <li>⭐ Planificador inteligente de pago de deudas que hace todos los cálculos por ti</li>
           <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
         </ul>
-        
-        <p>Todo esto con un diseño estético que te encantará usar y la practicidad que necesitas.</p>
-
-        <h3>Imagina tener en <strong>UN SOLO LUGAR:</strong></h3>
-        <ul>
-          <li>⭐ Tu presupuesto mensual perfectamente organizado</li>
-          <li>⭐ Un plan claro para decir adiós a tus deudas (con calculadora automática incluida 🙌)</li>
-          <li>⭐ Tus metas de ahorro visualizadas y calculadas (desde ese viaje soñado hasta tu primer apto)</li>
-        </ul>
-
-        <p><strong>¿Por qué es diferente?</strong> Porque mientras otras plantillas te hacen saltar de un archivo a otro, Planifesto PRO 3-1 integra todo en un sistema cohesivo que:</p>
-        <ul>
-          <li>⭐ Hace todos los cálculos automáticamente</li>
-          <li>⭐ Mantiene tus finanzas sincronizadas</li>
-          <li>⭐ Te muestra el panorama completo de tu dinero en un dashboard visual súper cute🥰</li>
-        </ul>
-
-        <h3>Para la chica que:</h3>
-        <ul>
-          <li>Está cansada de tener sus finanzas dispersas en diferentes lugares</li>
-          <li>Quiere un sistema completo que haga el trabajo pesado por ella</li>
-          <li>Busca una solución que combine cuteness y funcionalidad</li>
-          <li>Desea tomar el control de sus finanzas sin sentirse abrumada</li>
-        </ul>
-
-        <p>Todo esto en un diseño moderno y estético que te motivará a usar día tras día. Sin más archivos perdidos, sin más cálculos complicados, sin más desorganización.</p>
-        <p>Tu futuro financiero nunca se había visto tan bien💅✨</p>
-        <p>¿Estás lista?</p>
       `
       },
       plantillaBasica: {
@@ -1841,9 +1694,7 @@
         paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
         content: `
-        <h2>Plantilla Financiera</h2>
-        <p><strong>¿Lista para tomar el control de tus finanzas y convertirte en la jefa de tu dinero? 💅✨</strong></p>
-        <p>Esta plantilla financiera está diseñada especialmente para mujeres como tú, que quieren brillar en todos los aspectos de su vida, incluyendo sus finanzas.</p>
+        <h2>Plantilla Financiera - BLACK FRIDAY 40% OFF</h2>
         
         <h3>Características principales</h3>
         <ul>
@@ -1851,134 +1702,20 @@
           <li>🌸 Dashboard visual súper cute con gráficos</li>
           <li>🌸 Compatible con tu laptop, tablet y cel</li>
           <li>🌸 Plantilla estética que te motivará a usarla</li>
-          <li>🌸 Espacio para tus metas financieras (desde ese viaje soñado hasta tu primer apto)</li>
-          <li>🌸 Categorías personalizadas para tus gastos reales (sí, incluye Uber, compras online y esas salidas de finde)</li>
         </ul>
-        
-        <h3>Beneficios que cambiarán tu vida:</h3>
-        <ul>
-          <li>🌸 Automatización de cálculos financieros</li>
-          <li>🌸 Di adiós a la ansiedad de fin de mes</li>
-          <li>🌸 Construye tu independencia financiera sin sacrificar tu estilo de vida</li>
-          <li>🌸 Aprende a invertir tu dinero de manera inteligente</li>
-          <li>🌸 Crea un futuro financiero sólido mientras disfrutas tu presente</li>
-          <li>🌸 Ten el control total de tu dinero sin sentirte abrumada</li>
-          <li>🌸 Logra tus metas financieras sin dejar de vivir tu mejor vida</li>
-          <li>🌸 Ahorra para lo que realmente importa (ya sea ese bolso que amas o tu fondo de emergencia)</li>
-        </ul>
-        
-        <p><strong>¡Es momento de ser la CEO de tu vida financiera! Esta plantilla es tu mejor amiga para conseguir esa independencia financiera que mereces y sin complicaciones. ¡Invierte en ti misma hoy! Tu yo del futuro (y tu cuenta bancaria) te lo agradecerán 💖</strong></p>
       `
       },
       bundleFinanzas: {
         title: 'Combo Finanzas e Inversión',
         paypalLink: 'https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E',
         content: `
-        <h2>Combo Finanzas e Inversión</h2>
-        <p>El combo perfecto para empezar tu camino financiero</p>
+        <h2>Combo Finanzas e Inversión - BLACK FRIDAY 40% OFF</h2>
         
         <h3>Incluye:</h3>
         <ul>
           <li>⭐ Guía de Inversiones 101</li>
           <li>⭐ Plantilla de presupuesto mensual</li>
         </ul>
-      `
-      },
-      planificadorViajes: {
-        title: 'Planificador de Viajes',
-        paypalLink: 'https://www.paypal.com/ncp/payment/J6DVR9FNVQW28',
-        content: `
-        <h2>Planificador de Viajes</h2>
-        <p><strong>Tu viaje soñado comienza antes de hacer la maleta</strong></p>
-        
-        <h3>¿Qué trae esta joya viajera? 👇</h3>
-        
-        <h4>🧳 PLANIFICADOR DE VIAJE:</h4>
-        <ul>
-          <li>⭐ Calculadora de días que faltan</li>
-          <li>⭐ Plan de ahorro con barra de progreso</li>
-          <li>⭐ Proyección de gastos</li>
-        </ul>
-        
-        <h4>💸 PRESUPUESTO DETALLADO:</h4>
-        <ul>
-          <li>⭐ Categorías personalizables</li>
-          <li>⭐ Barra visual de presupuesto, ahorro y gastos pre viaje y durante tu viaje</li>
-          <li>⭐ Registro de transacciones y compras</li>
-          <li>⭐ Tracker del dinero gastado vs lo que queda</li>
-        </ul>
-
-        <h4>📝 CHECKLIST:</h4>
-        <ul>
-          <li>⭐ Divide por categorías todo lo que necesitas llevar</li>
-          <li>⭐ Ropa, higiene, tech, esenciales… ¡Nada se te queda!</li>
-        </ul>
-
-        <h4>📅 ITINERARIO + OUTFITS:</h4>
-        <ul>
-          <li>⭐ Planifica mañana, tarde y noche de cada día</li>
-          <li>⭐ Combina los outfits por bloques (¡Adiós maleta explotada!)</li>
-        </ul>
-
-        <h4>📊 RESUMEN FINANCIERO DEL VIAJE:</h4>
-        <ul>
-          <li>⭐ Promedio de gasto diario, barra por categoría, lo más caro/barato</li>
-          <li>⭐ Tus 3 categorías estrella y cuánto gastaste en compras impulsivas</li>
-        </ul>
-
-        <h4>📸 UN ESPACIO DE RECUERDOS:</h4>
-        <ul>
-          <li>⭐ Tienes un espacio para tus recuerdos, aprendizajes, anécdotas, momentos, etc.</li>
-        </ul>
-
-        <h4>🚨 HOJA DE EMERGENCIAS:</h4>
-        <ul>
-          <li>⭐ Todos los datos importantes a mano si pasa algo</li>
-        </ul>
-
-        <h3>¿Por qué la amarás?</h3>
-        <ul>
-          <li>✅ Porque es visual, divertida, práctica y <strong>HERMOSA</strong> (como plus)</li>
-          <li>✅ Porque te evita estrés y te ayuda a ahorrar</li>
-          <li>✅ Porque convierte tu viaje en una experiencia consciente y épica</li>
-          <li>✅ Sí, viene con videoguía paso a paso para sacarle TODO el jugo</li>
-          <li>✅ Sí, sirve para cualquier tipo de viaje, en cualquier fecha y moneda</li>
-          <li>✅ Y SÍ, tiene un <strong>BONAZO</strong>: Guía con hacks y tips para exprimir tu viaje al máximo</li>
-        </ul>
-
-        <p><strong>🎒 ¿Lista para viajar con todo bajo control?</strong></p>
-        <p>👉 Compra ahora y recibe acceso inmediato a la plantilla, el videotutorial y la guía BONO.</p>
-      `
-      },
-      guiaInversion: {
-        title: 'Guía de Inversión',
-        paypalLink: 'https://www.paypal.com/ncp/payment/MK5NL4YTWLU34',
-        content: `
-        <h2>Guía de Inversión</h2>
-        <p><strong>Si estás aquí, es porque quieres entrar al mundo de las inversiones pero a lo mejor no sabes por dónde empezar y crees que es complicado o que hay que ser experta… pero te digo algo? NADA más alejado de la realidad!</strong></p>
-        <p>En esta Guía Completa de Inversiones vamos a ir pasito a pasito, con información PRÁCTICA, para abrir tu primera inversión. Lo que te llevas de aquí, la verdad es una joya!</p>
-        
-        <h3>Características principales</h3>
-        <ul>
-          <li>🌸 Manual completo y estructurado de manera progresiva</li>
-          <li>🌸 Lenguaje claro y accesible para principiantes</li>
-          <li>🌸 Incluye test de personalidad para conocer tu perfil de inversor</li>
-          <li>🌸 Recursos adicionales como FAQs y listas de verificación</li>
-          <li>🌸 Contenido práctico enfocado en <strong>toma de decisiones REALES</strong>. Sí, hay teoría, pero solo lo que <strong>NECESITAS saber sí o sí</strong>, después todo lo demás es práctica y útil</li>
-        </ul>
-        
-        <h3>Beneficios que obtendrás</h3>
-        <ul>
-          <li>🌸 Aprenderás los conceptos fundamentales de inversión sin abrumarte</li>
-          <li>🌸 Entenderás la relación entre riesgo y recompensa para tomar mejores decisiones</li>
-          <li>🌸 Descubrirás qué instrumentos de inversión se ajustan mejor a tus objetivos</li>
-          <li>🌸 Sabrás exactamente qué pasos seguir antes de realizar tu primera inversión</li>
-          <li>🌸 Ganarás confianza para comenzar a invertir de manera informada</li>
-          <li>🌸 Evitarás errores comunes de principiantes que pueden costarte dinero (mucho)</li>
-          <li>🌸 Vas a tener una lista de recomendaciones, con enlaces directos a la página oficial de la institución para que vayas derechito a realizar tu primera inversión</li>
-        </ul>
-        
-        <p><strong>Esta guía te llevará de la mano desde los conceptos básicos hasta estrategias más avanzadas, incluyendo información crucial sobre cuentas de alto rendimiento, certificados financieros y fondos de inversión. NO más dudas, NO más miedos. Con esta guía, tendrás todas las herramientas necesarias para comenzar tu camino hacia la independencia financiera de manera segura y consciente. ¡Invierte en tu futuro hoy! Tu yo del mañana te lo agradecerá.</strong></p>
       `
       }
     };
@@ -1989,19 +1726,15 @@
       basic: false
     };
 
-    // Scroll Animation Observer - More responsive
+    // Scroll Animation Observer - Better for mobile
     const observerOptions = {
-      threshold: 0.05, // Trigger earlier
-      rootMargin: '50px 0px -20px 0px' // Start animations before fully visible
+      threshold: 0.1,
+      rootMargin: '20px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // No animar si ya fue procesado por el quiz o ya tiene la clase animate
-        if (entry.isIntersecting &&
-          !entry.target.classList.contains('animate') &&
-          !entry.target.hasAttribute('data-quiz-processed') &&
-          !entry.target.classList.contains('no-scroll-animate')) {
+        if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
           entry.target.classList.add('animate');
           observer.unobserve(entry.target);
         }
@@ -2022,7 +1755,6 @@
       const modal = document.getElementById('productModal');
       const modalContent = document.getElementById('modalContent');
 
-      // Determine current PayPal link based on neutral state
       let currentPaypalLink = product.paypalLink;
       if (productId === 'plantillaPro' && currentNeutralStates.pro && product.neutralPaypalLink) {
         currentPaypalLink = product.neutralPaypalLink;
@@ -2034,17 +1766,13 @@
       modalContent.innerHTML = `
       ${product.content}
       <div class="payment-options">
-        <h3 class="payment-title">Opciones de Pago</h3>
+        <h3 class="payment-title">Opciones de Pago - Black Friday</h3>
         
         <div class="payment-section">
           <h4>💳 Pago Online</h4>
           <div class="payment-buttons">
             <button class="payment-btn paypal-btn" onclick="buyNow('${currentPaypalLink}')">
-              <span class="payment-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.394c-.567-.35-1.31-.6-2.27-.75-.96-.15-2.09-.24-3.39-.24H9.45c-.524 0-.968.382-1.05.9L7.076 21.337h4.605c.524 0 .968-.382 1.05-.9l1.12-7.106h2.19c4.298 0 7.664-1.747 8.647-6.797.03-.149.054-.294.077-.437.044-.28.044-.55 0-.82-.045-.27-.127-.52-.243-.75z"/>
-                </svg>
-              </span>
+              <span class="payment-icon">💳</span>
               <span>PayPal / Tarjeta</span>
             </button>
           </div>
@@ -2053,32 +1781,22 @@
         <div class="payment-section">
           <h4>🏦 Transferencias Bancarias (RD)</h4>
           <div class="transfer-buttons">
-            <a href="https://wa.me/18299441515?text=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20-%20Transferencia%20bancaria" class="payment-btn whatsapp-btn">
-              <span class="payment-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-              </span>
+            <a href="https://wa.me/18299441515?text=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20con%20descuento%20Black%20Friday" class="payment-btn whatsapp-btn">
+              <span class="payment-icon">📱</span>
               <span>WhatsApp</span>
             </a>
-            <a href="mailto:planifestoRD@gmail.com?subject=Consulta%20sobre%20${encodeURIComponent(product.title)}&body=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20y%20quisiera%20información%20sobre%20transferencias%20bancarias." class="payment-btn email-btn">
-              <span class="payment-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-              </span>
+            <a href="mailto:planifestoRD@gmail.com?subject=Black%20Friday%20-%20${encodeURIComponent(product.title)}" class="payment-btn email-btn">
+              <span class="payment-icon">📧</span>
               <span>Email</span>
             </a>
           </div>
         </div>
         
         <div class="payment-note">
-          <p><strong>Nota importante:</strong></p>
-          <p>• No es necesario tener cuenta PayPal para pagar con tarjeta</p>
-          <p>• Para transferencias bancarias en República Dominicana, contáctanos</p>
-          <p>• Recibirás el producto al correo de PayPal (revisar spam)</p>
-          <p>• Producto digital - todas las ventas son finales</p>
+          <p><strong>🛍️ OFERTA BLACK FRIDAY - 40% OFF</strong></p>
+          <p>• Descuento aplicado por tiempo limitado</p>
           <p>• Compatible únicamente con Google Sheets</p>
+          <p>• Recibirás el producto al correo de PayPal</p>
         </div>
       </div>
     `;
@@ -2093,12 +1811,10 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Buy Now
     function buyNow(paypalLink) {
       window.open(paypalLink, '_blank');
     }
 
-    // Toggle Neutral Version
     function toggleNeutral(type) {
       const isNeutral = currentNeutralStates[type];
 
@@ -2179,11 +1895,7 @@
         recommendation = 'Plantilla Financiera PRO 💼';
         productId = 'plantillaPro';
       } else if (selected.includes('inversion')) {
-        // Cualquier selección que incluya inversión
-        if (selected.length === 1) {
-          recommendation = 'Combo Planifesto 🔥';
-          productId = 'comboPlanifesto';
-        } else if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda')) {
+        if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda')) {
           recommendation = 'Combo Finanzas e Inversión 🔁';
           productId = 'bundleFinanzas';
         } else {
@@ -2200,35 +1912,21 @@
       document.getElementById('recommendationText').textContent = recommendation;
       document.getElementById('goToProductBtn').onclick = () => goToProduct(productId);
     }
+
     function goToProduct(productId) {
       toggleQuizPopup();
       const productCard = document.querySelector(`[data-product="${productId}"]`);
       if (productCard) {
-        // Marcar como ya procesado para evitar re-animaciones
-        productCard.setAttribute('data-quiz-processed', 'true');
-
         productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(() => {
-          // Forzar estado final visible y remover todas las animaciones CSS
-          productCard.style.opacity = '1';
-          productCard.style.transform = 'translateY(0)';
-          productCard.style.animation = 'none';
+          productCard.style.transform = 'scale(1.05)';
+          productCard.style.boxShadow = '0 20px 40px rgba(255, 51, 102, 0.3)';
 
-          // Force reflow
-          productCard.offsetHeight;
-
-          // Aplicar solo el pulso
-          productCard.style.animation = 'cardPulse 0.8s ease 3';
-
-          // Después del pulso, mantener estado final y bloquear futuras animaciones
           setTimeout(() => {
-            productCard.style.animation = 'none';
-            productCard.style.opacity = '1';
-            productCard.style.transform = 'translateY(0)';
-            // Agregar clase para prevenir futuras animaciones
-            productCard.classList.add('no-scroll-animate');
-          }, 2400);
-        }, 800);
+            productCard.style.transform = '';
+            productCard.style.boxShadow = '';
+          }, 500);
+        }, 300);
       }
     }
 
@@ -2239,7 +1937,6 @@
       document.querySelectorAll('#quizStep2 input[type="checkbox"]').forEach(cb => cb.checked = false);
     }
 
-    // Add scroll function
     function scrollToProducts() {
       document.getElementById('productos').scrollIntoView({
         behavior: 'smooth',
@@ -2247,7 +1944,6 @@
       });
     }
 
-    // Close modal when clicking outside
     window.onclick = function (event) {
       const modal = document.getElementById('productModal');
       if (event.target === modal) {
