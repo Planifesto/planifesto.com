@@ -80,7 +80,6 @@
       animation: pulse-discount 2s ease-in-out infinite;
     }
 
-    /* Header */
     .header {
       display: flex;
       align-items: center;
@@ -89,10 +88,11 @@
       padding: 1rem 2rem;
       border-bottom: 3px solid var(--rosa);
       position: sticky;
-      top: 48px;
+      top: 0;
       z-index: 100;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     }
+
 
     .header-content {
       display: flex;
@@ -1054,7 +1054,7 @@
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
-        top: 40px;
+        top: 00px;
       }
 
       .header-content {
@@ -1342,299 +1342,291 @@
   </style>
 </head>
 
-<body>
-  <!-- Simple Black Friday Banner -->
-  <div class="bf-banner">
-    <div class="bf-banner-content">
-      <span class="bf-text">🛍️ BLACK FRIDAY</span>
-      <span class="bf-discount">40% OFF EN TODO</span>
-      <span class="bf-text">OFERTAS LIMITADAS 🛍️</span>
+
+
+<!-- Header -->
+<header class="header">
+  <div class="header-content">
+    <div class="logo-section">
+      <img src="imagenes/logo.jpg" alt="Logo de Planifesto" class="logo" loading="lazy">
+      <h1 class="brand-name">Planifesto</h1>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link nav-link--active">Productos</a>
+      <a href="teen.html" class="nav-link">Planifesto Teen</a>
+      <a href="contacto.html" class="nav-link">Contacto y FAQ</a>
+      <a href="taller/taller.html" class="nav-link">Taller</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="bf-badge">Black Friday Especial</span>
+      <h1 class="hero-title">Transforma tus Finanzas con <span class="brand-highlight">Planifesto</span></h1>
+      <p class="hero-subtitle">Herramientas diseñadas especialmente para mujeres que quieren tomar el control de su
+        dinero y construir el futuro financiero que merecen 💅✨</p>
+      <div class="hero-benefits">
+        <div class="benefit-item">
+          <span class="benefit-icon">🎯</span>
+          <span class="benefit-text">40% OFF</span>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">✨</span>
+          <span class="benefit-text">Ofertas Limitadas</span>
+        </div>
+      </div>
+      <button class="hero-cta" onclick="scrollToProducts()">Ver Productos con Descuento</button>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1">💰</div>
+      <div class="floating-card card-2">🛍️</div>
+      <div class="floating-card card-3">💎</div>
+      <div class="hero-circle"></div>
     </div>
   </div>
+</section>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="logo-section">
-        <img src="imagenes/logo.jpg" alt="Logo de Planifesto" class="logo" loading="lazy">
-        <h1 class="brand-name">Planifesto</h1>
-      </div>
-      <nav class="nav">
-        <a href="index.html" class="nav-link nav-link--active">Productos</a>
-        <a href="teen.html" class="nav-link">Planifesto Teen</a>
-        <a href="contacto.html" class="nav-link">Contacto y FAQ</a>
-        <a href="taller/taller.html" class="nav-link">Taller</a>
-      </nav>
-    </div>
-  </header>
+<!-- Quiz Section -->
+<section class="quiz-section">
+  <div class="quiz-container">
+    <h2 class="quiz-title">¿No sabes qué plantilla elegir?</h2>
+    <p class="quiz-subtitle">Responde unas preguntas rápidas y te ayudamos a encontrar la herramienta perfecta para ti
+    </p>
+    <button class="quiz-start-btn" onclick="startQuizSection()">Comenzar Quiz</button>
+  </div>
+</section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <span class="bf-badge">Black Friday Especial</span>
-        <h1 class="hero-title">Transforma tus Finanzas con <span class="brand-highlight">Planifesto</span></h1>
-        <p class="hero-subtitle">Herramientas diseñadas especialmente para mujeres que quieren tomar el control de su
-          dinero y construir el futuro financiero que merecen 💅✨</p>
-        <div class="hero-benefits">
-          <div class="benefit-item">
-            <span class="benefit-icon">🎯</span>
-            <span class="benefit-text">40% OFF</span>
-          </div>
-          <div class="benefit-item">
-            <span class="benefit-icon">✨</span>
-            <span class="benefit-text">Ofertas Limitadas</span>
-          </div>
+<!-- Special Offer Banner -->
+<section class="offer-banner">
+  <h2 class="offer-title">🛍️ Black Friday Exclusivo 🛍️</h2>
+  <p class="offer-subtitle">40% de descuento en todas nuestras plantillas financieras</p>
+</section>
+
+<!-- Products Section -->
+<section class="products-section" id="productos">
+  <h2 class="section-title">Nuestros Productos - Black Friday</h2>
+  <div class="products-grid">
+    <!-- Combo Planifesto -->
+    <div class="product-card" data-product="comboPlanifesto">
+      <div class="discount-ribbon">-40%</div>
+      <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
+      <div class="product-content">
+        <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
+        <div class="product-price">
+          <span class="price-original">$33.00 USD</span>
+          <span class="price-current">$19.80 USD</span>
+          <span class="discount-badge">-40%</span>
         </div>
-        <button class="hero-cta" onclick="scrollToProducts()">Ver Productos con Descuento</button>
-      </div>
-      <div class="hero-visual">
-        <div class="floating-card card-1">💰</div>
-        <div class="floating-card card-2">🛍️</div>
-        <div class="floating-card card-3">💎</div>
-        <div class="hero-circle"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quiz Section -->
-  <section class="quiz-section">
-    <div class="quiz-container">
-      <h2 class="quiz-title">¿No sabes qué plantilla elegir?</h2>
-      <p class="quiz-subtitle">Responde unas preguntas rápidas y te ayudamos a encontrar la herramienta perfecta para ti
-      </p>
-      <button class="quiz-start-btn" onclick="startQuizSection()">Comenzar Quiz</button>
-    </div>
-  </section>
-
-  <!-- Special Offer Banner -->
-  <section class="offer-banner">
-    <h2 class="offer-title">🛍️ Black Friday Exclusivo 🛍️</h2>
-    <p class="offer-subtitle">40% de descuento en todas nuestras plantillas financieras</p>
-  </section>
-
-  <!-- Products Section -->
-  <section class="products-section" id="productos">
-    <h2 class="section-title">Nuestros Productos - Black Friday</h2>
-    <div class="products-grid">
-      <!-- Combo Planifesto -->
-      <div class="product-card" data-product="comboPlanifesto">
-        <div class="discount-ribbon">-40%</div>
-        <img src="imagenes/comboPlanifesto.png" alt="Combo Planifesto" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Combo Planifesto - PRO + Guía de Inversión</h3>
-          <div class="product-price">
-            <span class="price-original">$33.00 USD</span>
-            <span class="price-current">$19.80 USD</span>
-            <span class="discount-badge">-40%</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Guía de Inversiones 101</li>
-            <li>⭐ Sistema de metas de ahorro</li>
-            <li>⭐ Plantilla de presupuesto mensual</li>
-            <li>⭐ Planificador de pago de deudas</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar ahora</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plantilla PRO -->
-      <div class="product-card" data-product="plantillaPro">
-        <div class="discount-ribbon">-40%</div>
-        <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
-        <div class="product-content">
-          <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
-          <div class="product-price">
-            <span class="price-original">$25.00 USD</span>
-            <span class="price-current">$15.00 USD</span>
-            <span class="discount-badge">-40%</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Presupuesto mensual inteligente</li>
-            <li>⭐ Planificador de deudas automático</li>
-            <li>⭐ Sistema de metas de ahorro</li>
-            <li>⭐ Dashboard visual completo</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaPro')">Ver detalles</button>
-            <button class="btn btn-secondary" onclick="toggleNeutral('pro')">Versión Neutral</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plantilla Parejas -->
-      <div class="product-card" data-product="plantillaParejas">
-        <div class="discount-ribbon">-40%</div>
-        <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Plantilla Financiera Mensual de Parejas (3 en 1)</h3>
-          <div class="product-price">
-            <span class="price-original">$57.00 USD</span>
-            <span class="price-current">$34.20 USD</span>
-            <span class="discount-badge">-40%</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Presupuesto mensual en pareja</li>
-            <li>⭐ Planificador de pago de deudas</li>
-            <li>⭐ Planificador de metas de ahorro</li>
-            <li>⭐ Bonos Extras</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar ahora</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Plantilla Básica -->
-      <div class="product-card" data-product="plantillaBasica">
-        <div class="discount-ribbon">-40%</div>
-        <img src="imagenes/presupuestoMensual.png" alt="Plantilla Básica" class="product-image" id="basicProdImg">
-        <div class="product-content">
-          <h3 class="product-title" id="basicProdTitle">Plantilla Financiera</h3>
-          <div class="product-price">
-            <span class="price-original">$9.99 USD</span>
-            <span class="price-current">$5.99 USD</span>
-            <span class="discount-badge">-40%</span>
-          </div>
-          <ul class="product-features">
-            <li>🌸 Diseño moderno y fácil de usar</li>
-            <li>🌸 Dashboard visual con gráficos</li>
-            <li>🌸 Compatible con todos los dispositivos</li>
-            <li>🌸 Categorías personalizadas</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('plantillaBasica')">Ver detalles</button>
-            <button class="btn btn-secondary" onclick="toggleNeutral('basic')">Versión Neutral</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bundle Finanzas e Inversión -->
-      <div class="product-card" data-product="bundleFinanzas">
-        <div class="discount-ribbon">-40%</div>
-        <img src="imagenes/bundle .png" alt="Bundle Finanzas" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">Combo Finanzas e Inversión</h3>
-          <div class="product-price">
-            <span class="price-original">$20.98 USD</span>
-            <span class="price-current">$12.59 USD</span>
-            <span class="discount-badge">-40%</span>
-          </div>
-          <ul class="product-features">
-            <li>⭐ Guía de Inversiones 101</li>
-            <li>⭐ Plantilla de presupuesto mensual</li>
-          </ul>
-          <div class="product-buttons">
-            <button class="btn btn-primary" onclick="showProductDetails('bundleFinanzas')">Ver detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E')">Comprar ahora</button>
-          </div>
+        <ul class="product-features">
+          <li>⭐ Guía de Inversiones 101</li>
+          <li>⭐ Sistema de metas de ahorro</li>
+          <li>⭐ Plantilla de presupuesto mensual</li>
+          <li>⭐ Planificador de pago de deudas</li>
+        </ul>
+        <div class="product-buttons">
+          <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver detalles</button>
+          <button class="btn btn-secondary" onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar
+            ahora</button>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Floating Quiz Button -->
-  <button class="floating-quiz" onclick="toggleQuizPopup()">¿Ayuda para elegir?</button>
-
-  <!-- Quiz Popup -->
-  <div class="quiz-popup" id="quizPopup">
-    <button class="close-btn" onclick="toggleQuizPopup()">×</button>
-    <div id="quizStep1">
-      <h3>¿Qué tipo de planificación te interesa?</h3>
-      <div class="quiz-options">
-        <button class="quiz-btn" onclick="quizStep2('personal')">🧍‍♀️ Solo/a</button>
-        <button class="quiz-btn" onclick="showQuizResult('pareja')">💑 En pareja</button>
+    <!-- Plantilla PRO -->
+    <div class="product-card" data-product="plantillaPro">
+      <div class="discount-ribbon">-40%</div>
+      <img src="imagenes/planifestoPro.png" alt="Plantilla PRO" class="product-image" id="proProdImg">
+      <div class="product-content">
+        <h3 class="product-title" id="proProdTitle">Plantilla Financiera PRO (3-1)</h3>
+        <div class="product-price">
+          <span class="price-original">$25.00 USD</span>
+          <span class="price-current">$15.00 USD</span>
+          <span class="discount-badge">-40%</span>
+        </div>
+        <ul class="product-features">
+          <li>⭐ Presupuesto mensual inteligente</li>
+          <li>⭐ Planificador de deudas automático</li>
+          <li>⭐ Sistema de metas de ahorro</li>
+          <li>⭐ Dashboard visual completo</li>
+        </ul>
+        <div class="product-buttons">
+          <button class="btn btn-primary" onclick="showProductDetails('plantillaPro')">Ver detalles</button>
+          <button class="btn btn-secondary" onclick="toggleNeutral('pro')">Versión Neutral</button>
+        </div>
       </div>
     </div>
-    <div id="quizStep2" style="display: none;">
-      <h3>¿Qué necesitas controlar?</h3>
-      <p>Puedes seleccionar varios</p>
-      <div class="checkbox-group">
-        <div class="checkbox-item">
-          <input type="checkbox" value="inversion" id="inversion">
-          <label for="inversion">Inversiones</label>
+
+    <!-- Plantilla Parejas -->
+    <div class="product-card" data-product="plantillaParejas">
+      <div class="discount-ribbon">-40%</div>
+      <img src="imagenes/Actualizar a pro.png" alt="Plantilla Parejas" class="product-image">
+      <div class="product-content">
+        <h3 class="product-title">Plantilla Financiera Mensual de Parejas (3 en 1)</h3>
+        <div class="product-price">
+          <span class="price-original">$57.00 USD</span>
+          <span class="price-current">$34.20 USD</span>
+          <span class="discount-badge">-40%</span>
         </div>
-        <div class="checkbox-item">
-          <input type="checkbox" value="presupuesto" id="presupuesto">
-          <label for="presupuesto">Presupuesto mensual</label>
-        </div>
-        <div class="checkbox-item">
-          <input type="checkbox" value="ahorro" id="ahorro">
-          <label for="ahorro">Ahorros</label>
-        </div>
-        <div class="checkbox-item">
-          <input type="checkbox" value="deuda" id="deuda">
-          <label for="deuda">Deudas</label>
+        <ul class="product-features">
+          <li>⭐ Presupuesto mensual en pareja</li>
+          <li>⭐ Planificador de pago de deudas</li>
+          <li>⭐ Planificador de metas de ahorro</li>
+          <li>⭐ Bonos Extras</li>
+        </ul>
+        <div class="product-buttons">
+          <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver detalles</button>
+          <button class="btn btn-secondary" onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar
+            ahora</button>
         </div>
       </div>
-      <button class="quiz-btn" onclick="calculateQuizResult()">Ver recomendación</button>
     </div>
-    <div id="quizResult" style="display: none;">
-      <h3>Te recomendamos:</h3>
-      <p id="recommendationText" style="text-align: center; font-weight: 600; color: var(--verde-azulado);"></p>
-      <p style="text-align: center; color: var(--rojo-oferta); font-weight: 700;">¡Con 40% OFF Black Friday!</p>
-      <div class="quiz-options">
-        <button class="quiz-btn" id="goToProductBtn">Ir al producto</button>
-        <button class="quiz-btn" onclick="resetQuiz()"
-          style="background: var(--morado-claro); color: var(--verde-azulado);">Volver a empezar</button>
+
+    <!-- Plantilla Básica -->
+    <div class="product-card" data-product="plantillaBasica">
+      <div class="discount-ribbon">-40%</div>
+      <img src="imagenes/presupuestoMensual.png" alt="Plantilla Básica" class="product-image" id="basicProdImg">
+      <div class="product-content">
+        <h3 class="product-title" id="basicProdTitle">Plantilla Financiera</h3>
+        <div class="product-price">
+          <span class="price-original">$9.99 USD</span>
+          <span class="price-current">$5.99 USD</span>
+          <span class="discount-badge">-40%</span>
+        </div>
+        <ul class="product-features">
+          <li>🌸 Diseño moderno y fácil de usar</li>
+          <li>🌸 Dashboard visual con gráficos</li>
+          <li>🌸 Compatible con todos los dispositivos</li>
+          <li>🌸 Categorías personalizadas</li>
+        </ul>
+        <div class="product-buttons">
+          <button class="btn btn-primary" onclick="showProductDetails('plantillaBasica')">Ver detalles</button>
+          <button class="btn btn-secondary" onclick="toggleNeutral('basic')">Versión Neutral</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bundle Finanzas e Inversión -->
+    <div class="product-card" data-product="bundleFinanzas">
+      <div class="discount-ribbon">-40%</div>
+      <img src="imagenes/bundle .png" alt="Bundle Finanzas" class="product-image">
+      <div class="product-content">
+        <h3 class="product-title">Combo Finanzas e Inversión</h3>
+        <div class="product-price">
+          <span class="price-original">$20.98 USD</span>
+          <span class="price-current">$12.59 USD</span>
+          <span class="discount-badge">-40%</span>
+        </div>
+        <ul class="product-features">
+          <li>⭐ Guía de Inversiones 101</li>
+          <li>⭐ Plantilla de presupuesto mensual</li>
+        </ul>
+        <div class="product-buttons">
+          <button class="btn btn-primary" onclick="showProductDetails('bundleFinanzas')">Ver detalles</button>
+          <button class="btn btn-secondary" onclick="buyNow('https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E')">Comprar
+            ahora</button>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Product Details Modal -->
-  <div class="modal" id="productModal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">×</button>
-      <div id="modalContent"></div>
+<!-- Floating Quiz Button -->
+<button class="floating-quiz" onclick="toggleQuizPopup()">¿Ayuda para elegir?</button>
+
+<!-- Quiz Popup -->
+<div class="quiz-popup" id="quizPopup">
+  <button class="close-btn" onclick="toggleQuizPopup()">×</button>
+  <div id="quizStep1">
+    <h3>¿Qué tipo de planificación te interesa?</h3>
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="quizStep2('personal')">🧍‍♀️ Solo/a</button>
+      <button class="quiz-btn" onclick="showQuizResult('pareja')">💑 En pareja</button>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="footer" id="contacto">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="#productos" class="footer-link">Productos</a>
-        <a href="#contacto" class="footer-link">Contacto y FAQ</a>
-        <a href="#" class="footer-link">Taller</a>
+  <div id="quizStep2" style="display: none;">
+    <h3>¿Qué necesitas controlar?</h3>
+    <p>Puedes seleccionar varios</p>
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <input type="checkbox" value="inversion" id="inversion">
+        <label for="inversion">Inversiones</label>
       </div>
-      <div class="footer-social">
-        <a href="https://instagram.com/planifestord" class="social-icon">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z" />
-          </svg>
-        </a>
-        <a href="https://wa.me/18299441515" class="social-icon">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-          </svg>
-        </a>
-        <a href="mailto:infoplanifestord@gmail.com" class="social-icon">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-          </svg>
-        </a>
+      <div class="checkbox-item">
+        <input type="checkbox" value="presupuesto" id="presupuesto">
+        <label for="presupuesto">Presupuesto mensual</label>
       </div>
-      <p class="footer-copyright">&copy; 2025 Planifesto. Todos los derechos reservados.</p>
+      <div class="checkbox-item">
+        <input type="checkbox" value="ahorro" id="ahorro">
+        <label for="ahorro">Ahorros</label>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" value="deuda" id="deuda">
+        <label for="deuda">Deudas</label>
+      </div>
     </div>
-  </footer>
+    <button class="quiz-btn" onclick="calculateQuizResult()">Ver recomendación</button>
+  </div>
+  <div id="quizResult" style="display: none;">
+    <h3>Te recomendamos:</h3>
+    <p id="recommendationText" style="text-align: center; font-weight: 600; color: var(--verde-azulado);"></p>
+    <p style="text-align: center; color: var(--rojo-oferta); font-weight: 700;">¡Con 40% OFF Black Friday!</p>
+    <div class="quiz-options">
+      <button class="quiz-btn" id="goToProductBtn">Ir al producto</button>
+      <button class="quiz-btn" onclick="resetQuiz()"
+        style="background: var(--morado-claro); color: var(--verde-azulado);">Volver a empezar</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    // Product Data with 40% OFF
-    const productData = {
-      plantillaParejas: {
-        title: 'Plantilla Financiera Mensual de Parejas (3 en 1)',
-        paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
-        content: `
+<!-- Product Details Modal -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer" id="contacto">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="#productos" class="footer-link">Productos</a>
+      <a href="#contacto" class="footer-link">Contacto y FAQ</a>
+      <a href="#" class="footer-link">Taller</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/planifestord" class="social-icon">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z" />
+        </svg>
+      </a>
+      <a href="https://wa.me/18299441515" class="social-icon">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+      </a>
+      <a href="mailto:infoplanifestord@gmail.com" class="social-icon">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+      </a>
+    </div>
+    <p class="footer-copyright">&copy; 2025 Planifesto. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Product Data with 40% OFF
+  const productData = {
+    plantillaParejas: {
+      title: 'Plantilla Financiera Mensual de Parejas (3 en 1)',
+      paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
+      content: `
         <h2>Plantilla Financiera Mensual de Parejas (3 en 1) - BLACK FRIDAY 40% OFF</h2>
         <p>Esta plantilla es tu nueva aliada para construir finanzas sanas juntos (sin drama, sin confusión y sin pasar lucha).</p>
         
@@ -1657,11 +1649,11 @@
           <li>💬 <strong>Plantilla Reto de ahorro imprimible</strong> (valorado en 5 USD)</li>
         </ul>
       `
-      },
-      comboPlanifesto: {
-        title: 'Combo Planifesto - PRO + Guía de Inversión',
-        paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
-        content: `
+    },
+    comboPlanifesto: {
+      title: 'Combo Planifesto - PRO + Guía de Inversión',
+      paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
+      content: `
         <h2>✨ COMBO PLANIFESTO - BLACK FRIDAY 40% OFF ✨</h2>
         <p>¡Todo automático y conectado entre sí!</p>
         
@@ -1673,12 +1665,12 @@
           <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
         </ul>
       `
-      },
-      plantillaPro: {
-        title: 'Plantilla Financiera PRO (3-1)',
-        paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
-        neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
-        content: `
+    },
+    plantillaPro: {
+      title: 'Plantilla Financiera PRO (3-1)',
+      paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
+      neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
+      content: `
         <h2>✨ PLANTILLA PRO - BLACK FRIDAY 40% OFF ✨</h2>
         
         <h3>🎯 TU SISTEMA FINANCIERO ALL-IN-ONE:</h3>
@@ -1688,12 +1680,12 @@
           <li>⭐ Sistema de metas de ahorro que te mantiene motivada y en el camino correcto</li>
         </ul>
       `
-      },
-      plantillaBasica: {
-        title: 'Plantilla Financiera',
-        paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
-        neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
-        content: `
+    },
+    plantillaBasica: {
+      title: 'Plantilla Financiera',
+      paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
+      neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
+      content: `
         <h2>Plantilla Financiera - BLACK FRIDAY 40% OFF</h2>
         
         <h3>Características principales</h3>
@@ -1704,11 +1696,11 @@
           <li>🌸 Plantilla estética que te motivará a usarla</li>
         </ul>
       `
-      },
-      bundleFinanzas: {
-        title: 'Combo Finanzas e Inversión',
-        paypalLink: 'https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E',
-        content: `
+    },
+    bundleFinanzas: {
+      title: 'Combo Finanzas e Inversión',
+      paypalLink: 'https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E',
+      content: `
         <h2>Combo Finanzas e Inversión - BLACK FRIDAY 40% OFF</h2>
         
         <h3>Incluye:</h3>
@@ -1717,53 +1709,53 @@
           <li>⭐ Plantilla de presupuesto mensual</li>
         </ul>
       `
+    }
+  };
+
+  // State variables
+  let currentNeutralStates = {
+    pro: false,
+    basic: false
+  };
+
+  // Scroll Animation Observer - Better for mobile
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '20px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
       }
-    };
-
-    // State variables
-    let currentNeutralStates = {
-      pro: false,
-      basic: false
-    };
-
-    // Scroll Animation Observer - Better for mobile
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '20px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
-          entry.target.classList.add('animate');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Initialize scroll animations when DOM is loaded
-    document.addEventListener('DOMContentLoaded', function () {
-      const productCards = document.querySelectorAll('.product-card');
-      productCards.forEach(card => {
-        observer.observe(card);
-      });
     });
+  }, observerOptions);
 
-    // Product Details Modal
-    function showProductDetails(productId) {
-      const product = productData[productId];
-      const modal = document.getElementById('productModal');
-      const modalContent = document.getElementById('modalContent');
+  // Initialize scroll animations when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+      observer.observe(card);
+    });
+  });
 
-      let currentPaypalLink = product.paypalLink;
-      if (productId === 'plantillaPro' && currentNeutralStates.pro && product.neutralPaypalLink) {
-        currentPaypalLink = product.neutralPaypalLink;
-      }
-      if (productId === 'plantillaBasica' && currentNeutralStates.basic && product.neutralPaypalLink) {
-        currentPaypalLink = product.neutralPaypalLink;
-      }
+  // Product Details Modal
+  function showProductDetails(productId) {
+    const product = productData[productId];
+    const modal = document.getElementById('productModal');
+    const modalContent = document.getElementById('modalContent');
 
-      modalContent.innerHTML = `
+    let currentPaypalLink = product.paypalLink;
+    if (productId === 'plantillaPro' && currentNeutralStates.pro && product.neutralPaypalLink) {
+      currentPaypalLink = product.neutralPaypalLink;
+    }
+    if (productId === 'plantillaBasica' && currentNeutralStates.basic && product.neutralPaypalLink) {
+      currentPaypalLink = product.neutralPaypalLink;
+    }
+
+    modalContent.innerHTML = `
       ${product.content}
       <div class="payment-options">
         <h3 class="payment-title">Opciones de Pago - Black Friday</h3>
@@ -1801,156 +1793,156 @@
       </div>
     `;
 
-      modal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    }
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
 
-    function closeModal() {
-      const modal = document.getElementById('productModal');
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
+  function closeModal() {
+    const modal = document.getElementById('productModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
 
-    function buyNow(paypalLink) {
-      window.open(paypalLink, '_blank');
-    }
+  function buyNow(paypalLink) {
+    window.open(paypalLink, '_blank');
+  }
 
-    function toggleNeutral(type) {
-      const isNeutral = currentNeutralStates[type];
+  function toggleNeutral(type) {
+    const isNeutral = currentNeutralStates[type];
 
-      if (type === 'pro') {
-        const img = document.getElementById('proProdImg');
-        const title = document.getElementById('proProdTitle');
+    if (type === 'pro') {
+      const img = document.getElementById('proProdImg');
+      const title = document.getElementById('proProdTitle');
 
-        if (!isNeutral) {
-          img.src = 'imagenes/plantillaProNeutral.png';
-          title.textContent = 'Plantilla Financiera PRO (3-1) - Neutral';
-        } else {
-          img.src = 'imagenes/planifestoPro.png';
-          title.textContent = 'Plantilla Financiera PRO (3-1)';
-        }
-        currentNeutralStates.pro = !isNeutral;
-      } else if (type === 'basic') {
-        const img = document.getElementById('basicProdImg');
-        const title = document.getElementById('basicProdTitle');
-
-        if (!isNeutral) {
-          img.src = 'imagenes/plantillaNeutra.png';
-          title.textContent = 'Plantilla Financiera - Neutral';
-        } else {
-          img.src = 'imagenes/presupuestoMensual.png';
-          title.textContent = 'Plantilla Financiera';
-        }
-        currentNeutralStates.basic = !isNeutral;
-      }
-    }
-
-    // Quiz Functions
-    function toggleQuizPopup() {
-      const popup = document.getElementById('quizPopup');
-      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function startQuizSection() {
-      toggleQuizPopup();
-    }
-
-    function quizStep2(type) {
-      document.getElementById('quizStep1').style.display = 'none';
-      document.getElementById('quizStep2').style.display = 'block';
-    }
-
-    function showQuizResult(type) {
-      document.getElementById('quizStep1').style.display = 'none';
-      document.getElementById('quizResult').style.display = 'block';
-
-      let recommendation = '';
-      let productId = '';
-
-      if (type === 'pareja') {
-        recommendation = 'Plantilla Financiera de Parejas 💑';
-        productId = 'plantillaParejas';
-      }
-
-      document.getElementById('recommendationText').textContent = recommendation;
-      document.getElementById('goToProductBtn').onclick = () => goToProduct(productId);
-    }
-
-    function calculateQuizResult() {
-      const checkboxes = document.querySelectorAll('#quizStep2 input[type="checkbox"]:checked');
-      const selected = Array.from(checkboxes).map(cb => cb.value);
-
-      if (selected.length === 0) {
-        alert('Por favor selecciona al menos una opción');
-        return;
-      }
-
-      let recommendation = '';
-      let productId = '';
-
-      if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda') && !selected.includes('inversion')) {
-        recommendation = 'Plantilla Financiera Básica 🧾';
-        productId = 'plantillaBasica';
-      } else if (selected.includes('presupuesto') && (selected.includes('ahorro') || selected.includes('deuda')) && !selected.includes('inversion')) {
-        recommendation = 'Plantilla Financiera PRO 💼';
-        productId = 'plantillaPro';
-      } else if (selected.includes('inversion')) {
-        if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda')) {
-          recommendation = 'Combo Finanzas e Inversión 🔁';
-          productId = 'bundleFinanzas';
-        } else {
-          recommendation = 'Combo Planifesto 🔥';
-          productId = 'comboPlanifesto';
-        }
+      if (!isNeutral) {
+        img.src = 'imagenes/plantillaProNeutral.png';
+        title.textContent = 'Plantilla Financiera PRO (3-1) - Neutral';
       } else {
-        recommendation = 'Plantilla Financiera PRO 💼';
-        productId = 'plantillaPro';
+        img.src = 'imagenes/planifestoPro.png';
+        title.textContent = 'Plantilla Financiera PRO (3-1)';
       }
+      currentNeutralStates.pro = !isNeutral;
+    } else if (type === 'basic') {
+      const img = document.getElementById('basicProdImg');
+      const title = document.getElementById('basicProdTitle');
 
-      document.getElementById('quizStep2').style.display = 'none';
-      document.getElementById('quizResult').style.display = 'block';
-      document.getElementById('recommendationText').textContent = recommendation;
-      document.getElementById('goToProductBtn').onclick = () => goToProduct(productId);
+      if (!isNeutral) {
+        img.src = 'imagenes/plantillaNeutra.png';
+        title.textContent = 'Plantilla Financiera - Neutral';
+      } else {
+        img.src = 'imagenes/presupuestoMensual.png';
+        title.textContent = 'Plantilla Financiera';
+      }
+      currentNeutralStates.basic = !isNeutral;
+    }
+  }
+
+  // Quiz Functions
+  function toggleQuizPopup() {
+    const popup = document.getElementById('quizPopup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function startQuizSection() {
+    toggleQuizPopup();
+  }
+
+  function quizStep2(type) {
+    document.getElementById('quizStep1').style.display = 'none';
+    document.getElementById('quizStep2').style.display = 'block';
+  }
+
+  function showQuizResult(type) {
+    document.getElementById('quizStep1').style.display = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+
+    let recommendation = '';
+    let productId = '';
+
+    if (type === 'pareja') {
+      recommendation = 'Plantilla Financiera de Parejas 💑';
+      productId = 'plantillaParejas';
     }
 
-    function goToProduct(productId) {
-      toggleQuizPopup();
-      const productCard = document.querySelector(`[data-product="${productId}"]`);
-      if (productCard) {
-        productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('recommendationText').textContent = recommendation;
+    document.getElementById('goToProductBtn').onclick = () => goToProduct(productId);
+  }
+
+  function calculateQuizResult() {
+    const checkboxes = document.querySelectorAll('#quizStep2 input[type="checkbox"]:checked');
+    const selected = Array.from(checkboxes).map(cb => cb.value);
+
+    if (selected.length === 0) {
+      alert('Por favor selecciona al menos una opción');
+      return;
+    }
+
+    let recommendation = '';
+    let productId = '';
+
+    if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda') && !selected.includes('inversion')) {
+      recommendation = 'Plantilla Financiera Básica 🧾';
+      productId = 'plantillaBasica';
+    } else if (selected.includes('presupuesto') && (selected.includes('ahorro') || selected.includes('deuda')) && !selected.includes('inversion')) {
+      recommendation = 'Plantilla Financiera PRO 💼';
+      productId = 'plantillaPro';
+    } else if (selected.includes('inversion')) {
+      if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda')) {
+        recommendation = 'Combo Finanzas e Inversión 🔁';
+        productId = 'bundleFinanzas';
+      } else {
+        recommendation = 'Combo Planifesto 🔥';
+        productId = 'comboPlanifesto';
+      }
+    } else {
+      recommendation = 'Plantilla Financiera PRO 💼';
+      productId = 'plantillaPro';
+    }
+
+    document.getElementById('quizStep2').style.display = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('recommendationText').textContent = recommendation;
+    document.getElementById('goToProductBtn').onclick = () => goToProduct(productId);
+  }
+
+  function goToProduct(productId) {
+    toggleQuizPopup();
+    const productCard = document.querySelector(`[data-product="${productId}"]`);
+    if (productCard) {
+      productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        productCard.style.transform = 'scale(1.05)';
+        productCard.style.boxShadow = '0 20px 40px rgba(255, 51, 102, 0.3)';
+
         setTimeout(() => {
-          productCard.style.transform = 'scale(1.05)';
-          productCard.style.boxShadow = '0 20px 40px rgba(255, 51, 102, 0.3)';
-
-          setTimeout(() => {
-            productCard.style.transform = '';
-            productCard.style.boxShadow = '';
-          }, 500);
-        }, 300);
-      }
+          productCard.style.transform = '';
+          productCard.style.boxShadow = '';
+        }, 500);
+      }, 300);
     }
+  }
 
-    function resetQuiz() {
-      document.getElementById('quizResult').style.display = 'none';
-      document.getElementById('quizStep2').style.display = 'none';
-      document.getElementById('quizStep1').style.display = 'block';
-      document.querySelectorAll('#quizStep2 input[type="checkbox"]').forEach(cb => cb.checked = false);
-    }
+  function resetQuiz() {
+    document.getElementById('quizResult').style.display = 'none';
+    document.getElementById('quizStep2').style.display = 'none';
+    document.getElementById('quizStep1').style.display = 'block';
+    document.querySelectorAll('#quizStep2 input[type="checkbox"]').forEach(cb => cb.checked = false);
+  }
 
-    function scrollToProducts() {
-      document.getElementById('productos').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+  function scrollToProducts() {
+    document.getElementById('productos').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 
-    window.onclick = function (event) {
-      const modal = document.getElementById('productModal');
-      if (event.target === modal) {
-        closeModal();
-      }
+  window.onclick = function (event) {
+    const modal = document.getElementById('productModal');
+    if (event.target === modal) {
+      closeModal();
     }
-  </script>
+  }
+</script>
 </body>
 
 </html>
