@@ -420,6 +420,53 @@
       }
     }
 
+    /* Animaciones simplificadas para móviles - más rápidas y suaves */
+    @media (max-width: 768px) {
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
     @keyframes cardPulse {
 
       0%,
@@ -538,6 +585,13 @@
       animation: pulse 2s ease-in-out infinite;
     }
 
+    /* Reducir animación del badge en móviles */
+    @media (max-width: 768px) {
+      .product-badge {
+        animation: none;
+      }
+    }
+
     @keyframes badgePulse {
 
       0%,
@@ -556,6 +610,35 @@
       animation-duration: 0.8s;
       animation-fill-mode: both;
       animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Optimización para móviles - animaciones más rápidas y simples */
+    @media (max-width: 768px) {
+      .product-card {
+        will-change: opacity;
+      }
+
+      .product-card.animate {
+        animation-duration: 0.35s !important;
+        animation-timing-function: ease-out !important;
+      }
+
+      .product-card.animate:nth-child(1),
+      .product-card.animate:nth-child(2),
+      .product-card.animate:nth-child(3),
+      .product-card.animate:nth-child(4),
+      .product-card.animate:nth-child(5),
+      .product-card.animate:nth-child(6),
+      .product-card.animate:nth-child(7) {
+        animation-delay: 0s !important;
+      }
+    }
+
+    /* Desktop - allow more complex transforms */
+    @media (min-width: 769px) {
+      .product-card {
+        will-change: transform, opacity;
+      }
     }
 
     .product-card.animate:nth-child(1) {
@@ -596,6 +679,18 @@
     .product-card:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: var(--sombra-hover);
+    }
+
+    /* Desactivar hover effects en móviles para mejor rendimiento */
+    @media (max-width: 768px) {
+      .product-card:hover {
+        transform: none;
+        box-shadow: var(--sombra);
+      }
+
+      .product-card:hover .product-image {
+        transform: none;
+      }
     }
 
     .product-image {
@@ -2419,10 +2514,11 @@
       basic: false
     };
 
-    // Scroll Animation Observer - More responsive
+    // Scroll Animation Observer - Optimizado para móviles
+    const isMobile = window.innerWidth <= 768;
     const observerOptions = {
-      threshold: 0.05, // Trigger earlier
-      rootMargin: '50px 0px -20px 0px' // Start animations before fully visible
+      threshold: isMobile ? 0.01 : 0.05, // Trigger mucho antes en móviles
+      rootMargin: isMobile ? '100px 0px -50px 0px' : '50px 0px -20px 0px' // Más margen en móviles
     };
 
     const observer = new IntersectionObserver((entries) => {
