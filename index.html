@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Planifesto - Tu Aliado Financiero</title>
+  <link rel="shortcut icon" type="image/x-icon" href="imagenes/logo.jpg?v=3">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -352,48 +353,68 @@
 
     /* Scroll animations for products */
     @keyframes fadeInUp {
-      from {
+      0% {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(50px) scale(0.95);
       }
 
-      to {
+      60% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(-5px) scale(1.01);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
       }
     }
 
     @keyframes slideInFromLeft {
-      from {
+      0% {
         opacity: 0;
-        transform: translateX(-40px);
+        transform: translateX(-60px) scale(0.95);
       }
 
-      to {
+      60% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(5px) scale(1.01);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
       }
     }
 
     @keyframes slideInFromRight {
-      from {
+      0% {
         opacity: 0;
-        transform: translateX(40px);
+        transform: translateX(60px) scale(0.95);
       }
 
-      to {
+      60% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(-5px) scale(1.01);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
       }
     }
 
     @keyframes scaleIn {
-      from {
+      0% {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.85);
       }
 
-      to {
+      60% {
+        opacity: 1;
+        transform: scale(1.03);
+      }
+
+      100% {
         opacity: 1;
         transform: scale(1);
       }
@@ -493,17 +514,48 @@
       background: var(--morado-claro);
       border: 4px solid var(--rosa);
       border-radius: 20px;
-      overflow: hidden;
+      overflow: visible;
       box-shadow: var(--sombra);
-      transition: all 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
       opacity: 0;
       transform: translateY(60px);
+      position: relative;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      z-index: 10;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      }
+
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
     }
 
     .product-card.animate {
-      animation-duration: 0.3s;
+      animation-duration: 0.8s;
       animation-fill-mode: both;
-      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .product-card.animate:nth-child(1) {
@@ -513,36 +565,36 @@
 
     .product-card.animate:nth-child(2) {
       animation-name: slideInFromLeft;
-      animation-delay: 0.02s;
+      animation-delay: 0.1s;
     }
 
     .product-card.animate:nth-child(3) {
       animation-name: slideInFromRight;
-      animation-delay: 0.04s;
+      animation-delay: 0.2s;
     }
 
     .product-card.animate:nth-child(4) {
       animation-name: scaleIn;
-      animation-delay: 0.06s;
+      animation-delay: 0.3s;
     }
 
     .product-card.animate:nth-child(5) {
       animation-name: fadeInUp;
-      animation-delay: 0.08s;
+      animation-delay: 0.4s;
     }
 
     .product-card.animate:nth-child(6) {
       animation-name: slideInFromLeft;
-      animation-delay: 0.1s;
+      animation-delay: 0.5s;
     }
 
     .product-card.animate:nth-child(7) {
       animation-name: slideInFromRight;
-      animation-delay: 0.12s;
+      animation-delay: 0.6s;
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px) scale(1.02);
       box-shadow: var(--sombra-hover);
     }
 
@@ -669,6 +721,7 @@
       background: rgba(0, 0, 0, 0.8);
       z-index: 1000;
       overflow-y: auto;
+      animation: fadeInBackdrop 0.3s ease;
     }
 
     .modal-content {
@@ -678,21 +731,66 @@
       max-width: 900px;
       border-radius: 25px;
       position: relative;
-      animation: slideUp 0.3s ease;
+      animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       color: var(--negro);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
     @keyframes slideUp {
+      0% {
+        transform: translateY(100px) scale(0.95);
+        opacity: 0;
+      }
+
+      60% {
+        transform: translateY(-10px) scale(1.02);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInBackdrop {
       from {
-        transform: translateY(50px);
         opacity: 0;
       }
 
       to {
-        transform: translateY(0);
         opacity: 1;
       }
+    }
+
+    @keyframes slideDown {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100px) scale(0.95);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeOutBackdrop {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .modal.closing {
+      animation: fadeOutBackdrop 0.3s ease;
+    }
+
+    .modal.closing .modal-content {
+      animation: slideDown 0.3s ease;
     }
 
     .modal-content h2 {
@@ -748,6 +846,98 @@
       color: var(--rosa);
     }
 
+    /* Terms and Conditions Styles */
+    .terms-content {
+      line-height: 1.8;
+    }
+
+    .terms-content h2 {
+      color: var(--rosa);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .terms-content h3 {
+      color: var(--verde-azulado);
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .terms-content p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    /* Terms Checkbox */
+    .terms-checkbox-container {
+      background: #fff9f0;
+      border: 2px solid var(--rosa);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .terms-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--negro);
+    }
+
+    .terms-checkbox {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--rosa);
+    }
+
+    .terms-link {
+      background: none;
+      border: none;
+      color: var(--rosa);
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 0;
+      font-size: inherit;
+      transition: color 0.3s ease;
+    }
+
+    .terms-link:hover {
+      color: var(--verde-azulado);
+    }
+
+    /* Terms Error Styles */
+    .terms-checkbox-container.error {
+      border-color: #d32f2f;
+      background: #ffebee;
+      animation: shake 0.4s ease;
+    }
+
+    .terms-error-message {
+      display: none;
+      color: #d32f2f;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.75rem;
+      padding-left: 2.25rem;
+    }
+
+    .terms-error-message.show {
+      display: block;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
     /* Payment Options */
     .payment-options {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -755,6 +945,19 @@
       border-radius: 20px;
       margin-top: 2rem;
       border: 2px solid var(--morado-claro);
+      animation: fadeInScale 0.5s ease 0.3s both;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .payment-title {
@@ -779,32 +982,54 @@
 
     .payment-buttons {
       display: flex;
+      flex-direction: column;
       gap: 1rem;
       justify-content: center;
+      align-items: center;
       margin-bottom: 1rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .transfer-buttons {
       display: flex;
+      flex-direction: column;
       gap: 1rem;
       justify-content: center;
+      align-items: center;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .payment-btn {
-      padding: 1.2rem 1.5rem;
+      padding: 1rem 2rem;
       border: none;
-      border-radius: 15px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 0.8rem;
+      justify-content: center;
+      gap: 1rem;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.95rem;
-      min-width: 140px;
+      font-size: 1rem;
+      width: 100%;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stripe-btn {
+      background: #635BFF;
+      color: white;
+    }
+
+    .stripe-btn:hover {
+      background: #5147EC;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(99, 91, 255, 0.4);
     }
 
     .paypal-btn {
@@ -1191,8 +1416,8 @@
 
       /* Gentle animations on mobile */
       .product-card.animate {
-        animation-duration: 0.4s;
-        animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
       }
 
       .product-card.animate:nth-child(1) {
@@ -1200,27 +1425,27 @@
       }
 
       .product-card.animate:nth-child(2) {
-        animation-delay: 0.05s;
+        animation-delay: 0.08s;
       }
 
       .product-card.animate:nth-child(3) {
-        animation-delay: 0.1s;
+        animation-delay: 0.16s;
       }
 
       .product-card.animate:nth-child(4) {
-        animation-delay: 0.15s;
+        animation-delay: 0.24s;
       }
 
       .product-card.animate:nth-child(5) {
-        animation-delay: 0.2s;
+        animation-delay: 0.32s;
       }
 
       .product-card.animate:nth-child(6) {
-        animation-delay: 0.25s;
+        animation-delay: 0.4s;
       }
 
       .product-card.animate:nth-child(7) {
-        animation-delay: 0.3s;
+        animation-delay: 0.48s;
       }
 
       /* Modal Mobile */
@@ -1234,15 +1459,34 @@
       .payment-buttons {
         flex-direction: column;
         align-items: center;
+        max-width: 100%;
+        padding: 0 1rem;
       }
 
       .transfer-buttons {
         flex-direction: column;
         align-items: center;
+        max-width: 100%;
+        padding: 0 1rem;
       }
 
       .payment-btn {
-        min-width: 200px;
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .whatsapp-btn {
+        width: 100%;
+      }
+
+      /* Terms Checkbox Mobile */
+      .terms-checkbox-container {
+        padding: 1rem;
+      }
+
+      .terms-checkbox-label {
+        font-size: 0.9rem;
+        gap: 0.5rem;
       }
 
       /* Quiz Mobile */
@@ -1356,56 +1600,76 @@
       /* Mobile-specific gentle animations */
       @media (max-width: 480px) {
         @keyframes fadeInUpMobile {
-          from {
+          0% {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px) scale(0.96);
           }
 
-          to {
+          60% {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(-3px) scale(1.01);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
           }
         }
 
         @keyframes slideInFromLeftMobile {
-          from {
+          0% {
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(-30px) scale(0.96);
           }
 
-          to {
+          60% {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(3px) scale(1.01);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
           }
         }
 
         @keyframes slideInFromRightMobile {
-          from {
+          0% {
             opacity: 0;
-            transform: translateX(20px);
+            transform: translateX(30px) scale(0.96);
           }
 
-          to {
+          60% {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(-3px) scale(1.01);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
           }
         }
 
         @keyframes scaleInMobile {
-          from {
+          0% {
             opacity: 0;
-            transform: scale(0.96);
+            transform: scale(0.9);
           }
 
-          to {
+          60% {
+            opacity: 1;
+            transform: scale(1.02);
+          }
+
+          100% {
             opacity: 1;
             transform: scale(1);
           }
         }
 
         .product-card.animate {
-          animation-duration: 0.5s;
-          animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          animation-duration: 0.7s;
+          animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .product-card.animate:nth-child(1) {
@@ -1514,8 +1778,8 @@
           <div class="product-buttons">
             <button class="btn btn-primary" onclick="showProductDetails('comboPlanifesto')">Ver
               detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4')">Comprar ahora</button>
+            <button class="btn btn-secondary" onclick="showProductDetails('comboPlanifesto', true)">Comprar
+              ahora</button>
           </div>
         </div>
       </div>
@@ -1580,33 +1844,33 @@
           <div class="product-buttons">
             <button class="btn btn-primary" onclick="showProductDetails('plantillaParejas')">Ver
               detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U')">Comprar
+            <button class="btn btn-secondary" onclick="showProductDetails('plantillaParejas', true)">Comprar
               ahora</button>
           </div>
         </div>
       </div>
 
 
-      <!--Guía de Inversión 2.0
+      <!-- Guía de Inversión 2.0 -->
       <div class="product-card" data-product="bundleFinanzas">
-        <img src="imagenes/bundle .png" alt="Bundle Finanzas" class="product-image">
+        <span class="product-badge">NEW</span>
+        <img src="imagenes/GuiaInversiones101redisenada.png" alt="Bundle Finanzas" class="product-image">
         <div class="product-content">
-          <h3 class="product-title">Guía de Inversión 2.0</h3>
+          <h3 class="product-title">Guía de Inversiones 101 – VERSIÓN 2.0</h3>
           <div class="product-price">
-            <span class="price-original">$20.98 USD</span>
-            <span class="price-current">$16.99 USD</span>
+            <span class="price-original">$20.00 USD</span>
+            <span class="price-current">$9.00 USD</span>
           </div>
           <ul class="product-features">
-            <li>⭐ Guía de Inversiones 2.0</li>
+            <li>⭐ Guía de Inversiones 101 – VERSIÓN 2.0</li>
           </ul>
           <div class="product-buttons">
             <button class="btn btn-primary" onclick="showProductDetails('bundleFinanzas')">Ver detalles</button>
-            <button class="btn btn-secondary"
-              onclick="buyNow('https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E')">Comprar ahora</button>
+            <button class="btn btn-secondary" onclick="showProductDetails('bundleFinanzas', true)">Comprar
+              ahora</button>
           </div>
         </div>
-      </div>-->
+      </div>
 
 
   </section>
@@ -1666,6 +1930,70 @@
     </div>
   </div>
 
+  <!-- Terms and Conditions Modal -->
+  <div class="modal" id="termsModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeTermsModal()">×</button>
+      <div class="terms-content">
+        <h2>Términos y Condiciones</h2>
+
+        <p><strong>¡Gracias por elegirnos! 💖</strong></p>
+        <p>Estamos felices de que hayas decidido dar este paso hacia una mejor organización financiera con Planifesto.
+          Queremos que te sientas tranquila, acompañada y clara desde el inicio, así que aquí te explicamos nuestros
+          términos y condiciones de forma sencilla y transparente.</p>
+
+        <h3>1. Producto digital</h3>
+        <p>La plantilla que adquiriste es un producto digital. Esto significa que, una vez realizada la compra y
+          descargado el archivo, no podemos ofrecer devoluciones ni reembolsos.</p>
+        <p>Te recomendamos revisar bien la información del producto antes de completar tu compra para asegurarte de que
+          sea exactamente lo que estás buscando.</p>
+
+        <h3>2. Política de devoluciones</h3>
+        <p><strong>Queremos que estés feliz con tu compra 🤍</strong></p>
+        <p>Debido a la naturaleza digital del producto (descargable y de acceso inmediato), no se aceptan devoluciones
+          una vez realizada la descarga.</p>
+        <p>Ahora bien, si tienes cualquier inconveniente, duda o se te complica usar la plantilla, no estás sola.
+          Escríbenos con confianza y con gusto te ayudamos. Estamos aquí para acompañarte con paciencia y cariño 💌</p>
+
+        <h3>3. Asistencia al cliente</h3>
+        <p>Tu experiencia es súper importante para nosotros.</p>
+        <p>Si tienes preguntas, necesitas ayuda o algo no te funciona como esperabas, puedes escribirnos por mensaje
+          directo o correo electrónico, y haremos todo lo posible por asistirte lo antes posible.</p>
+        <p>Nuestro objetivo es que tu experiencia con Planifesto sea clara, útil y positiva ✨</p>
+
+        <h3>4. Pago y acceso</h3>
+        <p>El pago se realiza de forma rápida y segura a través de PayPal, y una vez confirmado, serás redirigida
+          automáticamente para descargar tu plantilla.</p>
+        <p>Si eliges pagar por transferencia bancaria, no hay problema 😊</p>
+        <p>Una vez verificado el pago, te enviaremos la plantilla en un plazo máximo de hasta 8 horas (aunque casi
+          siempre lo hacemos mucho antes).</p>
+        <p>Si presentas cualquier inconveniente durante el proceso de pago o descarga, avísanos de inmediato y lo
+          resolvemos contigo 💖</p>
+
+        <h3>5. Uso de la plantilla</h3>
+        <p>La plantilla es de uso personal y está protegida por derechos de autor.</p>
+        <p>No está permitida su redistribución, modificación ni venta sin autorización expresa de Planifesto.</p>
+        <p>La creamos con mucho amor y trabajo, y agradecemos que respetes ese esfuerzo 💛</p>
+
+        <h3>6. Cambios en los términos y condiciones</h3>
+        <p>Si en algún momento realizamos cambios a estos términos y condiciones, lo comunicaremos oportunamente a
+          través de nuestras plataformas.</p>
+        <p>Siempre buscamos mejorar y ofrecerte una experiencia cada vez mejor.</p>
+
+        <p style="margin-top: 2rem;"><strong>Al completar tu compra, confirmas que has leído y aceptas estos términos y
+            condiciones.</strong></p>
+        <p>Si tienes dudas antes de comprar, escríbenos —nos encanta leerte y ayudarte 🫶</p>
+
+        <p style="margin-top: 2rem;"><strong>Gracias por ser parte de la familia Planifesto 💛</strong></p>
+        <p>Estamos felices de acompañarte en este camino hacia tus metas financieras ✨</p>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="btn btn-primary" onclick="closeTermsModal()" style="padding: 1rem 3rem; font-size: 1.1rem;">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer" id="contacto">
     <div class="footer-content">
@@ -1704,6 +2032,7 @@
       plantillaParejas: {
         title: 'Plantilla Financiera Mensual de Parejas (3 en 1)',
         paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
+        stripeLink: 'https://buy.stripe.com/8x214ngEx89Z9f20Xs3oA0c',
         content: `
         <h2>Plantilla Financiera Mensual de Parejas (3 en 1) - 25% OFF</h2>
         <p>Esta plantilla es tu nueva aliada para construir finanzas sanas juntos (sin drama, sin confusión y sin pasar lucha).</p>
@@ -1749,6 +2078,7 @@
       comboPlanifesto: {
         title: 'Combo Planifesto - PRO + Guía de Inversión',
         paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
+        stripeLink: 'https://buy.stripe.com/4gMeVdewpai74YM35A3oA0b',
         content: `
         <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar + Nuestra guía para aprender a invertir ✨</h2>
         <p>¡Todo automático y conectado entre sí!</p>
@@ -1794,6 +2124,8 @@
         title: 'Plantilla Financiera PRO (3-1)',
         paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
+        stripeLink: 'https://buy.stripe.com/7sYbJ10Fz9e362Q21w3oA0d',
+        neutralStripeLink: 'https://buy.stripe.com/dRmbJ1dslbmbdvidKe3oA0e',
         content: `
         <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar ✨</h2>
         <p>¡Todo automático y conectado entre sí!</p>
@@ -1838,6 +2170,8 @@
         title: 'Plantilla Financiera',
         paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
+        stripeLink: 'https://buy.stripe.com/aFadR90Fz89ZgHu35A3oA09',
+        neutralStripeLink: 'https://buy.stripe.com/cNi3cv4VP89ZfDqcGa3oA0a',
         content: `
         <h2>Plantilla Financiera</h2>
         <p><strong>¿Lista para tomar el control de tus finanzas y convertirte en la jefa de tu dinero? 💅✨</strong></p>
@@ -1869,17 +2203,115 @@
       `
       },
       bundleFinanzas: {
-        title: 'Combo Finanzas e Inversión',
-        paypalLink: 'https://www.paypal.com/ncp/payment/CF5WFAX8K2C8E',
+        title: 'Guía de Inversiones 101 – VERSIÓN 2.0',
+        paypalLink: 'https://www.paypal.com/ncp/payment/N6X97A4JJRMM2',
+        stripeLink: 'https://buy.stripe.com/cNibJ14VPai79f2cGa3oA08',
         content: `
-        <h2>Combo Finanzas e Inversión</h2>
-        <p>El combo perfecto para empezar tu camino financiero</p>
-        
-        <h3>Incluye:</h3>
+        <h2>Guía de Inversiones 101 – VERSIÓN 2.0</h2>
+        <p><strong>El manual que te hubiera ahorrado años de miedo, dudas y malas decisiones con tu dinero.</strong></p>
+
+        <h3>Seamos claros desde el inicio:</h3>
+        <p>Si tú…</p>
         <ul>
-          <li>⭐ Guía de Inversiones 101</li>
-          <li>⭐ Plantilla de presupuesto mensual</li>
+          <li>trabajas y ahorras "un chin"</li>
+          <li>sabes que dejar el dinero quieto es perder</li>
+          <li>ves todo el mundo hablando de invertir</li>
+          <li>pero no sabes por dónde empezar sin meterte en un lío</li>
         </ul>
+        <p>👉 <strong>esta guía NO es opcional. Es necesaria.</strong></p>
+
+        <p>Porque el problema no es que no quieras invertir. El problema es que nadie te explicó cómo hacerlo bien, paso a paso y en tu realidad.</p>
+
+        <h3>Invertir no es solo para expertos. Pero improvisar sí sale caro.</h3>
+        <p>La mayoría de las personas:</p>
+        <ul>
+          <li>invierte tarde</li>
+          <li>invierte por moda</li>
+          <li>o invierte sin entender</li>
+        </ul>
+        <p>Y luego vienen:<br>
+        ❌ malas decisiones<br>
+        ❌ retiros por pánico<br>
+        ❌ frustración<br>
+        ❌ "eso no es para mí"</p>
+
+        <p><strong>Esta guía existe para romper ese ciclo.</strong></p>
+
+        <h3>¿Qué es la Guía de Inversiones 101 – 2.0?</h3>
+        <p>Es una guía completamente rediseñada y actualizada, creada para jóvenes inversionistas principiantes, que quieren aprender a invertir con cabeza, sin miedo y sin enredos.</p>
+        <p>Nada técnico.<br>
+        Nada académico.<br>
+        Nada copiado de Google.</p>
+        <p><strong>Todo explicado aplatana'o, con ejemplos reales y enfocado 100% en República Dominicana.</strong></p>
+
+        <h3>🚀 ¿Qué vas a lograr con esta guía?</h3>
+        <ul>
+          <li>✔️ Entender cómo funcionan las inversiones (de verdad)</li>
+          <li>✔️ Saber qué opciones son buenas para empezar y cuáles NO</li>
+          <li>✔️ Identificar tu perfil de riesgo</li>
+          <li>✔️ Aprender a analizar una inversión básica antes de decir que sí</li>
+          <li>✔️ Evitar errores comunes que cuestan dinero</li>
+          <li>✔️ Estar lista/o para hacer tu primera inversión con intención</li>
+        </ul>
+        <p><strong>No para hacerte rica/o mañana. Sino para empezar bien HOY.</strong></p>
+
+        <h3>📘 ¿Qué incluye?</h3>
+        <h4>🔹 Parte 1 – Inversiones básicas (la base que TODO el mundo necesita)</h4>
+        <ul>
+          <li>Conceptos clave explicados en lenguaje simple</li>
+          <li>Riesgo vs recompensa</li>
+          <li>Test de perfil de inversionista</li>
+          <li>Cuentas de ahorro de alto rendimiento</li>
+          <li>Certificados financieros</li>
+          <li>Fondos de inversión abiertos</li>
+          <li>Procesos reales de inversión en RD</li>
+          <li>Cómo leer y entender una inversión sin ser experta/o</li>
+        </ul>
+
+        <h4>🎁 BONO EXCLUSIVO – Parte 2</h4>
+        <h4>Intro al Mercado de Valores de la República Dominicana 🇩🇴</h4>
+        <p><strong>Aquí es donde la mayoría se pierde… y tú no.</strong></p>
+        <p>Aprenderás:</p>
+        <ul>
+          <li>Qué es realmente el mercado de valores</li>
+          <li>Cómo funcionan acciones, bonos y fondos</li>
+          <li>Qué hacen los puestos de bolsa y las AFIs</li>
+          <li>Cómo está regulado el mercado en RD</li>
+          <li>Qué necesitas para dar el siguiente paso cuando estés lista/o</li>
+        </ul>
+        <p>Este bono te abre la cabeza y te prepara para decisiones más grandes, sin improvisar.</p>
+
+        <h4>🎁 MÁS BONOS (solo por comprar la guía)</h4>
+        <ul>
+          <li>✨ Plantillas de regalo</li>
+          <li>✨ Retos de ahorro y hábitos financieros</li>
+          <li>✨ Guías complementarias para arrancar con orden</li>
+          <li>✨ Descuentos exclusivos en otros productos Planifesto</li>
+        </ul>
+        <p>Todo pensado para que no te quedes solo/a leyendo, sino actuando.</p>
+
+        <h3>🧠 ¿Para quién es esta guía?</h3>
+        <ul>
+          <li>✔️ Si quieres empezar a invertir pero no sabes cómo</li>
+          <li>✔️ Si te da miedo equivocarte con tu dinero</li>
+          <li>✔️ Si estás cansada/o de información confusa</li>
+          <li>✔️ Si quieres aprender ANTES de arriesgar</li>
+          <li>✔️ Si quieres invertir con calma, criterio y claridad</li>
+        </ul>
+        <p>⚠️ <strong>No es para ti si buscas "dinero rápido" o fórmulas mágicas.</strong></p>
+
+        <h3>No invertir también es una decisión. Y suele ser una de las más caras.</h3>
+        <p>La inflación no espera.<br>
+        El tiempo no se recupera.<br>
+        Y nadie va a organizar tu futuro financiero por ti.</p>
+
+        <p>📌 <strong>Esta guía no es un gasto. Es el primer paso para dejar de improvisar con tu dinero.</strong></p>
+
+        <p>Si estás aquí leyendo esto, ya sabes que la necesitas.</p>
+
+        <p>👉 <strong>Empieza hoy. Empieza con base. Empieza con intención.</strong></p>
+
+        <p><strong>El mejor momento para invertir fue ayer. El segundo mejor momento es AHORA.</strong></p>
       `
       },
       planificadorViajes: {
@@ -2015,85 +2447,221 @@
     });
 
     // Product Details Modal
-    function showProductDetails(productId) {
+    function showProductDetails(productId, scrollToPayment = false) {
       const product = productData[productId];
       const modal = document.getElementById('productModal');
       const modalContent = document.getElementById('modalContent');
 
       // Determine current PayPal link based on neutral state
       let currentPaypalLink = product.paypalLink;
-      if (productId === 'plantillaPro' && currentNeutralStates.pro && product.neutralPaypalLink) {
-        currentPaypalLink = product.neutralPaypalLink;
+      let currentStripeLink = product.stripeLink;
+
+      if (productId === 'plantillaPro' && currentNeutralStates.pro) {
+        if (product.neutralPaypalLink) currentPaypalLink = product.neutralPaypalLink;
+        if (product.neutralStripeLink) currentStripeLink = product.neutralStripeLink;
       }
-      if (productId === 'plantillaBasica' && currentNeutralStates.basic && product.neutralPaypalLink) {
-        currentPaypalLink = product.neutralPaypalLink;
+      if (productId === 'plantillaBasica' && currentNeutralStates.basic) {
+        if (product.neutralPaypalLink) currentPaypalLink = product.neutralPaypalLink;
+        if (product.neutralStripeLink) currentStripeLink = product.neutralStripeLink;
       }
 
       modalContent.innerHTML = `
       ${product.content}
       <div class="payment-options">
         <h3 class="payment-title">Opciones de Pago</h3>
-        
+
+        <div class="terms-checkbox-container" id="termsCheckboxContainer">
+          <label class="terms-checkbox-label">
+            <input type="checkbox" id="termsCheckbox" class="terms-checkbox">
+            <span>He leído y acepto los <button type="button" class="terms-link" onclick="openTermsModal()">Términos y Condiciones</button></span>
+          </label>
+          <div class="terms-error-message" id="termsErrorMessage">
+            ⚠️ Debes aceptar los Términos y Condiciones para continuar
+          </div>
+        </div>
+
         <div class="payment-section">
           <h4>💳 Pago Online</h4>
           <div class="payment-buttons">
-            <button class="payment-btn paypal-btn" onclick="buyNow('${currentPaypalLink}')">
+            <button class="payment-btn stripe-btn" onclick="validateAndBuy('${currentStripeLink}')">
               <span class="payment-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.394c-.567-.35-1.31-.6-2.27-.75-.96-.15-2.09-.24-3.39-.24H9.45c-.524 0-.968.382-1.05.9L7.076 21.337h4.605c.524 0 .968-.382 1.05-.9l1.12-7.106h2.19c4.298 0 7.664-1.747 8.647-6.797.03-.149.054-.294.077-.437.044-.28.044-.55 0-.82-.045-.27-.127-.52-.243-.75z"/>
+                <svg width="60" height="26" viewBox="0 0 60 25" fill="none">
+                  <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.26-.06 1.48zm-5.92-5.62c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.3c-1.44 0-2.32-.6-2.9-1.04l-.02 4.63-4.12.87V5.57h3.76l.08 1.02a4.7 4.7 0 0 1 3.23-1.29c2.9 0 5.62 2.6 5.62 7.4 0 5.23-2.7 7.6-5.65 7.6zM40 8.95c-.95 0-1.54.34-1.97.81l.02 6.12c.4.44.98.78 1.95.78 1.52 0 2.54-1.65 2.54-3.87 0-2.15-1.04-3.84-2.54-3.84zM28.24 5.57h4.13v14.44h-4.13V5.57zm0-4.7L32.37 0v3.36l-4.13.88V.88zm-4.32 9.35v9.79H19.8V5.57h3.7l.12 1.22c1-1.77 3.07-1.41 3.62-1.22v3.79c-.52-.17-2.29-.43-3.32.86zm-8.55 4.72c0 2.43 2.6 1.68 3.12 1.46v3.36c-.55.3-1.54.54-2.89.54a4.15 4.15 0 0 1-4.27-4.24l.01-13.17 4.02-.86v3.54h3.14V9.1h-3.13v5.85zm-4.91.7c0 2.97-2.31 4.66-5.73 4.66a11.2 11.2 0 0 1-4.46-.93v-3.93c1.38.75 3.1 1.31 4.46 1.31.92 0 1.53-.24 1.53-1C6.26 13.77 0 14.51 0 9.95 0 7.04 2.28 5.3 5.62 5.3c1.36 0 2.72.2 4.09.75v3.88a9.23 9.23 0 0 0-4.1-1.06c-.86 0-1.44.25-1.44.93 0 1.85 6.29.97 6.29 5.88z" fill="white"/>
                 </svg>
               </span>
-              <span>PayPal / Tarjeta</span>
+              <span>Pagar con Stripe</span>
+            </button>
+            <button class="payment-btn paypal-btn" onclick="validateAndBuy('${currentPaypalLink}')">
+              <span class="payment-icon">
+                <svg width="60" height="26" viewBox="0 0 124 33" fill="none">
+                  <path d="M46.211 6.749h-6.839a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-.972-1.142-2.696-1.746-4.985-1.746zM47 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583a.57.57 0 0 1 .563-.481h.473c1.235 0 2.4 0 3.002.704.359.42.469 1.044.332 1.906zM66.654 13.075h-3.275a.57.57 0 0 0-.563.481l-.145.916-.229-.332c-.709-1.029-2.29-1.373-3.868-1.373-3.619 0-6.71 2.741-7.312 6.586-.313 1.918.132 3.752 1.22 5.031.998 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .562.66h2.95a.95.95 0 0 0 .939-.803l1.77-11.209a.568.568 0 0 0-.561-.658zm-4.565 6.374c-.316 1.871-1.801 3.127-3.695 3.127-.951 0-1.711-.305-2.199-.883-.484-.574-.668-1.391-.514-2.301.295-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.499.589.697 1.411.554 2.317zM84.096 13.075h-3.291a.954.954 0 0 0-.787.417l-4.539 6.686-1.924-6.425a.953.953 0 0 0-.912-.678h-3.234a.57.57 0 0 0-.541.754l3.625 10.638-3.408 4.811a.57.57 0 0 0 .465.9h3.287a.949.949 0 0 0 .781-.408l10.946-15.8a.57.57 0 0 0-.468-.895z" fill="#253B80"/>
+                  <path d="M94.992 6.749h-6.84a.95.95 0 0 0-.938.802l-2.766 17.537a.569.569 0 0 0 .562.658h3.51a.665.665 0 0 0 .656-.562l.785-4.971a.95.95 0 0 1 .938-.803h2.164c4.506 0 7.105-2.18 7.785-6.5.307-1.89.012-3.375-.873-4.415-.971-1.142-2.694-1.746-4.983-1.746zm.789 6.405c-.373 2.454-2.248 2.454-4.062 2.454h-1.031l.725-4.583a.568.568 0 0 1 .562-.481h.473c1.234 0 2.4 0 3.002.704.359.42.468 1.044.331 1.906zM115.434 13.075h-3.273a.567.567 0 0 0-.562.481l-.145.916-.23-.332c-.709-1.029-2.289-1.373-3.867-1.373-3.619 0-6.709 2.741-7.311 6.586-.312 1.918.131 3.752 1.219 5.031 1 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .564.66h2.949a.95.95 0 0 0 .938-.803l1.771-11.209a.571.571 0 0 0-.565-.658zm-4.565 6.374c-.314 1.871-1.801 3.127-3.695 3.127-.949 0-1.711-.305-2.199-.883-.484-.574-.666-1.391-.514-2.301.297-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.501.589.699 1.411.554 2.317zM119.295 7.23l-2.807 17.858a.569.569 0 0 0 .562.658h2.822c.469 0 .867-.34.938-.803l2.768-17.536a.57.57 0 0 0-.562-.659h-3.16a.571.571 0 0 0-.561.482z" fill="#179BD7"/>
+                  <path d="M7.266 29.154l.523-3.322-1.165-.027H1.061L4.927 1.292a.316.316 0 0 1 .314-.268h9.38c3.114 0 5.263.648 6.385 1.927.526.6.861 1.227 1.023 1.917.17.724.173 1.589.007 2.644l-.012.077v.676l.526.298a3.69 3.69 0 0 1 1.065.812c.45.513.741 1.165.864 1.938.127.795.085 1.741-.123 2.812-.24 1.232-.628 2.305-1.152 3.183a6.547 6.547 0 0 1-1.825 2c-.696.494-1.523.869-2.458 1.109-.906.236-1.939.355-3.072.355h-.73c-.522 0-1.029.188-1.427.525a2.21 2.21 0 0 0-.744 1.328l-.055.299-.924 5.855-.042.215c-.011.068-.03.102-.058.125a.155.155 0 0 1-.096.035H7.266z" fill="#253B80"/>
+                  <path d="M23.048 7.667c-.028.179-.06.362-.096.55-1.237 6.351-5.469 8.545-10.874 8.545H9.326c-.661 0-1.218.48-1.321 1.132L6.596 26.83l-.399 2.533a.704.704 0 0 0 .695.814h4.881c.578 0 1.069-.42 1.16-.99l.048-.248.919-5.832.059-.32c.09-.572.582-.992 1.16-.992h.73c4.729 0 8.431-1.92 9.513-7.476.452-2.321.218-4.259-.978-5.622a4.667 4.667 0 0 0-1.336-1.03z" fill="#179BD7"/>
+                  <path d="M21.754 7.151a9.757 9.757 0 0 0-1.203-.267 15.284 15.284 0 0 0-2.426-.177h-7.352a1.172 1.172 0 0 0-1.159.992L8.05 17.605l-.045.289a1.336 1.336 0 0 1 1.321-1.132h2.752c5.405 0 9.637-2.195 10.874-8.545.037-.188.068-.371.096-.55a6.594 6.594 0 0 0-1.017-.429 9.045 9.045 0 0 0-.277-.087z" fill="#222D65"/>
+                  <path d="M9.614 7.699a1.169 1.169 0 0 1 1.159-.991h7.352c.871 0 1.684.057 2.426.177a9.757 9.757 0 0 1 1.481.353c.365.121.704.264 1.017.429.368-2.347-.003-3.945-1.272-5.392C20.378.682 17.853 0 14.622 0h-9.38c-.66 0-1.223.48-1.325 1.133L.01 25.898a.806.806 0 0 0 .795.932h5.791l1.454-9.225 1.564-9.906z" fill="#253B80"/>
+                </svg>
+              </span>
+              <span>Pagar con PayPal</span>
             </button>
           </div>
         </div>
-        
+
         <div class="payment-section">
           <h4>🏦 Transferencias Bancarias (RD)</h4>
           <div class="transfer-buttons">
-            <a href="https://wa.me/18299441515?text=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20-%20Transferencia%20bancaria" class="payment-btn whatsapp-btn">
+            <button class="payment-btn whatsapp-btn" onclick="validateAndContact('https://wa.me/18299441515?text=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20-%20Transferencia%20bancaria')">
               <span class="payment-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
               </span>
-              <span>WhatsApp</span>
-            </a>
-            <a href="mailto:planifestoRD@gmail.com?subject=Consulta%20sobre%20${encodeURIComponent(product.title)}&body=Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20y%20quisiera%20información%20sobre%20transferencias%20bancarias." class="payment-btn email-btn">
-              <span class="payment-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-              </span>
-              <span>Email</span>
-            </a>
+              <span>Contactar por WhatsApp</span>
+            </button>
           </div>
         </div>
-        
+
         <div class="payment-note">
           <p><strong>Nota importante:</strong></p>
+          <p>• Paga con tarjeta de forma segura usando Stripe o PayPal</p>
           <p>• No es necesario tener cuenta PayPal para pagar con tarjeta</p>
           <p>• Para transferencias bancarias en República Dominicana, contáctanos</p>
-          <p>• Recibirás el producto al correo de PayPal (revisar spam)</p>
+          <p>• Recibirás el producto al correo registrado (revisar spam)</p>
           <p>• Producto digital - todas las ventas son finales</p>
           <p>• Compatible únicamente con Google Sheets</p>
         </div>
       </div>
     `;
 
+      modal.classList.remove('closing');
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
+
+      // Reiniciar el scroll al principio cada vez que se abre el modal
+      modal.scrollTop = 0;
+
+      // Desmarcar el checkbox de términos para el nuevo producto y agregar event listener
+      setTimeout(() => {
+        const termsCheckbox = document.getElementById('termsCheckbox');
+        const termsContainer = document.getElementById('termsCheckboxContainer');
+        const errorMessage = document.getElementById('termsErrorMessage');
+
+        if (termsCheckbox) {
+          termsCheckbox.checked = false;
+
+          // Agregar event listener para remover el error cuando se marque el checkbox
+          termsCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+              termsContainer.classList.remove('error');
+              errorMessage.classList.remove('show');
+            }
+          });
+        }
+      }, 100);
+
+      // Scroll automático a las opciones de pago solo si viene del botón "Comprar ahora"
+      if (scrollToPayment) {
+        setTimeout(() => {
+          const paymentOptions = document.querySelector('.payment-options');
+          if (paymentOptions) {
+            paymentOptions.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+          }
+        }, 400);
+      }
     }
 
     function closeModal() {
       const modal = document.getElementById('productModal');
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+
+      // Agregar clase de animación de cierre
+      modal.classList.add('closing');
+
+      // Esperar a que termine la animación antes de ocultar
+      setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('closing');
+        document.body.style.overflow = 'auto';
+
+        // Reiniciar el scroll del modal al principio para la próxima apertura
+        modal.scrollTop = 0;
+      }, 300); // Duración de la animación
     }
 
     // Buy Now
     function buyNow(paypalLink) {
       window.open(paypalLink, '_blank');
+    }
+
+    // Validate Terms and Buy
+    function validateAndBuy(link) {
+      const termsCheckbox = document.getElementById('termsCheckbox');
+      const termsContainer = document.getElementById('termsCheckboxContainer');
+      const errorMessage = document.getElementById('termsErrorMessage');
+
+      if (!termsCheckbox || !termsCheckbox.checked) {
+        // Mostrar error en la página
+        termsContainer.classList.add('error');
+        errorMessage.classList.add('show');
+
+        // Scroll suave al checkbox para que el usuario vea el error
+        termsContainer.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        return;
+      }
+
+      buyNow(link);
+    }
+
+    // Validate Terms and Contact (WhatsApp)
+    function validateAndContact(link) {
+      const termsCheckbox = document.getElementById('termsCheckbox');
+      const termsContainer = document.getElementById('termsCheckboxContainer');
+      const errorMessage = document.getElementById('termsErrorMessage');
+
+      if (!termsCheckbox || !termsCheckbox.checked) {
+        // Mostrar error en la página
+        termsContainer.classList.add('error');
+        errorMessage.classList.add('show');
+
+        // Scroll suave al checkbox para que el usuario vea el error
+        termsContainer.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        return;
+      }
+
+      window.open(link, '_blank');
+    }
+
+    // Open Terms Modal
+    function openTermsModal() {
+      const termsModal = document.getElementById('termsModal');
+      termsModal.classList.remove('closing');
+      termsModal.style.display = 'block';
+      termsModal.scrollTop = 0;
+    }
+
+    // Close Terms Modal
+    function closeTermsModal() {
+      const termsModal = document.getElementById('termsModal');
+
+      // Agregar clase de animación de cierre
+      termsModal.classList.add('closing');
+
+      // Esperar a que termine la animación antes de ocultar
+      setTimeout(() => {
+        termsModal.style.display = 'none';
+        termsModal.classList.remove('closing');
+      }, 300); // Duración de la animación
     }
 
     // Toggle Neutral Version
@@ -2177,16 +2745,17 @@
         recommendation = 'Plantilla Financiera PRO 💼';
         productId = 'plantillaPro';
       } else if (selected.includes('inversion')) {
-        // Cualquier selección que incluya inversión
+        // Si solo seleccionan inversión, recomendar la guía de inversiones
         if (selected.length === 1) {
-          recommendation = 'Combo Planifesto 🔥';
-          productId = 'comboPlanifesto';
-        } else if (selected.includes('presupuesto') && !selected.includes('ahorro') && !selected.includes('deuda')) {
-          recommendation = 'Combo Finanzas e Inversión 🔁';
+          recommendation = 'Guía de Inversiones 101 – VERSIÓN 2.0 📚';
           productId = 'bundleFinanzas';
-        } else {
+        } else if (selected.includes('presupuesto') || selected.includes('ahorro') || selected.includes('deuda')) {
+          // Si seleccionan inversión + cualquier otra cosa financiera
           recommendation = 'Combo Planifesto 🔥';
           productId = 'comboPlanifesto';
+        } else {
+          recommendation = 'Guía de Inversiones 101 – VERSIÓN 2.0 📚';
+          productId = 'bundleFinanzas';
         }
       } else {
         recommendation = 'Plantilla Financiera PRO 💼';
@@ -2248,8 +2817,14 @@
     // Close modal when clicking outside
     window.onclick = function (event) {
       const modal = document.getElementById('productModal');
+      const termsModal = document.getElementById('termsModal');
+
       if (event.target === modal) {
         closeModal();
+      }
+
+      if (event.target === termsModal) {
+        closeTermsModal();
       }
     }
   </script>
