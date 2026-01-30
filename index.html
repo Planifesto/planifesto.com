@@ -805,6 +805,20 @@
       color: white;
     }
 
+    /* Quick Buy Button in Modal */
+    .quick-buy-btn {
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .quick-buy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.4);
+    }
+
     /* Modal */
     .modal {
       display: none;
@@ -2677,6 +2691,20 @@
 
       // Reiniciar el scroll al principio cada vez que se abre el modal
       modal.scrollTop = 0;
+
+      // Insertar botón "Comprar ahora" después del título
+      const productTitle = modalContent.querySelector('h2');
+      if (productTitle) {
+        const buyButton = document.createElement('div');
+        buyButton.style.textAlign = 'center';
+        buyButton.style.margin = '1.5rem 0';
+        buyButton.innerHTML = `
+          <button class="btn btn-primary quick-buy-btn" onclick="document.querySelector('.payment-options').scrollIntoView({ behavior: 'smooth', block: 'start' })">
+            Comprar ahora
+          </button>
+        `;
+        productTitle.parentNode.insertBefore(buyButton, productTitle.nextSibling);
+      }
 
       // Desmarcar el checkbox de términos para el nuevo producto y agregar event listener
       setTimeout(() => {
