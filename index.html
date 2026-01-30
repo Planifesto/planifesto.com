@@ -831,6 +831,19 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
+    .modal-product-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, var(--morado-claro) 0%, #f0e6f1 50%, var(--morado-claro) 100%);
+      padding: 20px;
+      object-fit: contain;
+    }
+
     @keyframes slideUp {
       0% {
         transform: translateY(100px) scale(0.95);
@@ -1597,6 +1610,12 @@
         left: 1rem;
         max-width: none;
       }
+
+      .modal-product-image {
+        max-width: 100%;
+        padding: 15px;
+        margin-bottom: 1.5rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -2126,6 +2145,7 @@
     const productData = {
       plantillaParejas: {
         title: 'Plantilla Financiera Mensual de Parejas (3 en 1)',
+        image: 'imagenes/Actualizar a pro.png',
         paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
         stripeLink: 'https://buy.stripe.com/8x214ngEx89Z9f20Xs3oA0c',
         content: `
@@ -2172,6 +2192,7 @@
       },
       comboPlanifesto: {
         title: 'Combo Planifesto - PRO + Guía de Inversión',
+        image: 'imagenes/comboPlanifesto.png',
         paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
         stripeLink: 'https://buy.stripe.com/4gMeVdewpai74YM35A3oA0b',
         content: `
@@ -2217,6 +2238,7 @@
       },
       plantillaPro: {
         title: 'Plantilla Financiera PRO (3-1)',
+        image: 'imagenes/planifestoPro.png',
         paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
         stripeLink: 'https://buy.stripe.com/7sYbJ10Fz9e362Q21w3oA0d',
@@ -2263,6 +2285,7 @@
       },
       plantillaBasica: {
         title: 'Plantilla Financiera',
+        image: 'imagenes/presupuestoMensual.png',
         paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
         neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
         stripeLink: 'https://buy.stripe.com/aFadR90Fz89ZgHu35A3oA09',
@@ -2299,6 +2322,7 @@
       },
       bundleFinanzas: {
         title: 'Guía de Inversiones 101 – VERSIÓN 2.0',
+        image: 'imagenes/GuiaInversiones101redisenada.png',
         paypalLink: 'https://www.paypal.com/ncp/payment/N6X97A4JJRMM2',
         stripeLink: 'https://buy.stripe.com/00w7sLfAteynbna0Xs3oA0f',
         content: `
@@ -2571,6 +2595,7 @@
       }
 
       modalContent.innerHTML = `
+      ${product.image ? `<img src="${product.image}" alt="${product.title}" class="modal-product-image">` : ''}
       ${product.content}
       <div class="payment-options">
         <h3 class="payment-title">Opciones de Pago</h3>
