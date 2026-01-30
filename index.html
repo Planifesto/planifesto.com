@@ -2540,6 +2540,15 @@
       productCards.forEach(card => {
         observer.observe(card);
       });
+
+      // Abrir producto automáticamente si hay hash en la URL
+      const hash = window.location.hash.substring(1); // Quitar el #
+      if (hash && productData[hash]) {
+        // Esperar un momento para que la página cargue completamente
+        setTimeout(() => {
+          showProductDetails(hash);
+        }, 500);
+      }
     });
 
     // Product Details Modal
@@ -2633,6 +2642,9 @@
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
 
+      // Actualizar URL con hash del producto para compartir
+      window.history.pushState(null, null, '#' + productId);
+
       // Reiniciar el scroll al principio cada vez que se abre el modal
       modal.scrollTop = 0;
 
@@ -2681,6 +2693,9 @@
         modal.style.display = 'none';
         modal.classList.remove('closing');
         document.body.style.overflow = 'auto';
+
+        // Limpiar hash de la URL
+        window.history.pushState(null, null, window.location.pathname);
 
         // Reiniciar el scroll del modal al principio para la próxima apertura
         modal.scrollTop = 0;
