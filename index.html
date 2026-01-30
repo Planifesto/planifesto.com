@@ -2565,12 +2565,17 @@
         observer.observe(card);
       });
 
-      // Abrir producto automáticamente si hay hash en la URL
-      const hash = window.location.hash.substring(1); // Quitar el #
-      if (hash && productData[hash]) {
+      // Abrir producto automáticamente si hay parámetro de URL o hash
+      const urlParams = new URLSearchParams(window.location.search);
+      const productParam = urlParams.get('product'); // Para Manychat: ?product=productId
+      const hash = window.location.hash.substring(1); // Para hash: #productId
+
+      const productId = productParam || hash;
+
+      if (productId && productData[productId]) {
         // Esperar un momento para que la página cargue completamente
         setTimeout(() => {
-          showProductDetails(hash);
+          showProductDetails(productId);
         }, 500);
       }
     });
@@ -2667,8 +2672,8 @@
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
 
-      // Actualizar URL con hash del producto para compartir
-      window.history.pushState(null, null, '#' + productId);
+      // Actualizar URL con query parameter del producto para compartir (funciona mejor en Manychat)
+      window.history.pushState(null, null, '?product=' + productId);
 
       // Reiniciar el scroll al principio cada vez que se abre el modal
       modal.scrollTop = 0;
