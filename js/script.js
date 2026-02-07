@@ -442,21 +442,24 @@ function showProductDetails(productId, scrollToPayment = false) {
   const modal = document.getElementById('productModal');
   const modalContent = document.getElementById('modalContent');
 
-  // Determine current PayPal link based on neutral state
+  // Determine current PayPal link and image based on neutral state
   let currentPaypalLink = product.paypalLink;
   let currentStripeLink = product.stripeLink;
+  let currentImage = product.image;
 
   if (productId === 'plantillaPro' && currentNeutralStates.pro) {
     if (product.neutralPaypalLink) currentPaypalLink = product.neutralPaypalLink;
     if (product.neutralStripeLink) currentStripeLink = product.neutralStripeLink;
+    currentImage = 'imagenes/plantillaProNeutral.png';
   }
   if (productId === 'plantillaBasica' && currentNeutralStates.basic) {
     if (product.neutralPaypalLink) currentPaypalLink = product.neutralPaypalLink;
     if (product.neutralStripeLink) currentStripeLink = product.neutralStripeLink;
+    currentImage = 'imagenes/plantillaNeutra.png';
   }
 
   modalContent.innerHTML = `
-  ${product.image ? `<img src="${product.image}" alt="${product.title}" class="modal-product-image">` : ''}
+  ${currentImage ? `<img src="${currentImage}" alt="${product.title}" class="modal-product-image">` : ''}
   ${product.content}
   <div class="payment-options">
     <h3 class="payment-title">Opciones de Pago</h3>
