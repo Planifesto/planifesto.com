@@ -1027,7 +1027,7 @@ async function submitGiftAndPay(paymentLink, productId, paymentType) {
   }
 
   paymentButtons.forEach(btn => btn.classList.remove('gift-loading'));
-  window.open(finalLink, '_blank');
+  window.location.href = finalLink;
 }
 
 // Send Gift WhatsApp (Manychat format)
