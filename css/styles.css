@@ -489,7 +489,7 @@ body {
 .quiz-section {
   background: var(--morado-claro);
   padding: 3rem 1.5rem;
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
   box-shadow: var(--sombra);
 }
 
@@ -1841,4 +1841,414 @@ img.product-image {
       animation-delay: 0.48s;
     }
   }
+}
+
+/* ===== VALENTINE'S DAY - Regala un Planifesto ===== */
+.valentine-banner {
+  background: linear-gradient(135deg, #e8415c 0%, #f7a9a8 50%, #ff6b8a 100%);
+  padding: 3rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.valentine-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.2;
+  animation: floatHeart 6s ease-in-out infinite;
+}
+
+.heart-1 { top: 10%; left: 5%; animation-delay: 0s; font-size: 1.2rem; }
+.heart-2 { top: 60%; left: 15%; animation-delay: 1.5s; font-size: 1.8rem; }
+.heart-3 { top: 20%; right: 10%; animation-delay: 3s; font-size: 1rem; }
+.heart-4 { top: 70%; right: 20%; animation-delay: 0.8s; font-size: 1.4rem; }
+.heart-5 { top: 40%; left: 50%; animation-delay: 2.2s; font-size: 2rem; }
+
+@keyframes floatHeart {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+  50% { transform: translateY(-15px) rotate(10deg); opacity: 0.4; }
+}
+
+.valentine-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.valentine-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.valentine-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.valentine-toggle-container {
+  margin-bottom: 1.5rem;
+}
+
+.gift-toggle-btn {
+  background: var(--blanco);
+  color: #e8415c;
+  border: 3px solid transparent;
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gift-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gift-toggle-btn.active {
+  background: #e8415c;
+  color: var(--blanco);
+  border-color: var(--blanco);
+  animation: giftPulse 2s ease-in-out infinite;
+}
+
+.gift-toggle-icon {
+  font-size: 1.4rem;
+}
+
+@keyframes giftPulse {
+  0%, 100% { box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15); }
+  50% { box-shadow: 0 5px 30px rgba(255, 255, 255, 0.3); }
+}
+
+.valentine-code-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  animation: fadeInScale 0.4s ease;
+}
+
+.valentine-code-label {
+  color: var(--blanco);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.valentine-code {
+  display: inline-block;
+  background: var(--blanco);
+  color: #e8415c;
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0.5rem 2rem;
+  border-radius: 12px;
+  letter-spacing: 3px;
+  margin: 0.5rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.valentine-code-note {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* Gift Mode Active - Product Cards */
+body.gift-mode-active .product-card {
+  border-color: #e8415c;
+}
+
+.gift-badge {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: linear-gradient(135deg, #e8415c, #ff6b8a);
+  color: white;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(232, 65, 92, 0.4);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.gift-price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.gift-price-original {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.gift-price-new {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8415c;
+}
+
+/* Gift WhatsApp Button - larger and more prominent */
+.gift-whatsapp-btn {
+  padding: 1.2rem 2rem;
+  font-size: 1.05rem;
+  background: linear-gradient(135deg, #25d366, #128C7E);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.35);
+}
+
+.gift-whatsapp-btn:hover {
+  background: linear-gradient(135deg, #20c157, #0e7a6d);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+}
+
+/* Gift Form in Modal */
+.gift-form-section {
+  background: linear-gradient(135deg, #fff0f3 0%, #ffe8ec 100%);
+  border: 2px solid #ffccd5;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+}
+
+.gift-form-title {
+  color: #e8415c;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.gift-form-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gift-form-field {
+  margin-bottom: 1rem;
+}
+
+.gift-form-field label {
+  display: block;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.gift-form-field input,
+.gift-form-field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #ffccd5;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease;
+  outline: none;
+  resize: vertical;
+}
+
+.gift-form-field input:focus,
+.gift-form-field textarea:focus {
+  border-color: #e8415c;
+}
+
+.gift-form-field input::placeholder,
+.gift-form-field textarea::placeholder {
+  color: #ccc;
+}
+
+.gift-email-hint {
+  display: block;
+  color: #e8415c;
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+  font-weight: 500;
+}
+
+.gift-char-counter {
+  display: block;
+  text-align: right;
+  color: #999;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.gift-input-error {
+  border-color: #d32f2f !important;
+  background: #ffebee;
+  animation: shake 0.4s ease;
+}
+
+.gift-form-error {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+  animation: shake 0.4s ease;
+}
+
+.gift-discount-badge {
+  background: linear-gradient(135deg, #e8415c, #ff6b8a);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.gift-discount-badge strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.gift-discount-badge span {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Valentine's Responsive */
+@media (max-width: 768px) {
+  .valentine-banner {
+    padding: 2rem 1rem;
+  }
+
+  .valentine-title {
+    font-size: 1.8rem;
+  }
+
+  .valentine-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .gift-toggle-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+
+  .valentine-code {
+    font-size: 1.2rem;
+    padding: 0.4rem 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .heart { font-size: 1rem; }
+  .heart-2 { font-size: 1.3rem; }
+  .heart-5 { font-size: 1.5rem; }
+
+  .gift-form-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .valentine-title {
+    font-size: 1.5rem;
+  }
+
+  .gift-toggle-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .valentine-code {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Hearts Explosion Animation */
+.hearts-explosion-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.explosion-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 1;
+  animation: heartExplode var(--duration, 2s) ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes heartExplode {
+  0% {
+    transform: translate(0, 0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+    transform: translate(var(--tx, 0), var(--ty, 0)) scale(1.2) rotate(var(--rot, 45deg));
+  }
+  100% {
+    transform: translate(var(--tx-end, 0), calc(var(--ty, 0) + 200px)) scale(0.3) rotate(var(--rot-end, 180deg));
+    opacity: 0;
+  }
+}
+
+/* Gift loading state for payment buttons */
+.payment-btn.gift-loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+}
+
+.payment-btn.gift-loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: giftSpin 0.7s linear infinite;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes giftSpin {
+  to { transform: translateY(-50%) rotate(360deg); }
 }
