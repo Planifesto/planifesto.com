@@ -969,6 +969,15 @@ function validateGiftForm() {
   return { buyerName, buyerEmail, name, contact, dedicatoria };
 }
 
+// Convierte emojis a entidades HTML para correos
+function emojiToHtmlEntities(str) {
+  if (!str) return '';
+  return Array.from(str).map(function(char) {
+    var cp = char.codePointAt(0);
+    return cp > 127 ? '&#' + cp + ';' : char;
+  }).join('');
+}
+
 // Submit gift data to Apps Script and redirect to payment
 async function submitGiftAndPay(paymentLink, productId, paymentType) {
   const termsCheckbox = document.getElementById('termsCheckbox');
@@ -1052,7 +1061,8 @@ function sendGiftWhatsApp(productId) {
 
   // Build message: keyword first for Manychat, then product, then gift data
   const lines = ['Regala Un Planifesto'];
-  lines.push(`Regalo: ${product.title}`);
+  const giftTitle = productId === 'plantillaBasica' ? 'Plantilla Financiera Basica' : product.title;
+  lines.push(`Regalo: ${giftTitle}`);
   lines.push(`De: ${giftData.buyerName} (${giftData.buyerEmail})`);
   lines.push(`Para: ${giftData.name}`);
   lines.push(`Contacto destinatario: ${giftData.contact}`);
