@@ -4,7 +4,7 @@ const productData = {
     keyword: 'PAREJAS',
     image: 'imagenes/Actualizar a pro.png',
     paypalLink: 'https://www.paypal.com/ncp/payment/MMKRVF9QGFU5U',
-    giftPaypalLink: 'https://www.paypal.com/ncp/payment/3WLCJDLF547LG',
+
     stripeLink: 'https://buy.stripe.com/8x214ngEx89Z9f20Xs3oA0c',
     content: `
     <h2>Plantilla Financiera Mensual de Parejas (3 en 1) - 25% OFF</h2>
@@ -53,7 +53,6 @@ const productData = {
     keyword: 'COMBO',
     image: 'imagenes/comboPlanifesto.png',
     paypalLink: 'https://www.paypal.com/ncp/payment/54X5YD4Y83FQ4',
-    giftPaypalLink: 'https://www.paypal.com/ncp/payment/6Z66WR3TPGMAE',
     stripeLink: 'https://buy.stripe.com/4gMeVdewpai74YM35A3oA0b',
     content: `
     <h2>✨ 3 PLANTILLAS PODEROSAS EN 1: Tu sistema financiero completo en un solo lugar + Nuestra guía para aprender a invertir ✨</h2>
@@ -102,8 +101,6 @@ const productData = {
     image: 'imagenes/planifestoPro.png',
     paypalLink: 'https://www.paypal.com/ncp/payment/YHWFXT36PGABE',
     neutralPaypalLink: 'https://www.paypal.com/ncp/payment/78N5AADLPGV8J',
-    giftPaypalLink: 'https://www.paypal.com/ncp/payment/DURJCACM68TQ6',
-    neutralGiftPaypalLink: 'https://www.paypal.com/ncp/payment/H3AYYWAX5GTN2',
     stripeLink: 'https://buy.stripe.com/7sYbJ10Fz9e362Q21w3oA0d',
     neutralStripeLink: 'https://buy.stripe.com/dRmbJ1dslbmbdvidKe3oA0e',
     content: `
@@ -152,8 +149,6 @@ const productData = {
     image: 'imagenes/presupuestoMensual.png',
     paypalLink: 'https://www.paypal.com/ncp/payment/NQJNGY6WXKFK4',
     neutralPaypalLink: 'https://www.paypal.com/ncp/payment/CZ8E9M7F2YP3S',
-    giftPaypalLink: 'https://www.paypal.com/ncp/payment/93KWNCG58FPEQ',
-    neutralGiftPaypalLink: 'https://www.paypal.com/ncp/payment/SZ7G5Q3V46HGQ',
     stripeLink: 'https://buy.stripe.com/aFadR90Fz89ZgHu35A3oA09',
     neutralStripeLink: 'https://buy.stripe.com/cNi3cv4VP89ZfDqcGa3oA0a',
     content: `
@@ -191,7 +186,6 @@ const productData = {
     keyword: 'GUIA101',
     image: 'imagenes/GuiaInversiones101redisenada.png',
     paypalLink: 'https://www.paypal.com/ncp/payment/N6X97A4JJRMM2',
-    giftPaypalLink: 'https://www.paypal.com/ncp/payment/7YCM8RM9UYS42',
     stripeLink: 'https://buy.stripe.com/8x2dR9cohcqf62Q7lQ3oA0h',
     content: `
     <h2>Guía de Inversiones 101 – VERSIÓN 2.0</h2>
@@ -408,8 +402,8 @@ let currentNeutralStates = {
   basic: false
 };
 
-// Gift Mode (Valentine's Day)
-// URL del Google Apps Script desplegado como web app (reemplazar con la URL real)
+// Gift Mode
+// URL del Google Apps Script desplegado como web app
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJKtudIK7Lx-9kmd4Sm90ui8BqYoVRtroQYH6RPTmooy_kcRVHoR4neytIYZh8ti4-/exec';
 
 let giftModeActive = false;
@@ -424,122 +418,321 @@ const productPrices = {
 function toggleGiftMode() {
   giftModeActive = !giftModeActive;
   const btn = document.getElementById('giftToggleBtn');
-  const codeContainer = document.getElementById('valentineCodeContainer');
   const body = document.body;
 
   if (giftModeActive) {
     btn.classList.add('active');
     btn.querySelector('.gift-toggle-text').textContent = 'Modo Regalo Activado';
-    codeContainer.style.display = 'block';
     body.classList.add('gift-mode-active');
-    launchHeartsExplosion();
+    launchGiftExplosion();
   } else {
     btn.classList.remove('active');
     btn.querySelector('.gift-toggle-text').textContent = 'Activar Modo Regalo';
-    codeContainer.style.display = 'none';
     body.classList.remove('gift-mode-active');
   }
 
   updateProductCardPrices();
 }
 
-function launchHeartsExplosion() {
+function toggleGiftInModal(productId) {
+  // Toggle gift state and update main page button
+  toggleGiftMode();
+
+  const modalContent = document.getElementById('modalContent');
+  const product = productData[productId];
+
+  if (giftModeActive) {
+    // --- ACTIVATING: inject gift form + swap payment section ---
+
+    // Hide the "Regalar" card
+    const giftToggleCard = modalContent.querySelector('.modal-gift-toggle');
+    if (giftToggleCard) giftToggleCard.style.display = 'none';
+
+    // Build and inject the gift form before payment-options
+    const paymentOptions = modalContent.querySelector('.payment-options');
+    const giftFormDiv = document.createElement('div');
+    giftFormDiv.className = 'gift-form-section gift-form-animate';
+    giftFormDiv.innerHTML = `
+      <h3 class="gift-form-title">&#127873; Datos del Regalo</h3>
+      <p class="gift-form-subtitle">Enviaremos el producto directamente a esta persona con un mensaje especial de tu parte</p>
+      <div class="gift-form-field">
+        <label for="giftBuyerName">Tu nombre</label>
+        <input type="text" id="giftBuyerName" placeholder="Ej: Fulanito De Tal">
+      </div>
+      <div class="gift-form-field">
+        <label for="giftBuyerEmail">Tu correo electr&#243;nico</label>
+        <input type="email" id="giftBuyerEmail" placeholder="Ej: fulanito@email.com">
+        <small class="gift-email-hint">&#9888;&#65039; Usa el mismo correo con el que vas a realizar el pago</small>
+      </div>
+      <div class="gift-form-field">
+        <label for="giftRecipientName">Nombre de quien recibe el regalo</label>
+        <input type="text" id="giftRecipientName" placeholder="Ej: Fulanito De Tal">
+      </div>
+      <div class="gift-form-field">
+        <label for="giftRecipientContact">Correo electr&#243;nico de quien recibe</label>
+        <input type="email" id="giftRecipientContact" placeholder="Ej: fulanito@email.com">
+      </div>
+      <div class="gift-form-field">
+        <label for="giftMessage">Dedicatoria (opcional)</label>
+        <textarea id="giftMessage" placeholder="Ej: Felicidades! Te quiero mucho &#10084;&#65039;" rows="3" maxlength="200"></textarea>
+        <small class="gift-char-counter"><span id="giftMessageCount">0</span>/200</small>
+      </div>
+    `;
+    paymentOptions.parentNode.insertBefore(giftFormDiv, paymentOptions);
+
+    // Wire up character counter
+    const giftMsg = document.getElementById('giftMessage');
+    const giftCount = document.getElementById('giftMessageCount');
+    if (giftMsg && giftCount) {
+      giftMsg.addEventListener('input', function() {
+        giftCount.textContent = this.value.length;
+      });
+    }
+
+    // Wire up field error clearing
+    const giftFields = [
+      document.getElementById('giftBuyerName'),
+      document.getElementById('giftBuyerEmail'),
+      document.getElementById('giftRecipientName'),
+      document.getElementById('giftRecipientContact')
+    ];
+    giftFields.forEach(field => {
+      if (field) field.addEventListener('input', function() {
+        this.classList.remove('gift-input-error');
+      });
+    });
+
+    // Determine PayPal link for gift
+    let currentPaypalLink = product.paypalLink;
+    const isProNeutral = productId === 'plantillaPro' && currentNeutralStates.pro;
+    const isBasicNeutral = productId === 'plantillaBasica' && currentNeutralStates.basic;
+    if (isProNeutral) currentPaypalLink = product.neutralPaypalLink || currentPaypalLink;
+    if (isBasicNeutral) currentPaypalLink = product.neutralPaypalLink || currentPaypalLink;
+
+    // Replace the payment-options content with gift payment
+    paymentOptions.innerHTML = `
+      <h3 class="payment-title">&#127873; Comprar como Regalo</h3>
+
+      <button class="modal-gift-deactivate" onclick="toggleGiftInModal('${productId}')">
+        &#10005; Desactivar Modo Regalo
+      </button>
+
+      <div class="terms-checkbox-container" id="termsCheckboxContainer">
+        <label class="terms-checkbox-label">
+          <input type="checkbox" id="termsCheckbox" class="terms-checkbox">
+          <span>He le&#237;do y acepto los <button type="button" class="terms-link" onclick="openTermsModal()">T&#233;rminos y Condiciones</button></span>
+        </label>
+        <div class="terms-error-message" id="termsErrorMessage">
+          ⚠️ Debes aceptar los T&#233;rminos y Condiciones para continuar
+        </div>
+      </div>
+
+      <div class="payment-section">
+        <h4>&#128179; Pago con tarjeta de cr&#233;dito/d&#233;bito</h4>
+        <div class="payment-buttons">
+          <button class="payment-btn paypal-btn" onclick="submitGiftAndPay('${currentPaypalLink}', '${productId}', 'paypal')">
+            <span class="payment-icon">
+              <svg width="80" height="32" viewBox="0 0 124 33" fill="none">
+                <path d="M46.211 6.749h-6.839a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-.972-1.142-2.696-1.746-4.985-1.746zM47 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583a.57.57 0 0 1 .563-.481h.473c1.235 0 2.4 0 3.002.704.359.42.469 1.044.332 1.906zM66.654 13.075h-3.275a.57.57 0 0 0-.563.481l-.145.916-.229-.332c-.709-1.029-2.29-1.373-3.868-1.373-3.619 0-6.71 2.741-7.312 6.586-.313 1.918.132 3.752 1.22 5.031.998 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .562.66h2.95a.95.95 0 0 0 .939-.803l1.77-11.209a.568.568 0 0 0-.561-.658zm-4.565 6.374c-.316 1.871-1.801 3.127-3.695 3.127-.951 0-1.711-.305-2.199-.883-.484-.574-.668-1.391-.514-2.301.295-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.499.589.697 1.411.554 2.317zM84.096 13.075h-3.291a.954.954 0 0 0-.787.417l-4.539 6.686-1.924-6.425a.953.953 0 0 0-.912-.678h-3.234a.57.57 0 0 0-.541.754l3.625 10.638-3.408 4.811a.57.57 0 0 0 .465.9h3.287a.949.949 0 0 0 .781-.408l10.946-15.8a.57.57 0 0 0-.468-.895z" fill="#253B80"/>
+                <path d="M94.992 6.749h-6.84a.95.95 0 0 0-.938.802l-2.766 17.537a.569.569 0 0 0 .562.658h3.51a.665.665 0 0 0 .656-.562l.785-4.971a.95.95 0 0 1 .938-.803h2.164c4.506 0 7.105-2.18 7.785-6.5.307-1.89.012-3.375-.873-4.415-.971-1.142-2.694-1.746-4.983-1.746zm.789 6.405c-.373 2.454-2.248 2.454-4.062 2.454h-1.031l.725-4.583a.568.568 0 0 1 .562-.481h.473c1.234 0 2.4 0 3.002.704.359.42.468 1.044.331 1.906zM115.434 13.075h-3.273a.567.567 0 0 0-.562.481l-.145.916-.23-.332c-.709-1.029-2.289-1.373-3.867-1.373-3.619 0-6.709 2.741-7.311 6.586-.312 1.918.131 3.752 1.219 5.031 1 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .564.66h2.949a.95.95 0 0 0 .938-.803l1.771-11.209a.571.571 0 0 0-.565-.658zm-4.565 6.374c-.314 1.871-1.801 3.127-3.695 3.127-.949 0-1.711-.305-2.199-.883-.484-.574-.666-1.391-.514-2.301.297-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.501.589.699 1.411.554 2.317zM119.295 7.23l-2.807 17.858a.569.569 0 0 0 .562.658h2.822c.469 0 .867-.34.938-.803l2.768-17.536a.57.57 0 0 0-.562-.659h-3.16a.571.571 0 0 0-.561.482z" fill="#179BD7"/>
+                <path d="M7.266 29.154l.523-3.322-1.165-.027H1.061L4.927 1.292a.316.316 0 0 1 .314-.268h9.38c3.114 0 5.263.648 6.385 1.927.526.6.861 1.227 1.023 1.917.17.724.173 1.589.007 2.644l-.012.077v.676l.526.298a3.69 3.69 0 0 1 1.065.812c.45.513.741 1.165.864 1.938.127.795.085 1.741-.123 2.812-.24 1.232-.628 2.305-1.152 3.183a6.547 6.547 0 0 1-1.825 2c-.696.494-1.523.869-2.458 1.109-.906.236-1.939.355-3.072.355h-.73c-.522 0-1.029.188-1.427.525a2.21 2.21 0 0 0-.744 1.328l-.055.299-.924 5.855-.042.215c-.011.068-.03.102-.058.125a.155.155 0 0 1-.096.035H7.266z" fill="#253B80"/>
+                <path d="M23.048 7.667c-.028.179-.06.362-.096.55-1.237 6.351-5.469 8.545-10.874 8.545H9.326c-.661 0-1.218.48-1.321 1.132L6.596 26.83l-.399 2.533a.704.704 0 0 0 .695.814h4.881c.578 0 1.069-.42 1.16-.99l.048-.248.919-5.832.059-.32c.09-.572.582-.992 1.16-.992h.73c4.729 0 8.431-1.92 9.513-7.476.452-2.321.218-4.259-.978-5.622a4.667 4.667 0 0 0-1.336-1.03z" fill="#179BD7"/>
+                <path d="M21.754 7.151a9.757 9.757 0 0 0-1.203-.267 15.284 15.284 0 0 0-2.426-.177h-7.352a1.172 1.172 0 0 0-1.159.992L8.05 17.605l-.045.289a1.336 1.336 0 0 1 1.321-1.132h2.752c5.405 0 9.637-2.195 10.874-8.545.037-.188.068-.371.096-.55a6.594 6.594 0 0 0-1.017-.429 9.045 9.045 0 0 0-.277-.087z" fill="#222D65"/>
+                <path d="M9.614 7.699a1.169 1.169 0 0 1 1.159-.991h7.352c.871 0 1.684.057 2.426.177a9.757 9.757 0 0 1 1.481.353c.365.121.704.264 1.017.429.368-2.347-.003-3.945-1.272-5.392C20.378.682 17.853 0 14.622 0h-9.38c-.66 0-1.223.48-1.325 1.133L.01 25.898a.806.806 0 0 0 .795.932h5.791l1.454-9.225 1.564-9.906z" fill="#253B80"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="payment-section">
+        <h4>&#127974; Transferencias Bancarias (RD)</h4>
+        <div class="transfer-buttons">
+          <button class="payment-btn whatsapp-btn gift-whatsapp-btn" onclick="sendGiftWhatsApp('${productId}')">
+            <span class="payment-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+            </span>
+            <span>Enviar regalo por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="payment-note">
+        <p><strong>&#127873; Nota sobre el Modo Regalo:</strong></p>
+        <p>&#8226; El producto se env&#237;a directo al correo de la persona que indiques</p>
+        <p>&#8226; Incluir&#225; tu dedicatoria si la escribes</p>
+        <p>&#8226; Producto digital - todas las ventas son finales</p>
+        <p>&#8226; Compatible &#250;nicamente con Google Sheets</p>
+      </div>
+    `;
+
+    // Wire up terms checkbox
+    const termsCheckbox = document.getElementById('termsCheckbox');
+    const termsContainer = document.getElementById('termsCheckboxContainer');
+    const errorMessage = document.getElementById('termsErrorMessage');
+    if (termsCheckbox) {
+      termsCheckbox.checked = false;
+      termsCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          termsContainer.classList.remove('error');
+          errorMessage.classList.remove('show');
+        }
+      });
+    }
+
+    // Scroll to the gift form
+    setTimeout(() => {
+      giftFormDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+
+  } else {
+    // --- DEACTIVATING: remove gift form + restore normal payment ---
+
+    // Remove gift form with animation
+    const giftForm = modalContent.querySelector('.gift-form-section');
+    if (giftForm) {
+      giftForm.classList.add('gift-form-removing');
+      giftForm.addEventListener('animationend', () => giftForm.remove(), { once: true });
+    }
+
+    // Restore normal payment - rebuild via showProductDetails without scroll reset
+    const whatsappBaseMsg = `Hola!%20Me%20interesa%20la%20${encodeURIComponent(product.title)}%20-%20Transferencia%20bancaria`;
+    let currentPaypalLink = product.paypalLink;
+    let currentStripeLink = product.stripeLink;
+    const isProNeutral = productId === 'plantillaPro' && currentNeutralStates.pro;
+    const isBasicNeutral = productId === 'plantillaBasica' && currentNeutralStates.basic;
+    if (isProNeutral) {
+      currentPaypalLink = product.neutralPaypalLink || currentPaypalLink;
+      currentStripeLink = product.neutralStripeLink || currentStripeLink;
+    }
+    if (isBasicNeutral) {
+      currentPaypalLink = product.neutralPaypalLink || currentPaypalLink;
+      currentStripeLink = product.neutralStripeLink || currentStripeLink;
+    }
+
+    const paymentOptions = modalContent.querySelector('.payment-options');
+    paymentOptions.innerHTML = `
+      <h3 class="payment-title">Opciones de Pago</h3>
+
+      <div class="modal-gift-toggle" onclick="toggleGiftInModal('${productId}')">
+        <span class="modal-gift-toggle-icon">&#127873;</span>
+        <p class="modal-gift-toggle-text"><strong>Regala este producto</strong></p>
+        <span class="modal-gift-toggle-btn">Regalar</span>
+      </div>
+
+      <div class="terms-checkbox-container" id="termsCheckboxContainer">
+        <label class="terms-checkbox-label">
+          <input type="checkbox" id="termsCheckbox" class="terms-checkbox">
+          <span>He le&#237;do y acepto los <button type="button" class="terms-link" onclick="openTermsModal()">T&#233;rminos y Condiciones</button></span>
+        </label>
+        <div class="terms-error-message" id="termsErrorMessage">
+          ⚠️ Debes aceptar los T&#233;rminos y Condiciones para continuar
+        </div>
+      </div>
+
+      <div class="payment-section">
+        <h4>&#128179; Pago con tarjeta de cr&#233;dito/d&#233;bito</h4>
+        <div class="payment-buttons">
+          <button class="payment-btn stripe-btn" onclick="validateAndBuy('${currentStripeLink}')">
+            <span class="payment-icon">
+              <svg width="80" height="32" viewBox="0 0 60 25" fill="none">
+                <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.26-.06 1.48zm-5.92-5.62c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.3c-1.44 0-2.32-.6-2.9-1.04l-.02 4.63-4.12.87V5.57h3.76l.08 1.02a4.7 4.7 0 0 1 3.23-1.29c2.9 0 5.62 2.6 5.62 7.4 0 5.23-2.7 7.6-5.65 7.6zM40 8.95c-.95 0-1.54.34-1.97.81l.02 6.12c.4.44.98.78 1.95.78 1.52 0 2.54-1.65 2.54-3.87 0-2.15-1.04-3.84-2.54-3.84zM28.24 5.57h4.13v14.44h-4.13V5.57zm0-4.7L32.37 0v3.36l-4.13.88V.88zm-4.32 9.35v9.79H19.8V5.57h3.7l.12 1.22c1-1.77 3.07-1.41 3.62-1.22v3.79c-.52-.17-2.29-.43-3.32.86zm-8.55 4.72c0 2.43 2.6 1.68 3.12 1.46v3.36c-.55.3-1.54.54-2.89.54a4.15 4.15 0 0 1-4.27-4.24l.01-13.17 4.02-.86v3.54h3.14V9.1h-3.13v5.85zm-4.91.7c0 2.97-2.31 4.66-5.73 4.66a11.2 11.2 0 0 1-4.46-.93v-3.93c1.38.75 3.1 1.31 4.46 1.31.92 0 1.53-.24 1.53-1C6.26 13.77 0 14.51 0 9.95 0 7.04 2.28 5.3 5.62 5.3c1.36 0 2.72.2 4.09.75v3.88a9.23 9.23 0 0 0-4.1-1.06c-.86 0-1.44.25-1.44.93 0 1.85 6.29.97 6.29 5.88z" fill="white"/>
+              </svg>
+            </span>
+          </button>
+          <button class="payment-btn paypal-btn" onclick="validateAndBuy('${currentPaypalLink}')">
+            <span class="payment-icon">
+              <svg width="80" height="32" viewBox="0 0 124 33" fill="none">
+                <path d="M46.211 6.749h-6.839a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-.972-1.142-2.696-1.746-4.985-1.746zM47 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583a.57.57 0 0 1 .563-.481h.473c1.235 0 2.4 0 3.002.704.359.42.469 1.044.332 1.906zM66.654 13.075h-3.275a.57.57 0 0 0-.563.481l-.145.916-.229-.332c-.709-1.029-2.29-1.373-3.868-1.373-3.619 0-6.71 2.741-7.312 6.586-.313 1.918.132 3.752 1.22 5.031.998 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .562.66h2.95a.95.95 0 0 0 .939-.803l1.77-11.209a.568.568 0 0 0-.561-.658zm-4.565 6.374c-.316 1.871-1.801 3.127-3.695 3.127-.951 0-1.711-.305-2.199-.883-.484-.574-.668-1.391-.514-2.301.295-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.499.589.697 1.411.554 2.317zM84.096 13.075h-3.291a.954.954 0 0 0-.787.417l-4.539 6.686-1.924-6.425a.953.953 0 0 0-.912-.678h-3.234a.57.57 0 0 0-.541.754l3.625 10.638-3.408 4.811a.57.57 0 0 0 .465.9h3.287a.949.949 0 0 0 .781-.408l10.946-15.8a.57.57 0 0 0-.468-.895z" fill="#253B80"/>
+                <path d="M94.992 6.749h-6.84a.95.95 0 0 0-.938.802l-2.766 17.537a.569.569 0 0 0 .562.658h3.51a.665.665 0 0 0 .656-.562l.785-4.971a.95.95 0 0 1 .938-.803h2.164c4.506 0 7.105-2.18 7.785-6.5.307-1.89.012-3.375-.873-4.415-.971-1.142-2.694-1.746-4.983-1.746zm.789 6.405c-.373 2.454-2.248 2.454-4.062 2.454h-1.031l.725-4.583a.568.568 0 0 1 .562-.481h.473c1.234 0 2.4 0 3.002.704.359.42.468 1.044.331 1.906zM115.434 13.075h-3.273a.567.567 0 0 0-.562.481l-.145.916-.23-.332c-.709-1.029-2.289-1.373-3.867-1.373-3.619 0-6.709 2.741-7.311 6.586-.312 1.918.131 3.752 1.219 5.031 1 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .564.66h2.949a.95.95 0 0 0 .938-.803l1.771-11.209a.571.571 0 0 0-.565-.658zm-4.565 6.374c-.314 1.871-1.801 3.127-3.695 3.127-.949 0-1.711-.305-2.199-.883-.484-.574-.666-1.391-.514-2.301.297-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.501.589.699 1.411.554 2.317zM119.295 7.23l-2.807 17.858a.569.569 0 0 0 .562.658h2.822c.469 0 .867-.34.938-.803l2.768-17.536a.57.57 0 0 0-.562-.659h-3.16a.571.571 0 0 0-.561.482z" fill="#179BD7"/>
+                <path d="M7.266 29.154l.523-3.322-1.165-.027H1.061L4.927 1.292a.316.316 0 0 1 .314-.268h9.38c3.114 0 5.263.648 6.385 1.927.526.6.861 1.227 1.023 1.917.17.724.173 1.589.007 2.644l-.012.077v.676l.526.298a3.69 3.69 0 0 1 1.065.812c.45.513.741 1.165.864 1.938.127.795.085 1.741-.123 2.812-.24 1.232-.628 2.305-1.152 3.183a6.547 6.547 0 0 1-1.825 2c-.696.494-1.523.869-2.458 1.109-.906.236-1.939.355-3.072.355h-.73c-.522 0-1.029.188-1.427.525a2.21 2.21 0 0 0-.744 1.328l-.055.299-.924 5.855-.042.215c-.011.068-.03.102-.058.125a.155.155 0 0 1-.096.035H7.266z" fill="#253B80"/>
+                <path d="M23.048 7.667c-.028.179-.06.362-.096.55-1.237 6.351-5.469 8.545-10.874 8.545H9.326c-.661 0-1.218.48-1.321 1.132L6.596 26.83l-.399 2.533a.704.704 0 0 0 .695.814h4.881c.578 0 1.069-.42 1.16-.99l.048-.248.919-5.832.059-.32c.09-.572.582-.992 1.16-.992h.73c4.729 0 8.431-1.92 9.513-7.476.452-2.321.218-4.259-.978-5.622a4.667 4.667 0 0 0-1.336-1.03z" fill="#179BD7"/>
+                <path d="M21.754 7.151a9.757 9.757 0 0 0-1.203-.267 15.284 15.284 0 0 0-2.426-.177h-7.352a1.172 1.172 0 0 0-1.159.992L8.05 17.605l-.045.289a1.336 1.336 0 0 1 1.321-1.132h2.752c5.405 0 9.637-2.195 10.874-8.545.037-.188.068-.371.096-.55a6.594 6.594 0 0 0-1.017-.429 9.045 9.045 0 0 0-.277-.087z" fill="#222D65"/>
+                <path d="M9.614 7.699a1.169 1.169 0 0 1 1.159-.991h7.352c.871 0 1.684.057 2.426.177a9.757 9.757 0 0 1 1.481.353c.365.121.704.264 1.017.429.368-2.347-.003-3.945-1.272-5.392C20.378.682 17.853 0 14.622 0h-9.38c-.66 0-1.223.48-1.325 1.133L.01 25.898a.806.806 0 0 0 .795.932h5.791l1.454-9.225 1.564-9.906z" fill="#253B80"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="payment-section">
+        <h4>&#127974; Transferencias Bancarias (RD)</h4>
+        <div class="transfer-buttons">
+          <button class="payment-btn whatsapp-btn" onclick="validateAndContact('https://wa.me/18299441515?text=${whatsappBaseMsg}')">
+            <span class="payment-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+            </span>
+            <span>Contactar por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="payment-note">
+        <p><strong>Nota importante:</strong></p>
+        <p>&#8226; Paga con tarjeta de forma segura usando Stripe o PayPal</p>
+        <p>&#8226; No es necesario tener cuenta PayPal para pagar con tarjeta</p>
+        <p>&#8226; Para transferencias bancarias en Rep&#250;blica Dominicana, cont&#225;ctanos</p>
+        <p>&#8226; Recibir&#225;s el producto al correo registrado (revisar spam)</p>
+        <p>&#8226; Producto digital - todas las ventas son finales</p>
+        <p>&#8226; Compatible &#250;nicamente con Google Sheets</p>
+      </div>
+    `;
+
+    // Wire up terms checkbox
+    const termsCheckbox = document.getElementById('termsCheckbox');
+    const termsContainer = document.getElementById('termsCheckboxContainer');
+    const errorMessage = document.getElementById('termsErrorMessage');
+    if (termsCheckbox) {
+      termsCheckbox.checked = false;
+      termsCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          termsContainer.classList.remove('error');
+          errorMessage.classList.remove('show');
+        }
+      });
+    }
+  }
+}
+
+function launchGiftExplosion() {
+  const emojis = ['🎁', '🎊', '🎉', '🥳', '🎀', '✨', '🎈', '🎁', '🎊', '🎉', '✨', '🎈'];
   const container = document.createElement('div');
-  container.className = 'hearts-explosion-container';
+  container.className = 'gift-explosion-container';
   document.body.appendChild(container);
 
-  const heartEmojis = ['\u2764\uFE0F', '\uD83D\uDC95', '\uD83D\uDC96', '\uD83D\uDC97', '\uD83D\uDC93', '\uD83E\uDE77', '\uD83D\uDC9D'];
-  const totalHearts = 40;
+  emojis.forEach((emoji) => {
+    const el = document.createElement('span');
+    el.className = 'explosion-emoji';
+    el.textContent = emoji;
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.animationDelay = (Math.random() * 0.3) + 's';
+    el.style.animationDuration = (1.5 + Math.random() * 1.5) + 's';
+    el.style.fontSize = (20 + Math.random() * 25) + 'px';
+    container.appendChild(el);
+  });
 
-  for (let i = 0; i < totalHearts; i++) {
-    const heart = document.createElement('span');
-    heart.className = 'explosion-heart';
-    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-
-    // Random start position across the screen
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight;
-    heart.style.left = startX + 'px';
-    heart.style.top = startY + 'px';
-
-    // Random travel direction and distance
-    const tx = (Math.random() - 0.5) * 300;
-    const ty = (Math.random() - 0.5) * 400 - 100;
-    const txEnd = tx + (Math.random() - 0.5) * 100;
-    const rot = (Math.random() - 0.5) * 180;
-    const rotEnd = rot + (Math.random() - 0.5) * 360;
-    const duration = 1.5 + Math.random() * 1.5;
-    const delay = Math.random() * 0.6;
-    const size = 1 + Math.random() * 1.5;
-
-    heart.style.setProperty('--tx', tx + 'px');
-    heart.style.setProperty('--ty', ty + 'px');
-    heart.style.setProperty('--tx-end', txEnd + 'px');
-    heart.style.setProperty('--rot', rot + 'deg');
-    heart.style.setProperty('--rot-end', rotEnd + 'deg');
-    heart.style.setProperty('--duration', duration + 's');
-    heart.style.setProperty('--delay', delay + 's');
-    heart.style.fontSize = size + 'rem';
-
-    container.appendChild(heart);
-  }
-
-  // Remove container after all animations finish
-  setTimeout(() => {
-    container.remove();
-  }, 3500);
+  setTimeout(() => container.remove(), 3500);
 }
 
 function updateProductCardPrices() {
   const productCards = document.querySelectorAll('.product-card');
 
   productCards.forEach(card => {
-    const productId = card.getAttribute('data-product');
-    const priceInfo = productPrices[productId];
-    if (!priceInfo) return;
-
-    const priceContainer = card.querySelector('.product-price');
     const existingBadge = card.querySelector('.gift-badge');
 
     if (giftModeActive) {
-      const discountedPrice = (priceInfo.current * 0.9).toFixed(2);
-
-      // Add gift badge
       if (!existingBadge) {
         const badge = document.createElement('span');
         badge.className = 'gift-badge';
         badge.innerHTML = '&#127873; REGALO';
         card.appendChild(badge);
       }
-
-      // Update prices
-      if (priceInfo.original) {
-        priceContainer.innerHTML = `
-          <span class="price-original">$${priceInfo.original.toFixed(2)} USD</span>
-          <span class="gift-price-original">$${priceInfo.current.toFixed(2)}</span>
-          <span class="gift-price-new">$${discountedPrice} USD</span>
-        `;
-      } else {
-        priceContainer.innerHTML = `
-          <span class="gift-price-original">$${priceInfo.current.toFixed(2)} USD</span>
-          <span class="gift-price-new">$${discountedPrice} USD</span>
-        `;
-      }
     } else {
-      // Remove gift badge
       if (existingBadge) existingBadge.remove();
-
-      // Restore original prices
-      if (priceInfo.original) {
-        priceContainer.innerHTML = `
-          <span class="price-original">$${priceInfo.original.toFixed(2)} USD</span>
-          <span class="price-current">$${priceInfo.current.toFixed(2)} USD</span>
-        `;
-      } else {
-        priceContainer.innerHTML = `
-          <span class="price-current">$${priceInfo.current.toFixed(2)} USD</span>
-        `;
-      }
     }
   });
 }
@@ -611,16 +804,7 @@ function showProductDetails(productId, scrollToPayment = false) {
     currentImage = 'imagenes/plantillaNeutra.png';
   }
 
-  // En modo regalo, usar links de PayPal con descuento
-  if (giftModeActive) {
-    if (isProNeutral && product.neutralGiftPaypalLink) {
-      currentPaypalLink = product.neutralGiftPaypalLink;
-    } else if (isBasicNeutral && product.neutralGiftPaypalLink) {
-      currentPaypalLink = product.neutralGiftPaypalLink;
-    } else if (product.giftPaypalLink) {
-      currentPaypalLink = product.giftPaypalLink;
-    }
-  }
+
 
   // Build gift form HTML if gift mode is active
   const giftFormHTML = giftModeActive ? `
@@ -646,7 +830,7 @@ function showProductDetails(productId, scrollToPayment = false) {
       </div>
       <div class="gift-form-field">
         <label for="giftMessage">Dedicatoria (opcional)</label>
-        <textarea id="giftMessage" placeholder="Ej: Feliz San Valent&iacute;n, te quiero mucho &#10084;&#65039;" rows="3" maxlength="200"></textarea>
+        <textarea id="giftMessage" placeholder="Ej: Felicidades! Te quiero mucho &#10084;&#65039;" rows="3" maxlength="200"></textarea>
         <small class="gift-char-counter"><span id="giftMessageCount">0</span>/200</small>
       </div>
     </div>
@@ -663,10 +847,9 @@ function showProductDetails(productId, scrollToPayment = false) {
     <div class="payment-options">
       <h3 class="payment-title">&#127873; Comprar como Regalo</h3>
 
-      <div class="gift-discount-badge">
-        <strong>&#127873; Promo San Valent&#237;n - 10% OFF</strong>
-        <span>Completa los datos del regalo y elige tu m&#233;todo de pago</span>
-      </div>
+      <button class="modal-gift-deactivate" onclick="toggleGiftInModal('${productId}')">
+        &#10005; Desactivar Modo Regalo
+      </button>
 
       <div class="terms-checkbox-container" id="termsCheckboxContainer">
         <label class="terms-checkbox-label">
@@ -723,6 +906,12 @@ function showProductDetails(productId, scrollToPayment = false) {
     paymentHTML = `
     <div class="payment-options">
       <h3 class="payment-title">Opciones de Pago</h3>
+
+      <div class="modal-gift-toggle" onclick="toggleGiftInModal('${productId}')">
+        <span class="modal-gift-toggle-icon">&#127873;</span>
+        <p class="modal-gift-toggle-text"><strong>Regala este producto</strong></p>
+        <span class="modal-gift-toggle-btn">Regalar</span>
+      </div>
 
       <div class="terms-checkbox-container" id="termsCheckboxContainer">
         <label class="terms-checkbox-label">
@@ -809,7 +998,7 @@ function showProductDetails(productId, scrollToPayment = false) {
     buyButton.style.textAlign = 'center';
     buyButton.style.margin = '1.5rem 0';
     buyButton.innerHTML = `
-      <button class="btn btn-primary quick-buy-btn" onclick="document.querySelector('.payment-options').scrollIntoView({ behavior: 'smooth', block: 'start' })">
+      <button class="btn btn-primary quick-buy-btn" onclick="document.querySelector(giftModeActive ? '.gift-form-section' : '.payment-options').scrollIntoView({ behavior: 'smooth', block: 'start' })">
         Comprar ahora
       </button>
     `;
@@ -862,12 +1051,14 @@ function showProductDetails(productId, scrollToPayment = false) {
     }
   }, 100);
 
-  // Scroll automático a las opciones de pago solo si viene del botón "Comprar ahora"
+  // Scroll automático solo si viene del botón "Comprar ahora"
   if (scrollToPayment) {
     setTimeout(() => {
-      const paymentOptions = document.querySelector('.payment-options');
-      if (paymentOptions) {
-        paymentOptions.scrollIntoView({
+      const scrollTarget = giftModeActive
+        ? document.querySelector('.gift-form-section')
+        : document.querySelector('.payment-options');
+      if (scrollTarget) {
+        scrollTarget.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
           inline: 'nearest'
