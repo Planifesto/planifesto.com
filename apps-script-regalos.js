@@ -109,6 +109,18 @@ function buscarRegalo(emailComprador, datosRegalos, hojaRegalos) {
   return null;
 }
 
+// Convierte emojis (surrogate pairs) a entidades HTML numericas
+// Usa charCodeAt en vez de codePointAt para compatibilidad total
+function emojiToHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(pair) {
+    var hi = pair.charCodeAt(0);
+    var lo = pair.charCodeAt(1);
+    var cp = ((hi - 0xD800) * 0x400) + (lo - 0xDC00) + 0x10000;
+    return '&#' + cp + ';';
+  });
+}
+
 // ---- ENVIAR ARCHIVOS (MODIFICADO PARA REGALOS) ----
 // Reemplaza tu funcion enviarArchivos() existente con esta version
 // Detecta automaticamente si un pedido es un regalo y envia al destinatario
@@ -175,14 +187,17 @@ function enviarArchivos() {
       if (!enlaceArchivo) continue;
 
       const asuntoRegalo = "Te han regalado un Planifesto!";
-      const dedicatoriaHTML = regalo.dedicatoria
+      const dedicatoriaSafe = emojiToHtml(regalo.dedicatoria);
+      const compradorSafe = emojiToHtml(regalo.comprador);
+      const dedicatoriaHTML = dedicatoriaSafe
         ? `<div style="background: #fff0f3; border-left: 4px solid #e8415c; padding: 15px; margin: 15px 0; border-radius: 8px;">
-             <strong>Dedicatoria de ${regalo.comprador}:</strong><br><br>
-             <em>"${regalo.dedicatoria}"</em>
+             <strong>Dedicatoria de ${compradorSafe}:</strong><br><br>
+             <em>"${dedicatoriaSafe}"</em>
            </div>`
         : '';
 
       const mensajeRegalo = `
+        <html><head><meta charset="UTF-8"></head><body>
         <div style="font-family: 'Poppins', Arial, sans-serif;">
           <p>Hola, <strong>${regalo.destinatario}</strong>! &#10084;&#65039;</p>
 
@@ -212,6 +227,7 @@ function enviarArchivos() {
           <p>Si tienes alguna duda o necesitas soporte, puedes escribirnos al siguiente correo:<br>
           <strong>planifestord@gmail.com</strong></p>
         </div>
+        </body></html>
       `;
 
       // Enviar al destinatario del regalo
@@ -219,6 +235,7 @@ function enviarArchivos() {
 
       // Notificar al comprador que el regalo fue enviado
       const mensajeConfirmacion = `
+        <html><head><meta charset="UTF-8"></head><body>
         <div style="font-family: 'Poppins', Arial, sans-serif;">
           <p>Hola, <strong>${nombre || regalo.comprador}</strong>! &#127873;</p>
 
@@ -235,6 +252,7 @@ function enviarArchivos() {
           <p>Si tienes alguna duda, escribenos a:<br>
           <strong>planifestord@gmail.com</strong></p>
         </div>
+        </body></html>
       `;
 
       GmailApp.sendEmail(email, "Tu regalo Planifesto ha sido enviado!", "", { htmlBody: mensajeConfirmacion });
@@ -246,6 +264,7 @@ function enviarArchivos() {
 
       const asunto = "Tu compra en Planifesto";
       const mensaje = `
+        <html><head><meta charset="UTF-8"></head><body>
         Hey, ${nombre}! &#10084;&#65039;<br><br>
         Dentro del PDF encontraras tu compra PLANIFESTO &#10024;<br><br>
 
@@ -271,6 +290,7 @@ function enviarArchivos() {
         <hr><br>
         Si tienes alguna duda o necesitas soporte, puedes escribirnos al siguiente correo:<br>
         <strong>planifestord@gmail.com</strong><br><br>
+        </body></html>
       `;
 
       GmailApp.sendEmail(email, asunto, "", { htmlBody: mensaje });

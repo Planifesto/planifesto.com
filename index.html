@@ -613,6 +613,7 @@
         <a href="teen.html" class="nav-link">Planifesto Teen</a>
         <a href="contacto.html" class="nav-link">Contacto y FAQ</a>
         <a href="taller/taller.html" class="nav-link">Taller</a>
+        <a href="https://course.planifestoshop.com/" class="nav-link nav-link--curso" target="_blank" rel="noopener noreferrer">Nuevo Curso</a>
       </nav>
     </div>
   </header>
@@ -653,6 +654,28 @@
       <p class="quiz-subtitle">Responde unas preguntas r&#225;pidas y te ayudamos a encontrar la herramienta perfecta
         para ti</p>
       <button class="quiz-start-btn" onclick="startQuizSection()">Comenzar Quiz</button>
+    </div>
+  </section>
+
+  <!-- Curso Promo Banner -->
+  <section class="curso-promo">
+    <div class="curso-promo-inner">
+      <div class="curso-promo-img-wrap">
+        <img src="imagenes/Curso Foto.jpeg" alt="Nuevo Curso Digital de Finanzas Personales - Planifesto" class="curso-promo-img" loading="lazy">
+      </div>
+      <div class="curso-promo-content">
+        <div class="curso-promo-text">
+          <div class="curso-promo-badge">NUEVO</div>
+          <h2 class="curso-promo-title">Financieramente Responsable<br><span class="curso-promo-title-accent">de 0 a 100</span></h2>
+          <p class="curso-promo-subtitle">El curso que te enseña a manejar tu dinero de verdad, paso a paso y sin complicaciones.</p>
+          <div class="curso-promo-features">
+            <span class="curso-feature">35+ lecciones en video</span>
+            <span class="curso-feature">Acceso de por vida</span>
+            <span class="curso-feature">Plantilla PRO (por tiempo limitado)</span>
+          </div>
+        </div>
+        <a href="https://course.planifestoshop.com/" class="curso-promo-btn" target="_blank" rel="noopener noreferrer">Quiero entrar al Curso &#8594;</a>
+      </div>
     </div>
   </section>
 
@@ -909,12 +932,28 @@
     </div>
   </div>
 
+  <!-- Curso Popup -->
+  <div class="curso-popup-overlay" id="cursoPopup" onclick="closeCursoPopupOutside(event)">
+    <div class="curso-popup">
+      <button class="curso-popup-close" onclick="closeCursoPopup()" aria-label="Cerrar">&times;</button>
+      <img src="imagenes/Curso Foto Banner.JPG" alt="Curso Financieramente Responsable - Planifesto" class="curso-popup-img">
+      <div class="curso-popup-body">
+        <div class="curso-popup-badge">NUEVO CURSO DIGITAL</div>
+        <h2 class="curso-popup-title">Financieramente Responsable<br>de 0 a 100</h2>
+        <p class="curso-popup-text">Aprende a manejar tu dinero de verdad, paso a paso y sin complicaciones.</p>
+        <a href="https://course.planifestoshop.com/" class="curso-popup-btn" target="_blank" rel="noopener noreferrer" onclick="closeCursoPopup()">Ver el Curso &#8594;</a>
+        <button class="curso-popup-skip" onclick="closeCursoPopup()">Ahora no</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer" id="contacto">
     <div class="footer-content">
       <div class="footer-links">
         <a href="#productos" class="footer-link">Productos</a>
         <a href="contacto.html" class="footer-link">Contacto y FAQ</a>
+        <a href="https://course.planifestoshop.com/" class="footer-link" target="_blank" rel="noopener noreferrer">Nuevo Curso</a>
         <a href="taller/taller.html" class="footer-link">Taller de Finanzas</a>
         <a href="teen.html" class="footer-link">Planifesto Teen</a>
       </div>
