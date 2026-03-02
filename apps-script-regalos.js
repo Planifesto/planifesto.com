@@ -231,7 +231,7 @@ function enviarArchivos() {
       `;
 
       // Enviar al destinatario del regalo
-      GmailApp.sendEmail(regalo.emailDestinatario, asuntoRegalo, "", { htmlBody: mensajeRegalo });
+      GmailApp.sendEmail(regalo.emailDestinatario, asuntoRegalo, "", { name: "Planifesto", htmlBody: mensajeRegalo });
 
       // Notificar al comprador que el regalo fue enviado
       const mensajeConfirmacion = `
@@ -255,12 +255,62 @@ function enviarArchivos() {
         </body></html>
       `;
 
-      GmailApp.sendEmail(email, "Tu regalo Planifesto ha sido enviado!", "", { htmlBody: mensajeConfirmacion });
+      GmailApp.sendEmail(email, "Tu regalo Planifesto ha sido enviado!", "", { name: "Planifesto", htmlBody: mensajeConfirmacion });
 
     } else {
-      // --- NO ES REGALO: envio normal al comprador ---
-      const enlaceArchivo = archivos[producto];
-      if (!enlaceArchivo) continue;
+      // --- NO ES REGALO: verificar si es webinar o envio normal ---
+      const palabrasWebinar = ["finanzas para teens", "webinar"];
+      const esWebinar = palabrasWebinar.some(kw => producto.toLowerCase().includes(kw));
+
+      if (esWebinar) {
+        // --- ES WEBINAR: enviar confirmacion ---
+        const MEET_LINK = "https://meet.google.com/srd-bemj-xid";
+        const WEBINAR_NOMBRE = "Finanzas para Teens con Planifesto";
+        const CAL_START = "20260308T210000Z";
+        const CAL_END   = "20260308T220000Z";
+        const calLink =
+          "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+          "&text="     + encodeURIComponent(WEBINAR_NOMBRE) +
+          "&dates="    + CAL_START + "/" + CAL_END +
+          "&details="  + encodeURIComponent(
+              "Webinar en vivo: " + WEBINAR_NOMBRE +
+              "\n\nLink para entrar:\n" + MEET_LINK +
+              "\n\nPlataforma: Google Meet"
+            ) +
+          "&location=" + encodeURIComponent("Google Meet");
+
+        const asuntoW = "\u00a1Tu lugar est\u00e1 reservado! \u2013 Finanzas para Teens con Planifesto";
+        const mensajeW = `
+          <html><head><meta charset="UTF-8"></head><body>
+          <div style="font-family: 'Poppins', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <p>Hey, <strong>${nombre}</strong>! &#10084;&#65039;</p>
+            <p>Listo &#128293; tu lugar en <strong>Finanzas para Teens con Planifesto</strong> est&#225; confirmado.</p>
+            <div style="background: #f0ebfa; border-left: 4px solid #c9b5e8; border-radius: 12px; padding: 20px 24px; margin: 24px 0;">
+              <p style="margin: 0 0 10px 0; font-weight: 700;">Detalles del webinar:</p>
+              <p style="margin: 5px 0;">&#128197; Domingo 8 de marzo, 2026</p>
+              <p style="margin: 5px 0;">&#128340; 5:00 &ndash; 6:00 PM (hora RD)</p>
+              <p style="margin: 5px 0;">&#128187; <a href="${MEET_LINK}">${MEET_LINK}</a></p>
+            </div>
+            <p style="text-align: center; margin: 30px 0;">
+              <a href="${calLink}" style="background: #c9b5e8; color: #333333; padding: 13px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block;">
+                &#128197; Agregar al calendario
+              </a>
+            </p>
+            <p>Nadie te ense&#241;&#243; esto en la escuela. Nosotros s&#237;.<br>Nos vemos adentro &#128521;</p>
+            <p>- Liss</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;">
+            <p style="font-size: 0.85rem; color: #888;">
+              &#191;Tienes alguna duda? Escr&#237;benos a <strong>planifestord@gmail.com</strong>
+            </p>
+          </div>
+          </body></html>
+        `;
+        GmailApp.sendEmail(email, asuntoW, "", { name: "Planifesto", htmlBody: mensajeW });
+
+      } else {
+        // --- NO ES WEBINAR: envio normal de archivo ---
+        const enlaceArchivo = archivos[producto];
+        if (!enlaceArchivo) continue;
 
       const asunto = "Tu compra en Planifesto";
       const mensaje = `
@@ -293,9 +343,106 @@ function enviarArchivos() {
         </body></html>
       `;
 
-      GmailApp.sendEmail(email, asunto, "", { htmlBody: mensaje });
-    }
+      GmailApp.sendEmail(email, asunto, "", { name: "Planifesto", htmlBody: mensaje });
+      } // cierre else NO ES WEBINAR
+    } // cierre else NO ES REGALO
 
+    hoja.getRange(i + 1, 5).setValue("Enviado");
+  }
+}
+
+// ---- ENVIAR CONFIRMACION WEBINAR ----
+// Corre esta funcion manualmente (o con trigger) para enviar confirmaciones
+// a quienes compraron el webinar "Finanzas para Teens con Planifesto"
+
+function enviarWebinar() {
+  const ss    = SpreadsheetApp.getActiveSpreadsheet();
+  const hoja  = ss.getActiveSheet();
+  const datos = hoja.getDataRange().getValues();
+
+  const MEET_LINK = "https://meet.google.com/srd-bemj-xid";
+
+  const WEBINAR_NOMBRE = "Finanzas para Teens con Planifesto";
+
+  // Fechas en UTC: Domingo 8 de marzo 2026, 5-6 PM (hora RD / AST = UTC-4)
+  const CAL_START = "20260308T210000Z";
+  const CAL_END   = "20260308T220000Z";
+
+  const calLink =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    "&text="     + encodeURIComponent(WEBINAR_NOMBRE) +
+    "&dates="    + CAL_START + "/" + CAL_END +
+    "&details="  + encodeURIComponent(
+        "Webinar en vivo: " + WEBINAR_NOMBRE +
+        "\n\nLink para entrar el d\u00eda del evento:\n" + MEET_LINK +
+        "\n\nPlataforma: Google Meet"
+      ) +
+    "&location=" + encodeURIComponent("Google Meet");
+
+  // Palabras clave para identificar la compra en la hoja
+  // Ajusta segun el nombre exacto que llega de Stripe/PayPal
+  const palabrasWebinar = ["finanzas para teens", "webinar"];
+
+  for (let i = 1; i < datos.length; i++) {
+    const email   = datos[i][0];
+    const producto = datos[i][1];
+    const monto   = datos[i][2];
+    const enviado = datos[i][4];
+    const nombre  = datos[i][5] || "amigo/a";
+
+    if (enviado === "Enviado") continue;
+    if (!email || !producto)  continue;
+
+    // Filtrar solo compras del webinar
+    const esWebinar = palabrasWebinar.some(kw =>
+      producto.toLowerCase().includes(kw)
+    );
+    if (!esWebinar) continue;
+
+    const asunto = "\u00a1Tu lugar est\u00e1 reservado! \u2013 Finanzas para Teens con Planifesto";
+
+    const mensaje = `
+      <html><head><meta charset="UTF-8"></head><body>
+      <div style="font-family: 'Poppins', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+
+        <p>Hey, <strong>${nombre}</strong>! &#10084;&#65039;</p>
+
+        <p>Listo &#128293; tu lugar en <strong>Finanzas para Teens con Planifesto</strong> est&#225; confirmado.</p>
+
+        <div style="background: #f0ebfa; border-left: 4px solid #c9b5e8; border-radius: 12px; padding: 20px 24px; margin: 24px 0;">
+          <p style="margin: 0 0 10px 0; font-weight: 700;">Detalles del webinar:</p>
+          <p style="margin: 5px 0;">&#128197; Domingo 8 de marzo, 2026</p>
+          <p style="margin: 5px 0;">&#128340; 5:00 &ndash; 6:00 PM (hora RD)</p>
+          <p style="margin: 5px 0;">&#128187; Google Meet</p>
+        </div>
+
+        <p>El link para entrar al Meet te llegar&#225; por aqu&#237; antes del evento. &#128521;<br>
+        Guarda este correo y estate pendiente.</p>
+
+        <p style="text-align: center; margin: 30px 0;">
+          <a href="${calLink}"
+             style="background: #c9b5e8; color: #333333; padding: 13px 30px; text-decoration: none;
+                    border-radius: 50px; font-weight: 700; display: inline-block; font-size: 0.95rem;">
+            &#128197; Agregar al calendario
+          </a>
+        </p>
+
+        <p>Nadie te ense&#241;&#243; esto en la escuela. Nosotros s&#237;.<br>
+        Nos vemos adentro &#128521;</p>
+
+        <p>- Liss</p>
+
+        <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;">
+        <p style="font-size: 0.85rem; color: #888;">
+          &#191;Tienes alguna duda? Escr&#237;benos a <strong>planifestord@gmail.com</strong><br>
+          <strong>Producto:</strong> ${producto} &nbsp;|&nbsp; <strong>Monto:</strong> $${monto}
+        </p>
+
+      </div>
+      </body></html>
+    `;
+
+    GmailApp.sendEmail(email, asunto, "", { name: "Planifesto", htmlBody: mensaje });
     hoja.getRange(i + 1, 5).setValue("Enviado");
   }
 }

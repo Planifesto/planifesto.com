@@ -208,6 +208,175 @@
             opacity: 0.9;
         }
 
+        /* --- Webinar page styles --- */
+
+        .container {
+            justify-content: flex-start;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+
+        .webinar-banner {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            margin: 0 auto 32px;
+            display: block;
+        }
+
+        .webinar-name {
+            color: var(--morado-pastel);
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .hook-text {
+            color: white;
+            font-size: 1.15rem;
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .webinar-desc {
+            color: white;
+            font-size: 1.05rem;
+            max-width: 580px;
+            line-height: 1.7;
+            margin-bottom: 36px;
+            opacity: 0.9;
+        }
+
+        .learn-section {
+            background: #ffe94d;
+            border-radius: 20px;
+            padding: 30px 36px;
+            max-width: 620px;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 36px;
+        }
+
+        .learn-title {
+            color: #333333;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .learn-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .learn-list li {
+            color: #333333;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .event-details {
+            background: #ffe94d;
+            border-radius: 16px;
+            padding: 22px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 36px;
+        }
+
+        .detail-item {
+            color: #333333;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .detail-highlight {
+            color: #6a3fa0;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+
+        .price-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .price-question {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+
+        .price-amount {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-stripe {
+            background: #635BFF;
+        }
+
+        .btn-paypal {
+            background: #FFC439;
+        }
+
+        .btn-logo {
+            font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .btn-logo--stripe {
+            color: #ffffff;
+        }
+
+        .sign-off {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -235,17 +404,12 @@
             }
 
             .container {
-                padding: 20px 15px;
+                padding: 30px 20px 50px;
             }
 
             h1 {
                 font-size: 2rem;
-                margin-bottom: 15px;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
 
             .logo-container {
@@ -253,23 +417,33 @@
             }
 
             .logo-image {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
             }
 
-            .coming-soon {
-                padding: 15px 25px;
-                font-size: 1rem;
+            .webinar-name {
+                font-size: 1.6rem;
             }
 
-            .emoji {
-                font-size: 1.5rem;
+            .webinar-banner {
+                border-radius: 14px;
             }
 
-            .description {
+            .learn-section {
+                padding: 22px 20px;
+            }
+
+            .event-details {
+                padding: 18px 22px;
+            }
+
+            .price-amount {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                padding: 14px 28px;
                 font-size: 0.95rem;
-                padding: 0 10px;
-                margin-top: 30px;
             }
         }
 
@@ -291,22 +465,40 @@
                 font-size: 1.7rem;
             }
 
-            .subtitle {
-                font-size: 0.9rem;
-            }
-
             .logo-image {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
 
-            .coming-soon {
-                padding: 12px 20px;
+            .webinar-name {
+                font-size: 1.35rem;
+            }
+
+            .hook-text,
+            .webinar-desc {
+                font-size: 0.95rem;
+            }
+
+            .learn-list li {
                 font-size: 0.9rem;
             }
 
-            .description {
-                font-size: 0.9rem;
-                line-height: 1.5;
+            .detail-item {
+                font-size: 0.95rem;
+            }
+
+            .price-amount {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
             }
         }
