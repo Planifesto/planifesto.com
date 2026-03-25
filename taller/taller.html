@@ -238,7 +238,7 @@
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" type="image/x-icon" href="../imagenes/logo.jpg?v=3">
+    <link rel="icon" type="image/x-icon" href="../imagenes/logo.jpg?v=3">
     <link rel="stylesheet" href="css/styles-taller.css">
 </head>
 
@@ -269,8 +269,8 @@
                         sin culpa y a ganar el control y libertad otra vez</p>
                 </div>
 
-                <button class="scroll-to-cta" onclick="scrollToInscription()">
-                    &#161;Quiero aprender a manejar mi dinero!
+                <button class="scroll-to-cta sold-out-btn" disabled>
+                    SOLD OUT &#8211; Cupos agotados
                 </button>
             </div>
         </div>
@@ -357,23 +357,28 @@
                         <div class="opinions-carousel-track" id="opinionsCarouselTrack">
                             <div class="opinions-carousel-slide op-slide-active">
                                 <img src="images/feedback 1.jpeg"
-                                    alt="Opini&#243;n de alumno sobre el curso de finanzas personales de Planifesto">
+                                    alt="Opini&#243;n de alumno sobre el curso de finanzas personales de Planifesto"
+                                    loading="lazy">
                             </div>
                             <div class="opinions-carousel-slide">
                                 <img src="images/feedback 2.jpeg"
-                                    alt="Rese&#241;a del taller de educaci&#243;n financiera Planifesto">
+                                    alt="Rese&#241;a del taller de educaci&#243;n financiera Planifesto"
+                                    loading="lazy">
                             </div>
                             <div class="opinions-carousel-slide">
                                 <img src="images/feedback 3.jpeg"
-                                    alt="Testimonio curso de inversiones para principiantes">
+                                    alt="Testimonio curso de inversiones para principiantes"
+                                    loading="lazy">
                             </div>
                             <div class="opinions-carousel-slide">
                                 <img src="images/feedback 4.jpeg"
-                                    alt="Experiencia alumno taller de finanzas personales">
+                                    alt="Experiencia alumno taller de finanzas personales"
+                                    loading="lazy">
                             </div>
                             <div class="opinions-carousel-slide">
                                 <img src="images/feedback 5.jpeg"
-                                    alt="Rese&#241;a positiva curso aprender a invertir desde cero">
+                                    alt="Rese&#241;a positiva curso aprender a invertir desde cero"
+                                    loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -426,23 +431,11 @@
                 &#128155;</p>
         </div>
         <div style="text-align: center; margin: 40px 0;" id="inscription-section">
-            <a href="https://buy.stripe.com/fZu6oHewpeynezmfSm3oA0l" target="_blank" class="cta-button"
-                rel="noopener noreferrer">&#161;Inscribirme
-                ahora!</a>
-            <button class="cta-button" onclick="openModal()">Ver T&#233;rminos y Condiciones</button>
-        </div>
-
-        <!-- Secci&#243;n de pago por transferencia -->
-        <div class="payment-info">
-            <h3>&#127465;&#127476; &#191;Eres de Rep&#250;blica Dominicana?</h3>
-            <p>Puedes pagar por transferencia bancaria escribiendo al correo:</p>
-            <p><a href="mailto:planifestord@gmail.com" class="email-link">planifestord@gmail.com</a></p>
-            <p style="margin-top: 20px; margin-bottom: 10px;">O cont&#225;ctanos directamente por WhatsApp:</p>
-            <p><a href="https://wa.me/18299441515?text=Hola,%20estoy%20interesada%20en%20el%20taller%20y%20quiero%20pagar%20por%20transferencia%20bancaria.%20%C2%BFMe%20pueden%20ayudar?"
-                    target="_blank" class="email-link" rel="noopener noreferrer"
-                    style="background: #25D366; color: #ffffff; text-decoration: none;">
-                    &#128241; Escribir por WhatsApp
-                </a></p>
+            <div class="sold-out-banner">
+                <h3>&#128683; SOLD OUT &#8211; Cupos Agotados</h3>
+                <p>Todas las plazas para esta edici&#243;n se han llenado. &#161;Gracias por el inter&#233;s!</p>
+                <p style="margin-top: 15px;">S&#237;guenos en <a href="https://www.instagram.com/planifestord/" target="_blank" rel="noopener noreferrer">Instagram</a> para enterarte de la pr&#243;xima edici&#243;n.</p>
+            </div>
         </div>
     </main>
 

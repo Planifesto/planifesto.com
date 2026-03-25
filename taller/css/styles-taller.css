@@ -1469,3 +1469,32 @@ footer p {
         padding: 0 var(--op-gutter);
     }
 }
+
+/* Sold Out */
+.sold-out-btn {
+    background: #999 !important;
+    cursor: not-allowed !important;
+    opacity: 0.85;
+    animation: none !important;
+}
+.sold-out-btn::after {
+    display: none !important;
+}
+.sold-out-banner {
+    background: #f8d7da;
+    border: 2px solid #c0392b;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    color: #1a1a2e;
+}
+.sold-out-banner h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #c0392b;
+}
+.sold-out-banner a {
+    color: #5eb6a7;
+    font-weight: bold;
+}
